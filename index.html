@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReplyAI — Smart Email Assistant</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        :root {
+            --pink: #f472b6; --pink-light: #fbcfe8; --pink-dark: #db2777;
+            --teal: #2dd4bf; --teal-light: #99f6e4; --teal-dark: #0d9488;
+            --bg: #07101a; --bg2: #0a1520; --card: rgba(255,255,255,0.04);
+            --border: rgba(45,212,191,0.18); --text: #e2f0ee; --muted: #5a8080;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; }
+
+        /* ── NAVBAR ── */
+        nav {
+            display:flex; justify-content:space-between; align-items:center;
+            padding:18px 60px; background:rgba(7,16,26,0.95);
+            backdrop-filter:blur(16px); position:sticky; top:0; z-index:100;
+            border-bottom:1px solid rgba(45,212,191,0.1);
+        }
+        .nav-logo {
+            font-size:1.4em; font-weight:900;
+            background:linear-gradient(135deg,var(--teal),var(--pink));
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+        }
+        .nav-links a { color:var(--muted); text-decoration:none; margin-left:28px; font-size:0.9em; font-weight:500; transition:color 0.3s; }
+        .nav-links a:hover { color:var(--teal); }
+
+        /* ── HERO with EMAIL MOCKUP BG ── */
+        .hero {
+            min-height:100vh; display:flex; align-items:center;
+            padding:80px 60px; gap:60px; flex-wrap:wrap;
+            background: radial-gradient(ellipse at 20% 50%, rgba(244,114,182,0.1) 0%, transparent 55%),
+                        radial-gradient(ellipse at 80% 30%, rgba(45,212,191,0.1) 0%, transparent 55%), var(--bg);
+            position:relative; overflow:hidden;
+        }
+        .hero-content { flex:1; min-width:300px; z-index:2; }
+        .hero-badge {
+            display:inline-flex; align-items:center; gap:8px;
+            background:rgba(45,212,191,0.1); border:1px solid rgba(45,212,191,0.3);
+            color:var(--teal); padding:7px 20px; border-radius:50px;
+            font-size:0.82em; font-weight:600; margin-bottom:28px;
+        }
+        .hero h1 {
+            font-size:clamp(2.5em,5vw,4em); font-weight:900; line-height:1.08;
+            margin-bottom:10px;
+            background:linear-gradient(135deg,#fff 0%,var(--pink-light) 45%,var(--teal-light) 100%);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+        }
+        .hero-sub {
+            font-size:1.3em; font-weight:700; margin-bottom:20px;
+            background:linear-gradient(135deg,var(--pink),var(--teal));
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+        }
+        .hero p { font-size:1em; color:var(--muted); max-width:500px; line-height:1.8; margin-bottom:36px; }
+        .hero-buttons { display:flex; gap:14px; flex-wrap:wrap; }
+
+        /* ── EMAIL MOCKUP ── */
+        .hero-visual { flex:1; min-width:320px; z-index:2; }
+        .email-mockup {
+            background:rgba(255,255,255,0.05);
+            border:1px solid rgba(45,212,191,0.2);
+            border-radius:20px; overflow:hidden;
+            box-shadow:0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(45,212,191,0.1);
+        }
+        .mockup-topbar {
+            background:rgba(255,255,255,0.06);
+            padding:14px 20px; display:flex; align-items:center; gap:12px;
+            border-bottom:1px solid rgba(255,255,255,0.06);
+        }
+        .mockup-dots { display:flex; gap:6px; }
+        .mockup-dots span {
+            width:10px; height:10px; border-radius:50%;
+        }
+        .dot-red { background:#ff5f57; }
+        .dot-yellow { background:#febc2e; }
+        .dot-green { background:#28c840; }
+        .mockup-title { color:var(--muted); font-size:0.8em; margin-left:8px; }
+        .mockup-body { padding:20px; }
+        .mockup-email {
+            background:rgba(255,255,255,0.04);
+            border:1px solid rgba(255,255,255,0.07);
+            border-radius:12px; padding:16px; margin-bottom:12px;
+            transition:all 0.3s;
+        }
+        .mockup-email:hover { border-color:rgba(45,212,191,0.3); background:rgba(45,212,191,0.05); }
+        .email-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+        .email-sender { font-size:0.82em; font-weight:600; color:#e2f8f5; }
+        .email-time { font-size:0.75em; color:var(--muted); }
+        .email-subject { font-size:0.85em; font-weight:600; color:var(--teal-light); margin-bottom:6px; }
+        .email-preview { font-size:0.78em; color:var(--muted); line-height:1.5; }
+        .ai-reply-badge {
+            display:inline-flex; align-items:center; gap:6px;
+            background:linear-gradient(135deg,rgba(244,114,182,0.2),rgba(45,212,191,0.2));
+            border:1px solid rgba(45,212,191,0.3);
+            color:var(--teal-light); padding:4px 12px; border-radius:50px;
+            font-size:0.72em; font-weight:600; margin-top:8px;
+        }
+        .typing-indicator { display:flex; gap:4px; align-items:center; padding:4px 0; }
+        .typing-dot {
+            width:6px; height:6px; border-radius:50%;
+            background:var(--teal); animation:typing 1.2s infinite;
+        }
+        .typing-dot:nth-child(2) { animation-delay:0.2s; }
+        .typing-dot:nth-child(3) { animation-delay:0.4s; }
+        @keyframes typing { 0%,60%,100% { opacity:0.3; transform:scale(0.8); } 30% { opacity:1; transform:scale(1); } }
+
+        /* ── BUTTONS ── */
+        .btn-primary {
+            background:linear-gradient(135deg,var(--pink-dark),var(--pink),var(--teal));
+            background-size:200% 200%; background-position:left center;
+            color:white; border:none; padding:15px 34px; font-size:0.95em;
+            font-weight:700; border-radius:12px; cursor:pointer;
+            transition:background-position 0.4s, transform 0.2s, box-shadow 0.2s;
+            box-shadow:0 4px 24px rgba(244,114,182,0.4); display:inline-block; text-decoration:none;
+        }
+        .btn-primary:hover {
+            background-position:right center;
+            transform:translateY(-4px) scale(1.04);
+            box-shadow:0 10px 36px rgba(244,114,182,0.55),0 4px 16px rgba(45,212,191,0.2);
+        }
+        .btn-primary:active { transform:translateY(-1px) scale(0.98); }
+        .btn-secondary {
+            background:transparent; color:var(--teal);
+            border:1.5px solid rgba(45,212,191,0.4);
+            padding:14px 34px; font-size:0.95em; font-weight:600;
+            border-radius:12px; cursor:pointer; transition:all 0.3s; display:inline-block;
+        }
+        .btn-secondary:hover {
+            background:rgba(45,212,191,0.08); border-color:var(--teal);
+            transform:translateY(-4px); box-shadow:0 6px 20px rgba(45,212,191,0.2);
+        }
+
+        /* ── DIVIDER ── */
+        .gradient-divider {
+            height:1px;
+            background:linear-gradient(90deg,transparent,var(--pink),var(--teal),transparent);
+            opacity:0.25; margin:0 40px;
+        }
+
+        /* ── SECTIONS ── */
+        section { padding:90px 24px; max-width:1200px; margin:0 auto; }
+        .section-label {
+            text-align:center;
+            background:linear-gradient(135deg,var(--teal),var(--pink));
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+            font-size:0.78em; font-weight:700; letter-spacing:3px; text-transform:uppercase; margin-bottom:12px;
+        }
+        .section-title { text-align:center; font-size:clamp(1.8em,4vw,2.6em); font-weight:800; margin-bottom:14px; color:#f0faf8; }
+        .section-subtitle { text-align:center; color:var(--muted); max-width:500px; margin:0 auto 56px; line-height:1.8; font-size:0.95em; }
+
+        /* ── FEATURES ── */
+        .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; }
+        .feature-card {
+            background:var(--card); border:1px solid var(--border);
+            border-radius:18px; padding:28px 24px;
+            transition:all 0.35s cubic-bezier(0.4,0,0.2,1); position:relative; overflow:hidden;
+        }
+        .feature-card::before {
+            content:''; position:absolute; top:0; left:0; right:0; height:2px;
+            background:linear-gradient(90deg,var(--pink),var(--teal)); opacity:0; transition:opacity 0.35s;
+        }
+        .feature-card:hover { transform:translateY(-10px); border-color:rgba(45,212,191,0.35); box-shadow:0 20px 50px rgba(244,114,182,0.1),0 8px 20px rgba(45,212,191,0.1); }
+        .feature-card:hover::before { opacity:1; }
+        .feature-icon {
+            font-size:1.5em; margin-bottom:16px; display:inline-block;
+            background:linear-gradient(135deg,var(--pink),var(--teal));
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+        }
+        .feature-card h3 { font-size:1em; font-weight:700; color:#e2f8f5; margin-bottom:8px; }
+        .feature-card p { color:var(--muted); font-size:0.88em; line-height:1.75; }
+
+        /* ── PERSONAS ── */
+        .personas-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; }
+        .persona-card {
+            background:var(--card); border:1px solid rgba(244,114,182,0.15);
+            border-radius:18px; padding:28px 22px; text-align:center; transition:all 0.3s;
+        }
+        .persona-card:hover { transform:translateY(-6px); border-color:rgba(244,114,182,0.4); box-shadow:0 14px 40px rgba(244,114,182,0.12); }
+        .persona-avatar {
+            width:60px; height:60px;
+            background:linear-gradient(135deg,var(--pink-dark),var(--teal-dark));
+            border-radius:50%; display:flex; align-items:center; justify-content:center;
+            font-size:1.5em; font-weight:800; color:white; margin:0 auto 16px;
+            box-shadow:0 4px 18px rgba(244,114,182,0.3);
+        }
+        .persona-card h4 { font-size:1em; font-weight:700; color:#f0faf8; margin-bottom:6px; }
+        .persona-role {
+            background:linear-gradient(135deg,rgba(244,114,182,0.15),rgba(45,212,191,0.15));
+            border:1px solid rgba(45,212,191,0.2); color:var(--teal-light);
+            padding:3px 12px; border-radius:50px; font-size:0.76em; font-weight:600;
+            display:inline-block; margin-bottom:14px;
+        }
+        .persona-card p { color:var(--muted); font-size:0.86em; line-height:1.7; font-style:italic; }
+
+        /* ── STORIES ── */
+        .stories-list { list-style:none; max-width:700px; margin:0 auto; display:flex; flex-direction:column; gap:12px; }
+        .story-item {
+            background:var(--card); border:1px solid var(--border); border-left:3px solid var(--pink);
+            border-radius:10px; padding:16px 22px; color:#8ab8b3; font-size:0.92em;
+            line-height:1.7; transition:all 0.3s;
+        }
+        .story-item:nth-child(2) { border-left-color:var(--teal); }
+        .story-item:nth-child(3) { border-left-color:var(--pink-light); }
+        .story-item:hover { background:rgba(45,212,191,0.05); color:#e2f8f5; transform:translateX(8px); border-color:rgba(45,212,191,0.3); }
+
+        /* ── CTA ── */
+        .cta-section {
+            text-align:center; padding:110px 24px;
+            background:radial-gradient(ellipse at 40% 50%,rgba(244,114,182,0.1) 0%,transparent 55%),
+                        radial-gradient(ellipse at 70% 50%,rgba(45,212,191,0.08) 0%,transparent 55%), var(--bg2);
+            border-top:1px solid rgba(244,114,182,0.08);
+        }
+        .cta-section h2 {
+            font-size:clamp(2em,5vw,3.2em); font-weight:900; line-height:1.1; margin-bottom:14px;
+            background:linear-gradient(135deg,#fff,var(--pink-light),var(--teal-light));
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+        }
+        .cta-section p { color:var(--muted); margin-bottom:36px; font-size:1.05em; }
+        .cta-badges { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:24px; }
+        .cta-badge { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); color:var(--muted); padding:5px 14px; border-radius:50px; font-size:0.8em; }
+
+        /* ── FOOTER ── */
+        footer { text-align:center; padding:28px; color:#1e3535; font-size:0.8em; border-top:1px solid rgba(45,212,191,0.06); }
+        .footer-logo { background:linear-gradient(135deg,var(--teal),var(--pink)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-weight:700; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-logo">✦ ReplyAI</div>
+    <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#users">Who It's For</a>
+        <a href="#stories">Stories</a>
+        <a href="#cta">Get Started</a>
+    </div>
+</nav>
+
+<!-- HERO with EMAIL MOCKUP -->
+<div class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">✨ Powered by AI · Built for Productivity</div>
+        <h1>Reply Smarter.<br>Not Harder.</h1>
+        <div class="hero-sub">Your AI Email Co-pilot</div>
+        <p>AI Email Reply Assistant drafts smart, context-aware replies instantly for busy professionals and students to enhance productivity and professionalism.</p>
+        <div class="hero-buttons">
+            <button class="btn-primary" onclick="alert('Sign up coming soon!')">Get Started Free ✦</button>
+            <button class="btn-secondary" onclick="alert('Demo coming soon!')">Watch Demo →</button>
+        </div>
+    </div>
+
+    <!-- EMAIL INBOX MOCKUP -->
+    <div class="hero-visual">
+        <div class="email-mockup">
+            <div class="mockup-topbar">
+                <div class="mockup-dots">
+                    <span class="dot-red"></span>
+                    <span class="dot-yellow"></span>
+                    <span class="dot-green"></span>
+                </div>
+                <span class="mockup-title">📬 Inbox — ReplyAI</span>
+            </div>
+            <div class="mockup-body">
+                <div class="mockup-email">
+                    <div class="email-header">
+                        <span class="email-sender">Sarah Chen · Client</span>
+                        <span class="email-time">2m ago</span>
+                    </div>
+                    <div class="email-subject">Re: Project Proposal Update</div>
+                    <div class="email-preview">Hi, could you send over the revised timeline? We need it before Friday's meeting...</div>
+                    <div class="ai-reply-badge">✦ AI Reply Ready</div>
+                </div>
+                <div class="mockup-email">
+                    <div class="email-header">
+                        <span class="email-sender">Prof. Ahmed · University</span>
+                        <span class="email-time">15m ago</span>
+                    </div>
+                    <div class="email-subject">Assignment Submission Query</div>
+                    <div class="email-preview">Please confirm your submission status for the final project due next week...</div>
+                    <div class="ai-reply-badge">✦ AI Reply Ready</div>
+                </div>
+                <div class="mockup-email">
+                    <div class="email-header">
+                        <span class="email-sender">Mark Davis · Startup</span>
+                        <span class="email-time">1h ago</span>
+                    </div>
+                    <div class="email-subject">Partnership Opportunity</div>
+                    <div class="email-preview">We'd love to explore a collaboration. When are you available for a quick call?</div>
+                    <div class="typing-indicator">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <span style="font-size:0.72em;color:var(--teal);margin-left:6px;">AI is drafting reply...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="gradient-divider"></div>
+
+<!-- FEATURES -->
+<section id="features">
+    <p class="section-label">✦ What We Offer</p>
+    <h2 class="section-title">Everything You Need</h2>
+    <p class="section-subtitle">Powerful features designed to eliminate email overwhelm and help you communicate like a pro.</p>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">✦</div>
+            <h3>Email Text Analysis</h3>
+            <p>Analyze the content of incoming emails to understand sender intent, context and tone</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✦</div>
+            <h3>Context-Aware Response Generation</h3>
+            <p>Generate smart, context-aware email replies based on the analysis of the email content</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✦</div>
+            <h3>Multi-Format Response Support</h3>
+            <p>Support for various email response formats, such as brief, neutral, friendly or formal</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✦</div>
+            <h3>Language and Tone Customization</h3>
+            <p>Allow users to customize the language and tone of the generated email replies to match their preferred style</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✦</div>
+            <h3>Personalized Email Signature</h3>
+            <p>Users can create a personalized email signature that can be used with AI generated email replies</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✦</div>
+            <h3>Collaboration and Team Management</h3>
+            <p>Manage access and sharing of email replies with team members, and track the status of drafted responses</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✦</div>
+            <h3>Real-Time Email Integration</h3>
+            <p>Real-time integration with popular email providers to read and draft email replies directly within the users' inboxes</p>
+        </div></div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<!-- PERSONAS -->
+<section id="users">
+    <p class="section-label">✦ Who It's For</p>
+    <h2 class="section-title">Built For Real People</h2>
+    <p class="section-subtitle">Whether you're a professional, student, or freelancer — ReplyAI fits your workflow perfectly.</p>
+    <div class="personas-grid">
+        <div class="persona-card">
+            <div class="persona-avatar">A</div>
+            <h4>Alex</h4>
+            <span class="persona-role">Busy Professional</span>
+            <p>"Spending excessive time drafting email replies and having to interrupt work flow"</p>
+        </div>
+        <div class="persona-card">
+            <div class="persona-avatar">S</div>
+            <h4>Sara</h4>
+            <span class="persona-role">University Student</span>
+            <p>"Coming across as unprofessional in email communications due to lack of experience and time constraints"</p>
+        </div>
+        <div class="persona-card">
+            <div class="persona-avatar">M</div>
+            <h4>Mike</h4>
+            <span class="persona-role">Freelancer</span>
+            <p>"Missing deadlines due to the time-consuming nature of drafting and sending multiple email replies to clients"</p>
+        </div></div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<!-- USER STORIES -->
+<section id="stories">
+    <p class="section-label">✦ Real Use Cases</p>
+    <h2 class="section-title">How People Use ReplyAI</h2>
+    <p class="section-subtitle">Real scenarios where ReplyAI saves hours and improves every conversation.</p>
+    <ul class="stories-list"><li class="story-item">💌 As a busy professional, I want AI to draft email replies so that I save 2 hours daily on average while maintaining professional communication</li><li class="story-item">💌 As a university student, I want smart email suggestions so that I can communicate effectively and professionally with peers and professors</li><li class="story-item">💌 As a freelancer, I want quick client email replies so that I maintain strong relationships and deliver excellent customer service</li></ul>
+</section>
+
+<!-- CTA -->
+<div class="cta-section" id="cta">
+    <h2>Ready to Transform<br>Your Inbox?</h2>
+    <p>Join thousands of professionals saving 2+ hours every week.</p>
+    <button class="btn-primary" onclick="alert('Sign up coming soon!')">Start For Free Today ✦</button>
+    <div class="cta-badges">
+        <span class="cta-badge">✓ No credit card required</span>
+        <span class="cta-badge">✓ Free forever plan</span>
+        <span class="cta-badge">✓ Setup in 2 minutes</span>
+    </div>
+</div>
+
+<footer>
+    <p>Generated by <span class="footer-logo">EngineerAgent &lt;agent@launchmind.ai&gt;</span> · ReplyAI © 2026</p>
+</footer>
+
+</body>
+</html>
