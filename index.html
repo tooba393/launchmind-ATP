@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ReplyAI</title>
+    <style>
+        body {
+            background-color: #07101a;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-bar {
+            background-color: #2c3e50;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+        }
+
+        .nav-logo {
+            font-size: 2rem;
+            padding: 0.5rem;
+            color: #f472b6;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-links > a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+            padding: 2rem;
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero-headline {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2dd4bf;
+        }
+
+        .hero-description {
+            font-size: 1.5rem;
+        }
+
+        .hero-cta {
+            background-color: #2dd4bf;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.2rem;
+            cursor: pointer;
+        }
+
+        .hero-cta:hover {
+            background-color: #00b5b3;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .feature {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #2dd4bf;
+        }
+
+        .feature-headline {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-description {
+            font-size: 1rem;
+            color: #6c6c6c;
+        }
+
+        .who-its-for-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .persona {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .persona-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .persona-headline {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .persona-description {
+            font-size: 1rem;
+            color: #6c6c6c;
+        }
+
+        .user-stories-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .user-story {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .user-story-headline {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .user-story-description {
+            font-size: 1rem;
+            color: #6c6c6c;
+        }
+
+        .call-to-action {
+            background-color: #2dd4bf;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .call-to-action a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .footer {
+            background-color: #2c3e50;
+            padding: 1rem;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-logo">Smart ReplyAI</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+    <header class="hero">
+        <h1 class="hero-headline">Reply Smarter. Not Harder.</h1>
+        <p class="hero-description">Effortless email management with AI-powered reply suggestions.</p>
+        <button class="hero-cta">Get Started</button>
+    </header>
+    <main>
+        <section class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">📨</div>
+                <h2 class="feature-headline">Multi-Provider Support</h2>
+                <p class="feature-description">Seamlessly integrate with prominent email services like Gmail, Outlook, and Yahoo Mail.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💡</div>
+                <h2 class="feature-headline">Personalized Reply Suggestions</h2>
+                <p class="feature-description">Empower users to quickly craft responses with AI-generated ideas tailored to their tone, vocabulary, and previous conversations.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🤔</div>
+                <h2 class="feature-headline">Emotional Intelligence Analysis</h2>
+                <p class="feature-description">Identify and respond to emotions in emails, enabling empathetic and targeted responses.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📝</div>
+                <h2 class="feature-headline">Smart Prioritization</h2>
+                <p class="feature-description">Automatically categorize and prioritize emails based on recipient importance, message content, and user-defined rules.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔑</div>
+                <h2 class="feature-headline">Customizable Keyboard Shortcuts</h2>
+                <p class="feature-description">Streamline email writing with keyboard shortcuts that enable swift access to frequently used phrases.</p>
+            </div>
+        </section>
+        <section class="who-its-for-grid">
+            <div class="persona">
+                <img class="persona-image" src="https://picsum.photos/200" alt="">
+                <h2 class="persona-headline">Alex Chen</h2>
+                <p class="persona-description">Marketing Manager at a mid-sized startup.</p>
+            </div>
+            <div class="persona">
+                <img class="persona-image" src="https://picsum.photos/200" alt="">
+                <h2 class="persona-headline">Maya Patel</h2>
+                <p class="persona-description">Third-year computer science student, part-time intern.</p>
+            </div>
+        </section>
+        <section class="user-stories-grid">
+            <div class="user-story">
+                <h2 class="user-story-headline">As a busy marketing manager, I want to see a summary of my most critical emails at a glance, so that I can quickly prioritize and respond to the most urgent messages.</h2>
+                <p class="user-story-description">This feature will save me hours of time and help me focus on high-priority tasks.</p>
+            </div>
+            <div class="user-story">
+                <h2 class="user-story-headline">As a computer science student, I want the reply assistant to suggest polite phrases for asking professors about extensions and project help, so that I can maintain a positive tone and rapport with my academic advisors.</h2>
+                <p class="user-story-description">This feature will help me communicate effectively and show respect to my professors.</p>
+            </div>
+        </section>
+        <section class="call-to-action">
+            <p class="call-to-action-headline">Try Smart ReplyAI today!</p>
+            <a href="#" class="call-to-action-link">Get Started</a>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>Generated by EngineerAgent <a hrefmailto="agent@launchmind.ai">agent@launchmind.ai</a></p>
+    </footer>
+</body>
+</html>
