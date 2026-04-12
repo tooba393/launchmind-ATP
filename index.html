@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ReplyAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables */
+        :root {
+            --pink: #f472b6;
+            --pink-light: #fbcfe8;
+            --pink-dark: #db2777;
+            --teal: #2dd4bf;
+            --teal-light: #99f6e4;
+            --teal-dark: #0d9488;
+            --bg: #07101a;
+            --bg2: #0a1520;
+        }
+        /* Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: #fff;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to bottom, var(--teal), var(--teal-dark));
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .brand {
+            font-size: 1.5rem;
+            color: var(--pink);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .navbar .links {
+            display: flex;
+            gap: 2rem;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .navbar a:hover {
+            color: var(--teal-light);
+        }
+        .hero {
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: multiply;
+            background-color: var(--bg2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .hero .content {
+            max-width: 40rem;
+            text-align: center;
+        }
+        .hero .content .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            background-color: var(--pink);
+            color: #fff;
+            font-size: 0.8rem;
+        }
+        .hero .content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--pink);
+        }
+        .hero .content p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        .hero .content .btns {
+            display: flex;
+            gap: 1rem;
+        }
+        .hero .content .btns button {
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.5rem;
+            background-color: var(--teal);
+            color: #fff;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .hero .content .btns button:hover {
+            background-color: var(--teal-dark);
+        }
+        #features {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        #features .card {
+            background-color: var(--bg2);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(0);
+            transition: transform 0.2s ease;
+        }
+        #features .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+        #features .card .icon {
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: var(--pink);
+        }
+        #features .card h3 {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--teal);
+        }
+        #features .card p {
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="brand">
+            <span>✦</span> Smart ReplyAI
+        </a>
+        <div class="links">
+            <a href="#">Features</a>
+            <a href="#">Who It's For</a>
+            <a href="#">Stories</a>
+            <a href="#">Get Started</a>
+        </div>
+    </nav>
+    <div class="hero">
+        <div class="content">
+            <div class="badge">
+                Powered by AI · Built for Productivity
+            </div>
+            <h1>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#F7D2C4" stroke-width="2">
+                    <path d="M10 2C4.47711 2 0 6.47711 0 12S4.47711 18 10 18C15.5229 18 20 12.5229 20 8S15.5229 2 10 2Z"></path>
+                    <path d="M10 6H8V12C8 12.1046 8.1046 12.2 8.2 12V14"></path>
+                </svg>
+                Reply Smarter. Not Harder.
+            </h1>
+            <p>
+                Your AI Email Co-pilot
+            </p>
+            <div class="btns">
+                <button>Get Started Free</button>
+                <button>Watch Demo</button>
+            </div>
+        </div>
+    </div>
+    <section id="features">
+        <div class="card">
+            <i class="icon">&#9733;</i>
+            <h3>Automated Drafting</h3>
+            <p>Uses AI to analyze the content and tone of incoming emails and generate a suitable reply, saving users time and effort</p>
+        </div>
+        <div class="card">
+            <i class="icon">&#9733;</i>
+            <h3>Tone Detection and Adjustment</h3>
+            <p>Analyzes the tone of the incoming email and adjusts the reply accordingly, ensuring the response is professional and appropriate</p>
+        </div>
+        <div class="card">
+            <i class="icon">&#9733;</i>
+            <h3>Integration with Popular Email Clients</h3>
+            <p>Seamlessly integrates with widely used email clients, allowing users to access the reply assistant directly from their inbox</p>
+        </div>
+        <div class="card">
+            <i class="icon">&#9733;</i>
+            <h3>Customizable Templates and Signatures</h3>
+            <p>Enables users to create and save custom templates and signatures, streamlining the process of sending common replies</p>
+        </div>
+        <div class="card">
+            <i class="icon">&#9733;</i>
+            <h3>Continuous Learning and Improvement</h3>
+            <p>Uses machine learning to analyze user feedback and adapt the reply assistant to improve accuracy and relevance over time</p>
+        </div>
+    </section>
+
+<section id="users">
+    <div class="container">
+        <h2 class="section-title">Who It's For</h2>
+        <div class="feature-grid">
+            <div class="feature-row">
+                <div class="feature-columns">
+                    <div class="feature-column">
+                        <div class="persona-card">
+                            <div class="avatar">
+                                <div class="avatar-letter">A</div>
+                            </div>
+                            <h4>Ava Morales</h4>
+                            <div class="badge-pill">
+                                <span class="badge-text">Marketing Director</span>
+                            </div>
+                            <p>'Too much time spent responding to routine client inquiries.'</p>
+                        </div>
+                    </div>
+                    <div class="feature-column">
+                        <div class="persona-card">
+                            <div class="avatar">
+                                <div class="avatar-letter">L</div>
+                            </div>
+                            <h4>Liam Chen</h4>
+                            <div class="badge-pill">
+                                <span class="badge-text">Graduate Student</span>
+                            </div>
+                            <p>'Struggling to keep up with email correspondence with colleagues and professors.'</p>
+                        </div>
+                    </div>
+                    <div class="feature-column">
+                        <div class="persona-card">
+                            <div class="avatar">
+                                <div class="avatar-letter">B</div>
+                            </div>
+                            <h4>Ava Morales</h4>
+                            <div class="badge-pill">
+                                <span class="badge-text">Marketing Director</span>
+                            </div>
+                            <p>'Spending too much time responding to routine client inquiries.'</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="stories">
+    <div class="container">
+        <h2 class="section-title">Real Use Cases</h2>
+        <ul class="stories-list">
+            <li class="story-item">
+                <div class="content">
+                    <h4>Marketing Director Responds Quickly to Client Inquiries</h4>
+                    <p>By streamlining their email communication, Ava can focus on strategic planning and team management.</p>
+                </div>
+                <div class="icon pink-border"></div>
+            </li>
+            <li class="story-item">
+                <div class="content">
+                    <h4>Graduate Student Effortlessly Manages Email Correspondence</h4>
+                    <p>Liam can prioritize his research and meet project deadlines with seamless email management.</p>
+                </div>
+                <div class="icon pink-border"></div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section id="cta">
+    <div class="container">
+        <h2 class="section-title">Ready to Transform Your Inbox?</h2>
+        <p>Join thousands saving 2+ hours weekly.</p>
+        <button>Start For Free Today <span class="icon">✦</span></button>
+        <div class="badge-pills">
+            <div class="badge-pill">
+                <span class="badge-text">✓ No credit card required</span>
+            </div>
+            <div class="badge-pill">
+                <span class="badge-text">✓ Free forever plan</span>
+            </div>
+            <div class="badge-pill">
+                <span class="badge-text">✓ Setup in 2 minutes</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>Generated by EngineerAgent <a href="#">agent@launchmind.ai</a></p>
+</footer>
+</body>
+</html>
