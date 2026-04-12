@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <style>
+        :root {
+            --pink: #f472b6;
+            --pink-light: #fbcfe8;
+            --pink-dark: #db2777;
+            --teal: #2dd4bf;
+            --teal-light: #99f6e4;
+            --teal-dark: #0d9488;
+            --bg: #07101a;
+            --bg2: #0a1520;
+            --navbar-color: var(--teal);
+            --navbar-text-color: #fff;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+        }
+        .navbar {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            background-color: var(--navbar-color);
+            padding: 1em;
+            text-align: center;
+        }
+        .navbar a {
+            color: var(--navbar-text-color);
+            text-decoration: none;
+            margin: 0 1em;
+        }
+        .navbar a:hover {
+            color: var(--teal-dark);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--navbar-text-color);
+            font-size: 2em;
+        }
+        .logo-text {
+            font-family: 'Inter', sans-serif;
+            color: var(--navbar-text-color);
+        }
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .hero {
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80');
+            background-size: cover;
+            background-position: 50%;
+            background-blend-mode: luminosity;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-content {
+            text-align: center;
+            max-width: 30em;
+            padding: 2em;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .hero-content-badge {
+            background-color: var(--teal);
+            padding: 0.5em 1em;
+            border-radius: 1em;
+        }
+        .badge-text {
+            color: var(--teal-dark);
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-content-heading {
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--pink);
+            text-shadow: 0 0 10px var(--pink);
+            text-decoration: none;
+        }
+        .hero-content-subheading {
+            color: var(--pink-light);
+            text-shadow: 0 0 10px var(--pink-light);
+            font-size: 1.5em;
+            font-style: italic;
+        }
+        .hero-content-paragraph {
+            color: var(--pink-light);
+            text-shadow: 0 0 10px var(--pink-light);
+        }
+        .hero-content-button {
+            background-color: var(--pink-dark);
+            color: #fff;
+            padding: 1em 2em;
+            border: none;
+            border-radius: 1em;
+            cursor: pointer;
+            font-size: 1em;
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-content-button:hover {
+            background-color: var(--pink);
+        }
+        .features {
+            padding: 2em;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1em;
+        }
+        .feature {
+            padding: 1em;
+            background-color: var(--bg2);
+            border-radius: 1em;
+            transition: transform 0.2s ease-in-out;
+        }
+        .feature:hover {
+            transform: translateY(-0.5em);
+        }
+        .feature-icon {
+            font-size: 3em;
+            color: var(--teal);
+        }
+        .feature-name {
+            font-weight: 500;
+            font-size: 1.5em;
+        }
+        .feature-description {
+            color: var(--pink-light);
+            font-size: 1em;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-text">✦ </span>
+            <span>Smart ReplyAI</span>
+        </div>
+        <div class="navbar-links">
+            <a href="#features">Features</a>
+            <a href="#">Who It's For</a>
+            <a href="#">Stories</a>
+            <a href="#">Get Started</a>
+        </div>
+    </header>
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <div class="hero-content-badge">
+                    <span class="badge-text">✨ Powered by AI · Built for Productivity</span>
+                </div>
+                <h1 class="hero-content-heading">Reply Smarter. Not Harder.</h1>
+                <p class="hero-content-subheading">Your AI Email Co-pilot</p>
+                <p class="hero-content-paragraph">Automate repetitive email tasks with AI-powered insights for busy professionals and students.</p>
+                <button class="hero-content-button">Get Started Free</button>
+                <button class="hero-content-button">Watch Demo</button>
+            </div>
+        </section>
+        <section class="features" id="features">
+            <div class="feature">
+                <i class="feature-icon" style="padding: 1em; color: var(--teal);">×</i>
+                <h3 class="feature-name">Smart Inbox Categorization and Filtering</h3>
+                <p class="feature-description">Automatically categorize emails into relevant labels, allowing users to swiftly identify and prioritize action items.</p>
+            </div>
+            <div class="feature">
+                <i class="feature-icon" style="padding: 1em; color: var(--teal);">✏️</i>
+                <h3 class="feature-name">Context-Aware Response Generation</h3>
+                <p class="feature-description">Utilize AI-powered insights to craft personalized and relevant email responses, significantly reducing response time and increasing customer satisfaction.</p>
+            </div>
+            <div class="feature">
+                <i class="feature-icon" style="padding: 1em; color: var(--teal);">📅</i>
+                <h3 class="feature-name">Email Template Library and Customization</h3>
+                <p class="feature-description">Access a comprehensive library of email templates, enabling users to quickly respond to common inquiries and create professional emails with ease.</p>
+            </div>
+            <div class="feature">
+                <i class="feature-icon" style="padding: 1em; color: var(--teal);">📆</i>
+                <h3 class="feature-name">Calendar Integration and Scheduling</h3>
+                <p class="feature-description">Seamlessly integrate email scheduling with calendar events, allowing users to effortlessly book meetings and manage their time effectively.</p>
+            </div>
+            <div class="feature">
+                <i class="feature-icon" style="padding: 1em; color: var(--teal);">👥</i>
+                <h3 class="feature-name">Collaborative Email Tasks and Assignments</h3>
+                <p class="feature-description">Delegate tasks and assign email-related responsibilities to team members, fostering efficient collaboration and enhanced productivity.</p>
+            </div>
+        </section>
+    </main>
+
+<section id="users">
+  <h2>Who It's For</h2>
+  <div class="users-grid">
+    <div class="user-card">
+      <div class="avatar"><span class="avatar-circle">E</span></div>
+      <h4>Emma Taylor</h4>
+      <div class="tag tag-pill">Marketing Manager</div>
+      <p>"Spending excessive time crafting responses to frequent email queries,"</p>
+    </div>
+    <div class="user-card">
+      <div class="avatar"><span class="avatar-circle">S</span></div>
+      <h4>Sofia Rodriguez</h4>
+      <div class="tag tag-pill">Full-time Student & Part-time Jobs</div>
+      <p>"Difficulty in prioritizing and managing multiple personal and professional emails,"</p>
+    </div>
+  </div>
+</section>
+<section id="stories">
+  <h2>Real Use Cases</h2>
+  <ul class="stories-list">
+    <li class="story-item">
+      <div class="pink-border">
+        <i class="fa fa-arrow-right"></i>
+        <h4>Automated Email Categorization</h4>
+        <p>Emma automatically categorizes emails into 'Urgent', 'Inbox', and 'Follow-up' labels, saving time and increasing productivity.</p>
+      </div>
+    </li>
+    <li class="story-item">
+      <div class="pink-border">
+        <i class="fa fa-arrow-right"></i>
+        <h4>AI-Generated Responses</h4>
+        <p>Sofia gets AI-generated responses to routine email inquiries, freeing up time to focus on more important tasks.</p>
+      </div>
+    </li>
+    <li class="story-item">
+      <div class="pink-border">
+        <i class="fa fa-arrow-right"></i>
+        <h4>Custom Email Templates</h4>
+        <p>Team leads create custom email templates for 'Weekly Team Updates' and 'Product Launch Announcements' to maintain a professional brand image.</p>
+      </div>
+    </li>
+  </ul>
+</section>
+<section id="cta">
+  <h2>Ready to Transform Your Inbox?</h2>
+  <p>Join thousands saving 2+ hours weekly.</p>
+  <button>Start For Free Today ✦</button>
+  <div class="features">
+    <div class="feature">
+      <i class="fa fa-check"></i>
+      <span>✓ No credit card required</span>
+    </div>
+    <div class="feature">
+      <i class="fa fa-check"></i>
+      <span>✓ Free forever plan</span>
+    </div>
+    <div class="feature">
+      <i class="fa fa-check"></i>
+      <span>✓ Setup in 2 minutes</span>
+    </div>
+  </div>
+</section>
+<footer>
+  <p>&copy; Generated by <a href="mailto:agent@launchmind.ai">EngineerAgent</a></p>
+</footer>
+</body>
+</html>
