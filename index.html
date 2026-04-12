@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ReplyAI - AI Email Reply Assistant</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #07101a;
+            color: #fff;
+            text-align: center;
+        }
+
+        container {
+            max-width: 80%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .header {
+            background-image: linear-gradient(to top, #2dd4bf, #f472b6);
+            padding: 20px;
+            color: #fff;
+        }
+
+        .logo {
+            grid-column: 1 / -1;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 150px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+        .nav-bar {
+            grid-column: 1 / -1;
+            padding: 10px;
+            background-color: #2dd4bf;
+            color: #fff;
+        }
+
+        .nav-bar ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-bar li {
+            margin: 10px;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .hero {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 400px;
+            margin-bottom: 40px;
+        }
+
+        .hero button {
+            background-color: #f472b6;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background-color: #ff69b4;
+        }
+
+        .features {
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .features .card {
+            background-color: #2d3436;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .features .card h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .features .icon {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .who-it-is-for {
+            grid-column: 1 / -1;
+            border-top: 1px solid #4c5054;
+            padding: 20px;
+        }
+
+        .who-it-is-for h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .user-stories {
+            grid-column: 1 / -1;
+            border-top: 1px solid #4c5054;
+            padding: 20px;
+        }
+
+        .user-stories h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .call-to-action {
+            grid-column: 1 / -1;
+            padding: 20px;
+            background-color: #2dd4bf;
+            color: #fff;
+            text-align: center;
+        }
+
+        .call-to-action h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .call-to-action button {
+            background-color: #f472b6;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .call-to-action button:hover {
+            background-color: #ff69b4;
+        }
+
+        .footer {
+            grid-column: 1 / -1;
+            padding: 10px;
+            background-color: #2dd4bf;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <container>
+        <div class="header">
+            <div class="logo">
+                <img src="logo.png" alt="Smart ReplyAI">
+            </div>
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="hero">
+            <h1>Reply Smarter. Not Harder.</h1>
+            <p>Ease your email communication with our AI-powered email reply assistant.</p>
+            <button>Get Started</button>
+        </div>
+        <div class="features">
+            <div class="card">
+                <h2>Automated Email Drafting</h2>
+                <div class="icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <p>Spend up to 30 minutes less per email with our AI-powered drafting assistant.</p>
+            </div>
+            <div class="card">
+                <h2>Email Template Library</h2>
+                <div class="icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <p>Access a vast library of pre-defined email templates to save time and effort.</p>
+            </div>
+            <div class="card">
+                <h2>Personalized Email Signatures</h2>
+                <div class="icon">
+                    <i class="fas fa-id-card"></i>
+                </div>
+                <p>Manage unique email signatures for a professional and consistent image.</p>
+            </div>
+            <div class="card">
+                <h2>Email Scheduling and Reminders</h2>
+                <div class="icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <p>Stay organized and on track with our email scheduling and reminders feature.</p>
+            </div>
+            <div class="card">
+                <h2>Integration with Calendar and CRM</h2>
+                <div class="icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <p>Easily access relevant information and schedule emails directly from your calendar or CRM.</p>
+            </div>
+        </div>
+        <div class="who-it-is-for">
+            <h2>Who It's For</h2>
+            <div class="persona">
+                <img src="alex.png" alt="Alex Chen">
+                <p>Alex Chen, Marketing Manager at a Tech Startup</p>
+            </div>
+            <div class="persona">
+                <img src="emily.png" alt="Emily Tran">
+                <p>Emily Tran, PhD Student in Computer Science</p>
+            </div>
+            <div class="persona">
+                <img src="raj.png" alt="Raj Desai">
+                <p>Raj Desai, Entrepreneur and Founder</p>
+            </div>
+        </div>
+        <div class="user-stories">
+            <h2>User Stories</h2>
+            <div class="user-story">
+                <p>As a Marketing Manager, I want to quickly respond to client emails with a personalized and professional tone, so that I can maintain strong relationships with them.</p>
+            </div>
+            <div class="user-story">
+                <p>As a PhD Student, I want to automate the process of sending emails to research collaborators and institutions, so that I can focus on actual research and meet deadlines.</p>
+            </div>
+            <div class="user-story">
+                <p>As an Entrepreneur, I want to have a centralized dashboard to manage and track email communications with team members, partners, and investors, so that I can stay on top of critical business conversations.</p>
+            </div>
+        </div>
+        <div class="call-to-action">
+            <h2>Get Started Today</h2>
+            <button>Sign Up for Free</button>
+        </div>
+        <div class="footer">
+            <p>Generated by EngineerAgent <a href="mailto:agent@launchmind.ai">agent@launchmind.ai</a></p>
+        </div>
+    </container>
+</body>
+</html>
