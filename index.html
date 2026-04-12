@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart ReplyAI – AI Email Reply Assistant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#f472b6;
+  --pink-light:#fbcfe8;
+  --pink-dark:#db2777;
+  --teal:#2dd4bf;
+  --teal-light:#99f6e4;
+  --teal-dark:#0d9488;
+  --bg:#07101a;
+  --bg2:#0a1520;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:#fff;}
+a{text-decoration:none;color:inherit;}
+header{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:linear-gradient(90deg,var(--teal),var(--pink));z-index:1000;}
+header .logo{font-size:1.25rem;font-weight:700;}
+header nav ul{display:flex;gap:1.5rem;}
+header nav ul li{list-style:none;}
+header nav ul li a{font-weight:600;}
+section{padding:4rem 2rem;}
+#hero{height:100vh;background:url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80') center/cover no-repeat;position:relative;display:flex;align-items:center;justify-content:center;}
+#hero::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4));}
+.hero-content{position:relative;text-align:center;max-width:800px;z-index:1;}
+.hero-content .badge{display:inline-block;background:var(--teal-light);color:var(--teal-dark);padding:.3rem .8rem;border-radius:9999px;font-size:.85rem;margin-bottom:1rem;}
+.hero-content h1{font-size:3.5rem;font-weight:700;background:linear-gradient(90deg,var(--pink),var(--teal));background-clip:text;color:transparent;margin-bottom:.5rem;}
+.hero-content h2{font-size:2rem;font-weight:600;margin-bottom:1rem;}
+.hero-content p{font-size:1.125rem;line-height:1.6;margin-bottom:2rem;}
+.hero-content .btn-group{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+.hero-content .btn{padding:.75rem 1.5rem;border-radius:.375rem;font-weight:600;transition:all .3s;}
+.hero-content .btn-primary{background:var(--pink);color:#fff;}
+.hero-content .btn-primary:hover{background:var(--pink-dark);}
+.hero-content .btn-secondary{background:transparent;border:2px solid var(--teal-light);color:var(--teal-light);}
+.hero-content .btn-secondary:hover{background:var(--teal-light);color:#fff;}
+#features{background:var(--bg2);}
+#features h2{font-size:2rem;font-weight:700;text-align:center;margin-bottom:3rem;}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;}
+.card{background:rgba(255,255,255,.05);padding:1.5rem;border-radius:.75rem;transition:transform .3s,background .3s;}
+.card:hover{transform:translateY(-5px);background:rgba(255,255,255,.08);}
+.card h3{font-size:1.25rem;font-weight:600;margin:1rem 0 .5rem;}
+.card p{font-size:1rem;line-height:1.5;}
+.card .icon{font-size:2rem;color:var(--teal);display:inline-block;margin-bottom:.5rem;}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">✦ Smart ReplyAI</div>
+<nav>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#who">Who It's For</a></li>
+<li><a href="#stories">Stories</a></li>
+<li><a href="#get-started">Get Started</a></li>
+</ul>
+</nav>
+</header>
+
+<section id="hero">
+<div class="hero-content">
+<span class="badge">✨ Powered by AI · Built for Productivity</span>
+<h1>Reply Smarter. Not Harder.</h1>
+<h2>Your AI Email Co-pilot</h2>
+<p>AI‑driven email assistant that instantly crafts context‑aware, tone‑perfect drafts while protecting every user’s data.</p>
+<div class="btn-group">
+<a href="#get-started" class="btn btn-primary">Get Started Free</a>
+<a href="#demo" class="btn btn-secondary">Watch Demo</a>
+</div>
+</div>
+</section>
+
+<section id="features">
+<h2>Features</h2>
+<div class="features-grid">
+<div class="card">
+<span class="icon">✦</span>
+<h3>Contextual Understanding</h3>
+<p>Analyzes the full email thread, attachments, and calendar events to generate replies that reference prior discussions and upcoming deadlines, eliminating manual context gathering.</p>
+</div>
+<div class="card">
+<span class="icon">✦</span>
+<h3>Tone Selection</h3>
+<p>Offers preset tone options—formal, friendly, persuasive, concise—and allows custom tone profiles so each draft matches the sender’s intent and the recipient’s relationship.</p>
+</div>
+<div class="card">
+<span class="icon">✦</span>
+<h3>Instant Draft Generation</h3>
+<p>Creates a complete, editable draft in under three seconds after the user selects tone and context, freeing up time for higher‑value work.</p>
+</div>
+<div class="card">
+<span class="icon">✦</span>
+<h3>Integration with Major Email Providers</h3>
+<p>Native plug‑ins for Gmail, Outlook, and Apple Mail that surface AI suggestions directly in the compose window and sync drafts across devices.</p>
+</div>
+<div class="card">
+<span class="icon">✦</span>
+<h3>Robust Privacy Controls</h3>
+<p>End‑to‑end encryption, on‑device processing option, and granular data‑retention settings so users decide what, if anything, leaves their inbox for AI inference.</p>
+</div>
+</div>
+</section>
+
+<section id="users">
+  <h2>Who It's For</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="avatar">M</div>
+      <h4>Maya Patel</h4>
+      <span class="badge">Senior Product Manager</span>
+      <em>"Limited time to write nuanced replies, leading to delayed responses and tone inconsistencies."</em>
+    </div>
+    <div class="card">
+      <div class="avatar">L</div>
+      <h4>Luis Ramirez</h4>
+      <span class="badge">Junior Data Analyst</span>
+      <em>"Struggles to keep each reply accurate, personalized, and aligned with the firm’s brand voice under tight deadlines."</em>
+    </div>
+    <div class="card">
+      <div class="avatar">A</div>
+      <h4>Aisha Khan</h4>
+      <span class="badge">Final‑Year CS Student</span>
+      <em>"Spends excessive time drafting polite follow‑ups and requests, risking missed opportunities."</em>
+    </div>
+  </div>
+</section>
+
+<section id="stories">
+  <h2>Real Use Cases</h2>
+  <ul class="stories-list">
+    <li class="story-item" style="border-left:3px solid pink;">
+      <h5>Senior Product Manager</h5>
+      <p>As a senior product manager, I want the assistant to read the whole thread and suggest a reply that references the last meeting notes, so that I can respond accurately without re‑reading the conversation.</p>
+    </li>
+    <li class="story-item" style="border-left:3px solid pink;">
+      <h5>Junior Analyst</h5>
+      <p>As a junior analyst, I want to pick a "professional but approachable" tone for client emails, so that my replies feel consistent with the firm's brand while remaining personable.</p>
+    </li>
+    <li class="story-item" style="border-left:3px solid pink;">
+      <h5>University Student</h5>
+      <p>As a university student, I want to generate a complete draft for a scholarship inquiry in seconds, so that I can focus on polishing my application instead of wrestling with wording.</p>
+    </li>
+  </ul>
+</section>
+
+<section id="cta">
+  <h2>Ready to Transform Your Inbox?</h2>
+  <p>Join thousands saving 2+ hours weekly.</p>
+  <button class="cta-button">Start For Free Today ✦</button>
+  <div class="badges">
+    <span class="badge">✓ No credit card required</span>
+    <span class="badge">✓ Free forever plan</span>
+    <span class="badge">✓ Setup in 2 minutes</span>
+  </div>
+</section>
+
+<footer>
+  Generated by EngineerAgent &lt;agent@launchmind.ai&gt;
+</footer>
+</body>
+</html>
