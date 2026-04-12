@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart ReplyAI – AI Email Reply Assistant</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+    --pink:#f472b6;
+    --pink-light:#fbcfe8;
+    --pink-dark:#db2777;
+    --teal:#2dd4bf;
+    --teal-light:#99f6e4;
+    --teal-dark:#0d9488;
+    --bg:#07101a;
+    --bg2:#0a1520;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;font-family:'Inter',sans-serif;color:#fff;background:var(--bg);}
+a{color:#fff;text-decoration:none;}
+header{
+    position:fixed;
+    top:0;left:0;width:100%;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:1rem 2rem;
+    background:linear-gradient(90deg,var(--teal-light),var(--teal-dark));
+    z-index:1000;
+}
+.logo span{
+    background:linear-gradient(90deg,var(--teal),var(--pink));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    font-weight:700;
+    font-size:1.5rem;
+}
+nav ul{display:flex;gap:1.5rem;}
+nav a{font-weight:600;font-size:0.95rem;transition:color 0.3s;}
+nav a:hover{color:var(--teal);}
+
+section.hero{
+    height:100vh;
+    background:url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80') no-repeat center/cover;
+    filter:brightness(0.35);
+    position:relative;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;
+    padding:2rem;
+}
+section.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,rgba(0,0,0,0.6),rgba(0,0,0,0.6));
+}
+.hero-content{
+    position:relative;
+    z-index:1;
+    max-width:800px;
+}
+.badge{
+    display:inline-block;
+    background:var(--pink-light);
+    color:var(--pink-dark);
+    padding:0.25rem 0.75rem;
+    border-radius:9999px;
+    font-weight:600;
+    margin-bottom:1rem;
+}
+.hero h1{
+    font-size:3rem;
+    font-weight:700;
+    background:linear-gradient(90deg,var(--teal),var(--pink));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    margin:0.5rem 0;
+}
+.subheadline{
+    font-size:1.5rem;
+    font-weight:600;
+    margin:0.5rem 0 1.5rem;
+}
+.hero p{
+    font-size:1.1rem;
+    line-height:1.6;
+    margin-bottom:2rem;
+}
+.btn{
+    display:inline-block;
+    padding:0.75rem 1.75rem;
+    border-radius:0.5rem;
+    font-weight:600;
+    margin:0 0.75rem;
+    transition:background 0.3s;
+}
+.btn-primary{
+    background:var(--teal);
+    color:#000;
+}
+.btn-primary:hover{background:var(--teal-dark);}
+.btn-secondary{
+    background:transparent;
+    border:2px solid var(--teal);
+    color:var(--teal);
+}
+.btn-secondary:hover{
+    background:var(--teal);
+    color:#000;
+}
+
+section#features{
+    padding:4rem 2rem;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:2rem;
+    background:var(--bg2);
+}
+.card{
+    background:var(--bg);
+    padding:2rem;
+    border-radius:0.5rem;
+    transition:transform 0.3s;
+}
+.card:hover{transform:translateY(-10px);}
+.card .icon{
+    font-size:2rem;
+    color:var(--teal);
+}
+.card h3{
+    margin:1rem 0 0.5rem;
+    color:var(--pink);
+}
+.card p{
+    color:var(--pink-light);
+}
+</style>
+</head>
+<body>
+<header>
+    <div class="logo"><span>✦ Smart ReplyAI</span></div>
+    <nav>
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#who">Who It's For</a></li>
+            <li><a href="#stories">Stories</a></li>
+            <li><a href="#start">Get Started</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <span class="badge">✨ Powered by AI · Built for Productivity</span>
+        <h1>Reply Smarter. Not Harder.</h1>
+        <div class="subheadline">Your AI Email Co‑pilot</div>
+        <p>An AI‑powered email assistant that drafts, adjusts tone, and executes actions in seconds while protecting privacy and syncing flawlessly across every device.</p>
+        <div>
+            <a href="#start" class="btn btn-primary">Get Started Free</a>
+            <a href="#demo" class="btn btn-secondary">Watch Demo</a>
+        </div>
+    </div>
+</section>
+
+<section id="features">
+    <div class="card">
+        <div class="icon">✦</div>
+        <h3>Contextual Drafting</h3>
+        <p>Analyzes the email thread, calendar events, and attached documents to generate a ready‑to‑send draft within seconds.</p>
+    </div>
+    <div class="card">
+
+<section id="users">
+  <h2>Who It's For</h2>
+  <div class="user-grid">
+    <div class="user-card">
+      <div class="avatar">M</div>
+      <h4>Maya Patel</h4>
+      <span class="badge">Senior Marketing Manager at a global consumer brand</span>
+      <p class="italic">"Spends 2–3 hours daily polishing outreach emails, but struggles to keep tone consistent across internal updates, client pitches, and vendor negotiations."</p>
+    </div>
+    <div class="user-card">
+      <div class="avatar">L</div>
+      <h4>Luis Ramirez</h4>
+      <span class="badge">Junior Computer Science Student & Campus Project Lead</span>
+      <p class="italic">"Juggles class discussions, group project coordination, and scholarship applications, often missing deadlines because email composition interrupts his coding flow."</p>
+    </div>
+    <div class="user-card">
+      <div class="avatar">E</div>
+      <h4>Ethan Cho</h4>
+      <span class="badge">Freelance UX Consultant</span>
+      <p class="italic">"Needs to reply to client feedback instantly while preserving brand voice, yet his mobile and desktop setups never share drafts, leading to duplicate effort."</p>
+    </div>
+  </div>
+</section>
+
+<section id="stories">
+  <h2>Real Use Cases</h2>
+  <ul class="stories-list">
+    <li class="story-item">
+      <p>As a senior marketing manager, I want the assistant to draft a client outreach email based on the meeting notes in my calendar, so that I can send a polished proposal in under two minutes.</p>
+    </li>
+    <li class="story-item">
+      <p>As a computer science student, I want to choose a concise, scholarly tone for my scholarship application email, so that I convey professionalism without spending hours editing.</p>
+    </li>
+    <li class="story-item">
+      <p>As a freelance UX consultant, I want to attach the most recent design prototype with a single click from the quick actions bar, so that I never forget to include the correct file.</p>
+    </li>
+  </ul>
+</section>
+
+<section id="cta">
+  <h2>Ready to Transform Your Inbox?</h2>
+  <p>Join thousands saving 2+ hours weekly.</p>
+  <button>Start For Free Today ✦</button>
+  <div class="badge-pills">
+    <span class="badge">✓ No credit card required</span>
+    <span class="badge">✓ Free forever plan</span>
+    <span class="badge">✓ Setup in 2 minutes</span>
+  </div>
+</section>
+
+<footer>
+  Generated by EngineerAgent &lt;agent@launchmind.ai&gt;
+</footer>
+</body>
+</html>
