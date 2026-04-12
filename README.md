@@ -30,8 +30,8 @@
 | Member | Agent |
 |--------|-------|
 | Asma Riaz| CEO Agent + Bonus |
-| [Tooba Arshad] |  Product Agent+ Engineer Agent |
-| [Amna Javaid | Marketing Agent + QA Agent |
+| Tooba Arshad |  Product Agent+ Engineer Agent |
+| Amna Javaid | Marketing Agent + QA Agent |
 
 ---
 
@@ -74,7 +74,7 @@ python main.py
 |----------|-------|-------------|
 | **GitHub** | Engineer Agent | Creates issues, commits `index.html` to branch, opens Pull Request |
 | **Slack** | Marketing Agent + CEO | Posts launch message to `#launches` using Block Kit. CEO posts final summary. |
-| **SendGrid** | Marketing Agent | Sends cold outreach email to test inbox |
+| **SendGrid** | Marketing Agent | Sends outreach email to test inbox |
 | **Redis** | Message Bus | All agents communicate via Redis Pub/Sub channels |
 | **Groq (LLaMA 3.1)** | All Agents | LLM reasoning for all agent decisions |
 
