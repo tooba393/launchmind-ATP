@@ -3,131 +3,301 @@ html
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Assistant</title>
+    <title>Business Data Analysis Platform</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #fff;
+            background-color: #1a1d23;
             height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            padding: 2rem;
         }
-
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #1a1d23;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Navbar */
+        .navbar {
+            background-color: #1d1f2f;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+        
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin-right: 1rem;
+        }
+        
+        .navbar .links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar .links li {
+            margin-left: 2rem;
+        }
+        
+        .navbar .links a {
+            color: #8b948a;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .navbar .links a:hover {
+            color: #fff;
+        }
+        
+        /* Hero Section */
         .hero {
+            background-image: linear-gradient(to bottom right, #2f343f, #4f545e);
+            padding: 5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 50px;
-            background-color: #ffffff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-
+        
         .hero h1 {
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 1rem;
         }
-
+        
         .hero h2 {
-            font-size: 18px;
-            color: #666666;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #8b948a;
+            margin-bottom: 2rem;
         }
-
-        .hero button {
-            background-color: #007bff;
-            color: #ffffff;
+        
+        .hero .cta {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #fff;
+            background-color: #2f343f;
+            padding: 1rem 2rem;
             border: none;
-            padding: 10px 20px;
-            font-size: 16px;
+            border-radius: 10px;
             cursor: pointer;
+            transition: background-color 0.2s ease;
         }
-
-        .hero button:hover {
-            background-color: #0069d9;
+        
+        .hero .cta:hover {
+            background-color: #4f545e;
         }
-
+        
+        /* Stats Section */
+        .stats {
+            background-color: #1a1d23;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        
+        .stats .stat {
+            background-image: linear-gradient(to bottom right, #2f343f, #4f545e);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stats .stat h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .stats .stat p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #8b948a;
+        }
+        
+        /* Features Section */
         .features {
-            padding: 50px;
+            padding: 2rem;
         }
-
+        
         .features .card {
-            background-color: #ffffff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            text-align: center;
+            background-image: linear-gradient(to bottom right, #2f343f, #4f545e);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-
-        .features .card h3 {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
+        
+        .features .card h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
         }
-
-        .persona {
-            padding: 50px;
+        
+        .features .card p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #8b948a;
         }
-
-        .persona .card {
-            background-color: #ffffff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            text-align: center;
+        
+        /* Personas Section */
+        .personas {
+            padding: 2rem;
         }
-
-        .persona .card h3 {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
+        
+        .personas .card {
+            background-image: linear-gradient(to bottom right, #2f343f, #4f545e);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-
+        
+        .personas .card h5 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .personas .card p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #8b948a;
+        }
+        
+        /* User Stories Section */
+        .user_stories {
+            padding: 2rem;
+        }
+        
+        .user_stories .card {
+            background-image: linear-gradient(to bottom right, #2f343f, #4f545e);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .user_stories .card h6 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .user_stories .card p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #8b948a;
+        }
+        
+        /* CTA Section */
         .cta {
-            background-color: #007bff;
-            padding: 20px;
-            text-align: center;
+            padding: 2rem;
+            background-image: linear-gradient(to bottom right, #2f343f, #4f545e);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-
-        .cta button {
-            background-color: #007bff;
-            color: #ffffff;
+        
+        .cta h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        
+        .cta .cta_btn {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #fff;
+            background-color: #1a1d23;
+            padding: 1rem 2rem;
             border: none;
-            padding: 10px 20px;
-            font-size: 16px;
+            border-radius: 10px;
             cursor: pointer;
+            transition: background-color 0.2s ease;
         }
-
-        .cta button:hover {
-            background-color: #0069d9;
+        
+        .cta .cta_btn:hover {
+            background-color: #4f545e;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1a1d23;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer a {
+            color: #8b948a;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer a:hover {
+            color: #fff;
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <h1>Email Assistant</h1>
-        <h2>Save time with AI-powered email responses</h2>
-        <button>Get Started</button>
-    </div>
-    <div class="features">
-        <div class="card">
-            <h3>Smart Reply Generation</h3>
-            <p>Generates context-aware email responses</p>
-        </div>
-    </div>
-    <div class="persona">
-        <h2>Meet Our User</h2>
-        <div class="card">
-            <h3>Default User</h3>
-            <p>Spends too much time writing repetitive email replies</p>
-        </div>
-    </div>
-    <div class="cta">
-        <h2>Sign Up for Free</h2>
-        <button>Get Started</button>
-    </div>
-</body>
-</html>
+    <nav class="navbar">
+        <div class="logo">Data Analysis Platform</div>
+        <ul class="links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+    <section class="hero">
+        <h1>Streamline Business Data Analysis with AI-Driven Insights and Automation</h1>
