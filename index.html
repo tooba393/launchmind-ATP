@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ReplyAI</title>
+    <style>
+        :root {
+            --background: #07101a;
+            --accent-color-1: #2dd4bf;
+            --accent-color-2: #f472b6;
+            --text-color: #fff;
+        }
+
+        body {
+            background: var(--background);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background: #2c3e50;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .navbar-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .navbar-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar-links li {
+            margin-right: 2rem;
+        }
+
+        .navbar-links li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .navbar-links li a:hover {
+            color: var(--accent-color-1);
+        }
+
+        .hero {
+            padding: 10rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+            position: relative;
+            background-image: linear-gradient(to bottom, var(--background), var(--background));
+            color: var(--text-color);
+        }
+
+        .hero > * + * {
+            margin-top: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+        }
+
+        .hero h3 {
+            font-size: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 5rem;
+        }
+
+        .hero button {
+            background: var(--accent-color-2);
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background: var(--accent-color-1);
+        }
+
+        .features {
+            padding: 5rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2rem;
+        }
+
+        .feature {
+            background: #333;
+            padding: 2rem;
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .feature p {
+            font-size: 1rem;
+            color: #fff;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--accent-color-2);
+            margin-bottom: 1rem;
+        }
+
+        .who-it-is-for {
+            padding: 5rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2rem;
+        }
+
+        .user-story {
+            background: #333;
+            padding: 2rem;
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-story h3 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .user-story-icon {
+            font-size: 2rem;
+            color: var(--accent-color-2);
+            margin-bottom: 1rem;
+        }
+
+        .call-to-action {
+            padding: 5rem;
+            text-align: center;
+        }
+
+        .call-to-action button {
+            background: var(--accent-color-2);
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .call-to-action button:hover {
+            background: var(--accent-color-1);
+        }
+
+        .footer {
+            background: #333;
+            padding: 1rem;
+            color: #fff;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar-links li {
+                margin-bottom: 1rem;
+            }
+
+            .hero {
+                padding: 5rem 0;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1 class="navbar-logo">Smart ReplyAI</h1>
+        <ul class="navbar-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#who-it-is-for">Who It's For</a></li>
+            <li><a href="#user-stories">User Stories</a></li>
+            <li><a href="#call-to-action">Call to Action</a></li>
+        </ul>
+    </div>
+    <div class="hero" id="hero">
+        <h1>Reply Smarter. Not Harder.</h1>
+        <h3>Automate email management and reply generation with AI-powered insights to increase productivity and efficiency.</h3>
+        <p>Take the stress out of managing your email inbox and boost your team's productivity with Smart ReplyAI.</p>
+        <button>Get Started</button>
+    </div>
+    <div class="features" id="features">
+        <div class="feature">
+            <i class="feature-icon fa fa-filter"></i>
+            <h3>Smart Email Filtering</h3>
+            <p>Filter and categorize emails automatically, separating important and unimportant messages to prioritize responses.</p>
+        </div>
+        <div class="feature">
+            <i class="feature-icon fa fa-smile"></i>
+            <h3>Tone and Sentiment Analysis</h3>
+            <p>Analyze email tone and detect sentiment to ensure that responses are personalized and aligned with company values.</p>
+        </div>
+        <div class="feature">
+            <i class="feature-icon fa fa-mail-bulk"></i>
+            <h3>AI-Powered Reply Generation</h3>
+            <p>Generate personalized email responses based on the content and context of messages, and provide customizable response templates.</p>
+        </div>
+        <div class="feature">
+            <i class="feature-icon fa fa-calendar"></i>
+            <h3>Email Scheduling and Automation</h3>
+            <p>Automate email responses and scheduling, allowing users to pre-set email responses for specific email types and scenarios.</p>
+        </div>
+        <div class="feature">
+            <i class="feature-icon fa fa-envelope"></i>
+            <h3>Customizable Email Templates</h3>
+            <p>Provide customizable email templates for different email types and scenarios, allowing users to personalize and brand their emails.</p>
+        </div>
+    </div>
+    <div class="who-it-is-for" id="who-it-is-for">
+        <div class="user-story">
+            <i class="user-story-icon fa fa-user"></i>
+            <h3>Marketing Specialist</h3>
+            <p>Automatically categorize incoming emails by subject and urgency to prioritize responses and increase productivity.</p>
+        </div>
+        <div class="user-story">
+            <i class="user-story-icon fa fa-suitcase"></i>
+            <h3>IT Manager</h3>
+            <p>Enforce company email policies and compliance through AI-powered email analysis to maintain email security and reduce the risk of data breaches.</p>
+        </div>
+        <div class="user-story">
+            <i class="user-story-icon fa fa-briefcase"></i>
+            <h3>Freelancer</h3>
+            <p>Automate email responses for routine customer queries to free up time to focus on high-value freelance work and clients.</p>
+        </div>
+        <div class="user-story">
+            <i class="user-story-icon fa fa-users"></i>
+            <h3>Small Business Owner</h3>
+            <p>Generate personalized email responses for regular customers to build strong relationships and increase customer satisfaction.</p>
+        </div>
+        <div class="user-story">
+            <i class="user-story-icon fa fa-building"></i>
+            <h3>Business Owner</h3>
+            <p>Scale email communication to meet the growing needs of your team and maintain efficiency, customer satisfaction, and security.</p>
+        </div>
+    </div>
+    <div class="user-stories" id="user-stories">
+        <div class="user-story">
+            <i class="user-story-icon fa fa-user"></i>
+            <h3>As a marketing specialist</h3>
+            <p>Want to automatically categorize incoming emails by subject and urgency?</p>
+        </div>
+        <div class="user-story">
+            <i class="user-story-icon fa fa-suitcase"></i>
+            <h3>As an IT manager</h3>
+            <p>Want to enforce company email policies and compliance through AI-powered email analysis?</p>
+        </div>
+        <div class="user-story">
+            <i class="user-story-icon fa fa-briefcase"></i>
+            <h3>As a freelancer</h3>
+            <p>Want to automate email responses for routine customer queries?</p>
+        </div>
+        <div class="user-story">
+            <i class="user-story-icon fa fa-users"></i>
+            <h3>As a small business owner</h3>
+            <p>Want to generate personalized email responses for regular customers?</p>
+        </div>
+        <div class="user-story">
+            <i class="user-story-icon fa fa-building"></i>
+            <h3>As a business owner</h3>
+            <p>Want to scale email communication to meet the growing needs of your team?</p>
+        </div>
+    </div>
+    <div class="call-to-action" id="call-to-action">
+        <button>Get Started Today</button>
+    </div>
+    <div class="footer">
+        <p>Generated by EngineerAgent <a href="mailto:agent@launchmind.ai">agent@launchmind.ai</a></p>
+    </div>
+</body>
+</html>
