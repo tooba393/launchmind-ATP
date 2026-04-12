@@ -1,303 +1,235 @@
-html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Data Analysis Platform</title>
+    <title>Smart ReplyAI</title>
     <style>
-        /* Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        
-        /* Global Styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
         body {
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            line-height: 1.6;
+            font-family: Arial, sans-serif;
+            background-color: #07101a;
             color: #fff;
-            background-color: #1a1d23;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: #1a1d23;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Navbar */
-        .navbar {
-            background-color: #1d1f2f;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1;
-        }
-        
-        .navbar .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #fff;
-            margin-right: 1rem;
-        }
-        
-        .navbar .links {
-            list-style: none;
             margin: 0;
-            padding: 0;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(7, 1fr);
+            height: 100vh;
+        }
+        .header {
+            grid-row: 1/2;
+            background-color: #07101a;
             display: flex;
-            align-items: center;
-        }
-        
-        .navbar .links li {
-            margin-left: 2rem;
-        }
-        
-        .navbar .links a {
-            color: #8b948a;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        
-        .navbar .links a:hover {
-            color: #fff;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background-image: linear-gradient(to bottom right, #2f343f, #4f545e);
-            padding: 5rem;
-            display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
         }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 1rem;
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
         }
-        
-        .hero h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: #8b948a;
-            margin-bottom: 2rem;
-        }
-        
-        .hero .cta {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: #fff;
-            background-color: #2f343f;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-        
-        .hero .cta:hover {
-            background-color: #4f545e;
-        }
-        
-        /* Stats Section */
-        .stats {
-            background-color: #1a1d23;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-        
-        .stats .stat {
-            background-image: linear-gradient(to bottom right, #2f343f, #4f545e);
-            padding: 2rem;
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .stats .stat h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #fff;
-        }
-        
-        .stats .stat p {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: #8b948a;
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 2rem;
-        }
-        
-        .features .card {
-            background-image: linear-gradient(to bottom right, #2f343f, #4f545e);
-            padding: 2rem;
-            display: flex;
             align-items: center;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        
-        .features .card h4 {
-            font-size: 1.5rem;
-            font-weight: 600;
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav a {
             color: #fff;
-        }
-        
-        .features .card p {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: #8b948a;
-        }
-        
-        /* Personas Section */
-        .personas {
-            padding: 2rem;
-        }
-        
-        .personas .card {
-            background-image: linear-gradient(to bottom right, #2f343f, #4f545e);
-            padding: 2rem;
-            display: flex;
-            align-items: center;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .personas .card h5 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #fff;
-        }
-        
-        .personas .card p {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: #8b948a;
-        }
-        
-        /* User Stories Section */
-        .user_stories {
-            padding: 2rem;
-        }
-        
-        .user_stories .card {
-            background-image: linear-gradient(to bottom right, #2f343f, #4f545e);
-            padding: 2rem;
-            display: flex;
-            align-items: center;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .user_stories .card h6 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #fff;
-        }
-        
-        .user_stories .card p {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: #8b948a;
-        }
-        
-        /* CTA Section */
-        .cta {
-            padding: 2rem;
-            background-image: linear-gradient(to bottom right, #2f343f, #4f545e);
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .cta h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 1rem;
-        }
-        
-        .cta .cta_btn {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: #fff;
-            background-color: #1a1d23;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-        
-        .cta .cta_btn:hover {
-            background-color: #4f545e;
-        }
-        
-        /* Footer */
-        .footer {
-            background-color: #1a1d23;
-            padding: 1rem;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .footer a {
-            color: #8b948a;
             text-decoration: none;
             transition: color 0.2s ease;
         }
-        
-        .footer a:hover {
+        nav a:hover {
+            color: #2dd4bf;
+        }
+        .hero {
+            grid-row: 2/3;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #2a2a2a;
             color: #fff;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .hero h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        .hero button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #f472b6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .hero button:hover {
+            background-color: #2dd4bf;
+        }
+        .features {
+            grid-row: 3/6;
+            padding: 50px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+        }
+        .feature {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+        }
+        .feature h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .feature p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .who-it-is-for {
+            grid-row: 6/7;
+            padding: 50px;
+            background-color: #2a2a2a;
+            color: #fff;
+            text-align: center;
+        }
+        .who-it-is-for h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .user-stories {
+            grid-row: 7/8;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+        }
+        .user-stories h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .cta {
+            grid-row: 8/9;
+            padding: 50px;
+            background-color: #f472b6;
+            color: #fff;
+            text-align: center;
+        }
+        .cta button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #f472b6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cta button:hover {
+            background-color: #2dd4bf;
+        }
+        footer {
+            grid-row: 9/10;
+            padding: 20px;
+            background-color: #2a2a2a;
+            color: #fff;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(9, 1fr);
+            }
+            .features {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">Data Analysis Platform</div>
-        <ul class="links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-    </nav>
-    <section class="hero">
-        <h1>Streamline Business Data Analysis with AI-Driven Insights and Automation</h1>
+    <div class="container">
+        <div class="header">
+            <a href="#" class="logo" style="background-image: url('logo.png');"></a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="hero">
+            <h1>Reply Smarter. Not Harder.</h1>
+            <h2>Effortlessly manage your time and prioritize your tasks using intelligent AI-powered scheduling and drafting capabilities.</h2>
+            <p>Get the most out of your day with Smart ReplyAI.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="features">
+            <div class="feature">
+                <h2>Intelligent Schedule Assistant</h2>
+                <p>Automatically suggests optimal meeting times based on user availability, preventing conflicts and wasting less time on scheduling.</p>
+            </div>
+            <div class="feature">
+                <h2>Drafting and Filling Tool</h2>
+                <p>Provides users with AI-driven, customizable response templates, enabling them to quickly respond to common email inquiries and freeing up time for more strategic tasks.</p>
+            </div>
+            <div class="feature">
+                <h2>Task Prioritizer</h2>
+                <p>Analyzes user tasks and email interactions, offering data-driven recommendations to help users prioritize their most important tasks and maximize productivity.</p>
+            </div>
+            <div class="feature">
+                <h2>Calendar Integration</h2>
+                <p>Seamlessly integrates with popular calendar apps, enabling users to schedule meetings and events with just a few clicks, reducing errors and increasing efficiency.</p>
+            </div>
+            <div class="feature">
+                <h2>Notification and Alert System</h2>
+                <p>Smart notifications remind users of upcoming tasks, deadlines, and meetings, minimizing the risk of missed appointments and forgotten tasks.</p>
+            </div>
+        </div>
+        <div class="who-it-is-for">
+            <h2>Who It's For</h2>
+            <img src="maya.jpg" alt="Maya Jenkins" style="width: 100px; height: auto; margin-right: 10px; border-radius: 100px;">
+            <p>Maya Jenkins, Marketing Manager at a growing startup</p>
+            <img src="ethan.jpg" alt="Ethan Chen" style="width: 100px; height: auto; margin-right: 10px; border-radius: 100px;">
+            <p>Ethan Chen, Software Engineering Student</p>
+        </div>
+        <div class="user-stories">
+            <h2>User Stories</h2>
+            <p>As Maya Jenkins, I want to see my schedule suggestions in context with my team's availability, so that I can confidently schedule meetings without conflicts and minimize the risk of delays.</p>
+            <p>As Ethan Chen, I want a way to generate customized email responses using relevant keywords and phrases, so that I can save time and appear more professional in email exchange.</p>
+            <p>As Maya Jenkins, I want to be able to prioritize my tasks based on importance and urgency, so that I can focus on high-impact activities and achieve my strategic goals.</p>
+            <p>As Ethan Chen, I want a simple and intuitive way to schedule meetings and events in my calendar, so that I can avoid confusion and stay on top of my schedule.</p>
+        </div>
+        <div class="cta">
+            <button>Get Started Today</button>
+        </div>
+        <footer>
+            <p>Generated by EngineerAgent <a href="#" style="color: #2dd4bf;">agent@launchmind.ai</a></p>
+        </footer>
+    </div>
+</body>
+</html>
