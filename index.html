@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ReplyAI</title>
+    <style>
+        /* Navigation Bar */
+        .nav {
+            background-color: #07101a;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+
+        .nav a:hover {
+            color: #2dd4bf;
+        }
+
+        .nav a.active {
+            color: #f472b6;
+            border-bottom: 2px solid #f472b6;
+            padding-bottom: 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #07101a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            color: #2dd4bf;
+            margin-bottom: 40px;
+        }
+
+        .hero p {
+            color: #f472b6;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+
+        .hero button {
+            background-color: #2dd4bf;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background-color: #f472b6;
+        }
+
+        /* Features Section */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .feature {
+            background-color: #ffffff;
+            padding: 1rem;
+            margin: 1rem;
+            border: 1px solid #eeeeee;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .feature h2 {
+            color: #07101a;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        /* Who It's For Section */
+        .for-who {
+            padding: 100px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .persona {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .persona img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .persona h2 {
+            margin-bottom: 10px;
+        }
+
+        .persona p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        /* User Stories Section */
+        .user-stories {
+            padding: 100px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .story {
+            padding: 20px;
+            border: 1px solid #eeeeee;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+
+        .story h2 {
+            margin-bottom: 10px;
+        }
+
+        .story p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        /* Call-to-Action Section */
+        .cta {
+            padding: 100px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cta button {
+            background-color: #2dd4bf;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cta button:hover {
+            background-color: #f472b6;
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #07101a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #2dd4bf;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="nav">
+        <a href="#" class="active">Home</a>
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Reply Smarter. Not Harder.</h1>
+        <h2>Efficiently manage your inbox with AI-powered email reply assistants.</h2>
+        <p>Save time and reduce email fatigue with Smart ReplyAI.</p>
+        <button>Get Started</button>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature">
+            <h2>Smart Email Parsing</h2>
+            <p>The AI assistant learns to extract key information, identify intent, and categorize emails based on sender, content, and attachments, ensuring that you focus on the most important and time-sensitive emails.</p>
+        </div>
+        <div class="feature">
+            <h2>Personalized Response Generation</h2>
+            <p>Using natural language processing and learning algorithms, the AI assistant crafts relevant and concise reply drafts for routine customer inquiries, saving you time and streamlining communication.</p>
+        </div>
+        <div class="feature">
+            <h2>Integration with Email Clients</h2>
+            <p>Smoothly integrates with popular email providers such as Gmail, Outlook, and iCloud, allowing you to access and manage AI-generated reply drafts directly within your email clients.</p>
+        </div>
+        <div class="feature">
+            <h2>Email Prioritization and Filtering</h2>
+            <p>The AI assistant helps you categorize and prioritize emails based on importance, deadlines, and relationships, enabling more efficient time management and reduced email clutter.</p>
+        </div>
+        <div class="feature">
+            <h2>Sentiment Analysis and Feedback</h2>
+            <p>Analyzes user engagement metrics and email sentiment to identify areas for improvement, providing actionable insights for optimizing customer responses and reducing misunderstandings.</p>
+        </div>
+    </section>
+
+    <!-- Who It's For Section -->
+    <section class="for-who">
+        <h2>Who Is It For?</h2>
+        <div class="persona">
+            <img src="mayajenkins.jpg" alt="">
+            <h2>Maya Jenkins</h2>
+            <p>Marketing Manager for a small startup</p>
+            <p>Spend too much time manually drafting responses to routine customer inquiries.</p>
+        </div>
+        <div class="persona">
+            <img src="ethanlee.jpg" alt="">
+            <h2>Ethan Lee</h2>
+            <p>Full-time University Student</p>
+            <p>Difficulty managing an overwhelming email inbox while handling coursework and extracurricular activities.</p>
+        </div>
+    </section>
+
+    <!-- User Stories Section -->
+    <section class="user-stories">
+        <h2>User Stories</h2>
+        <div class="story">
+            <h2>As Maya Jenkins, I want the AI assistant to automatically draft responses to routine customer inquiries, so that I can focus on strategic marketing planning and meet my quarterly targets.</h2>
+        </div>
+        <div class="story">
+            <h2>As Ethan Lee, I want the AI assistant to help me categorize and prioritize emails related to my courses and extracurricular activities, so that I can manage my inbox and maintain a healthy work-life balance.</h2>
+        </div>
+        <div class="story">
+            <h2>As a busy professional like Maya, I want the AI assistant to learn my communication style and preferences, so that I can send more personal and effective replies to customers and stakeholders.</h2>
+        </div>
+        <div class="story">
+            <h2>As Ethan Lee, I want the AI assistant to suggest follow-up emails and reminders, so that I don't forget important deadlines and appointments, and stay on top of my academic responsibilities.</h2>
+        </div>
+        <div class="story">
+            <h2>As a marketer like Maya, I want the AI assistant to track email engagement metrics and provide actionable insights, so that I can refine my email campaigns and improve customer satisfaction.</h2>
+        </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="cta">
+        <h2>Get Started Today!</h2>
+        <button>Sign Up for Free Trial</button>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 Smart ReplyAI. All Rights Reserved.</p>
+        <p>Generated by EngineerAgent <a href="mailto:agent@launchmind.ai">agent@launchmind.ai</a></p>
+    </footer>
+</body>
+</html>
