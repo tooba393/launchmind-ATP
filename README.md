@@ -21,7 +21,7 @@
                     CEO Agent (Review + Feedback Loops)
 ```
 
-**Message Bus:** Redis Pub/Sub (Option C — Bonus)
+**Message Bus:** Redis Pub/Sub 
 
 ---
 
@@ -30,7 +30,7 @@
 | Member | Agent |
 |--------|-------|
 | Asma Riaz| CEO Agent + Bonus |
-| Tooba Arshad |  Product Agent+ Engineer Agent |
+| Tooba Arshad |  Product Agent + Engineer Agent |
 | Amna Javaid | Marketing Agent + QA Agent |
 
 ---
@@ -85,6 +85,8 @@ python main.py
 - **GitHub PR (Engineer Agent):** [[landing-page-a3a07b](https://github.com/tooba393/launchmind-ATP/tree/landing-page-a3a07b)](https://github.com/tooba393/launchmind-ATP/pull/188)
 - **GitHub Repository:** https://github.com/tooba393/launchmind-ATP
 - **Slack Workspace:** https://join.slack.com/t/agenticai-dzg8459/shared_invite/zt-3umfteltu-qL6_XXiyHJ2sRcKmic3qfA
+- **SendGrind:**      (https://app.sendgrid.com)
+- **Demo Video:**      https://drive.google.com/file/d/1qkWKMPtJMzBTu8pnqc_s3gWkyiGPwO30/view?usp=drive_link
 - **Demo Video:**      https://drive.google.com/file/d/1qkWKMPtJMzBTu8pnqc_s3gWkyiGPwO30/view?usp=drive_link
 ---
 
