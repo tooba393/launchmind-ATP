@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ReplyAI</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #07101a;
+            color: #fff;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            height: 100vh;
+            place-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px;
+            background-color: #121214;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr auto;
+        }
+
+        .nav-bar {
+            padding: 20px;
+            background-color: #07101a;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+
+        .nav-bar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .hero {
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 600;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .cta {
+            background-color: #2dd4bf;
+            color: #fff;
+            padding: 20px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .cta:hover {
+            background-color: #2cd0c7;
+        }
+
+        .features {
+            display: grid;
+            grid-gap: 20px;
+            padding: 50px;
+        }
+
+        .feature-card {
+            background-color: #18181a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .persona {
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+        }
+
+        .persona img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: contain;
+        }
+
+        .user-story {
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+        }
+
+        .user-story h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            padding: 20px;
+            background-color: #07101a;
+            color: #fff;
+            text-align: center;
+            border-top: 1px solid #2dd4bf;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <img src="logo.png" alt="Smart ReplyAI Logo">
+            <ul class="nav-links">
+                <li class="nav-link"><a href="#">Home</a></li>
+                <li class="nav-link"><a href="#">Features</a></li>
+                <li class="nav-link"><a href="#">Pricing</a></li>
+                <li class="nav-link"><a href="#">Sign Up</a></li>
+            </ul>
+        </div>
+        <div class="hero">
+            <h1>Reply Smarter. Not Harder.</h1>
+            <h2>Effortless conversation management for the modern professional and student.</h2>
+            <p>Get rid of email overwhelm and focus on what matters.</p>
+            <button class="cta">Get Started</button>
+        </div>
+        <div class="features">
+            <div class="feature-card">
+                <h2>Intelligent Message Router</h2>
+                <p>Route your messages to the right person, at the right time.</p>
+            </div>
+            <div class="feature-card">
+                <h2>Context-Aware Reply Draft</h2>
+                <p>Get personalized response drafts to save you time.</p>
+            </div>
+            <div class="feature-card">
+                <h2>Automated Response Generation</h2>
+                <p>Save time with custom responses to common messages.</p>
+            </div>
+            <div class="feature-card">
+                <h2>Collaborative Inbox Management</h2>
+                <p>Team up with colleagues to handle messages together.</p>
+            </div>
+            <div class="feature-card">
+                <h2>Sentiment Analysis</h2>
+                <p>Identify potential conflicts or issues before they escalate.</p>
+            </div>
+        </div>
+        <div class="persona">
+            <img src="mayra-rodriguez.png" alt="Mayra Rodriguez">
+            <h2>Who is Smart ReplyAI for?</h2>
+            <p>Meet Mayra Rodriguez, Marketing Manager at a mid-sized firm.</p>
+        </div>
+        <div class="user-story">
+            <img src="ethan-kim.png" alt="Ethan Kim">
+            <h2>User Stories</h2>
+            <p>Discover how Smart ReplyAI solves real-world problems.</p>
+            <ul>
+                <li>As Mayra Rodriguez, I want to filter out non-urgent messages, so that I can focus on the most important conversations.</li>
+                <li>As Ethan Kim, I want the app to suggest personalized response drafts, so that I can craft relevant and effective responses to my classmates.</li>
+            </ul>
+        </div>
+        <footer class="footer">
+            <p>Generated by EngineerAgent <a href="mailto:agent@launchmind.ai">agent@launchmind.ai</a></p>
+        </footer>
+    </div>
+</body>
+</html>
