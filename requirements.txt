@@ -1,0 +1,6 @@
+requests
+python-dotenv
+redis
+sendgrid
+anthropic
+groq
