@@ -1,372 +1,197 @@
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart ReplyAI — AI Email Assistant</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        :root {
-            --pink: #f472b6; --pink-light: #fbcfe8; --pink-dark: #db2777;
-            --teal: #2dd4bf; --teal-light: #99f6e4; --teal-dark: #0d9488;
-            --bg: #07101a; --bg2: #0a1520; --card: rgba(255,255,255,0.04);
-            --border: rgba(45,212,191,0.18); --text: #e2f0ee; --muted: #5a8080;
-        }
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Email Assistant</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Sans:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        nav {
-            display:flex; justify-content:space-between; align-items:center;
-            padding:18px 60px; background:rgba(7,16,26,0.92);
-            backdrop-filter:blur(20px); position:fixed; top:0; left:0; right:0; z-index:100;
-            border-bottom:1px solid rgba(45,212,191,0.1);
-        }
-        .nav-logo {
-            font-size:1.4em; font-weight:900;
-            background:linear-gradient(135deg,var(--teal),var(--pink));
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-        }
-        .nav-links a { color:rgba(255,255,255,0.5); text-decoration:none; margin-left:28px; font-size:0.9em; font-weight:500; transition:color 0.3s; }
-        .nav-links a:hover { color:var(--teal); }
+    body {
+      font-family: 'Material Sans', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+    }
 
-        /* ── HERO — Full screen with REAL photo background ── */
-        .hero {
-            min-height:100vh;
-            position:relative;
-            display:flex;
-            align-items:center;
-            overflow:hidden;
-        }
+    /* Hero Section Styles */
+    .hero {
+      background-image: linear-gradient(to bottom, #333, #555);
+      background-size: 100% 300px;
+      background-position: 0% 100%;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 24px;
+      text-align: center;
+    }
 
-        /* Background: real Unsplash photo of person working on email/laptop */
-        .hero-bg {
-            position:absolute; inset:0; z-index:0;
-            background-image: url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80');
-            background-size:cover;
-            background-position:center right;
-            filter:brightness(0.35) saturate(0.8);
-        }
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
 
-        /* Overlay gradient so text is readable */
-        .hero-overlay {
-            position:absolute; inset:0; z-index:1;
-            background: linear-gradient(
-                105deg,
-                rgba(7,16,26,0.97) 0%,
-                rgba(7,16,26,0.85) 45%,
-                rgba(45,212,191,0.08) 75%,
-                rgba(244,114,182,0.05) 100%
-            );
-        }
+    .hero-text {
+      max-width: 400px;
+      margin: 16px auto;
+    }
 
-        .hero-content {
-            position:relative; z-index:2;
-            padding:140px 80px 100px;
-            max-width:680px;
-        }
+    .hero-btn {
+      background-color: #00bcd4;
+      color: #fff;
+      padding: 16px 32px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+    }
 
-        .hero-badge {
-            display:inline-flex; align-items:center; gap:8px;
-            background:rgba(45,212,191,0.12); border:1px solid rgba(45,212,191,0.35);
-            color:var(--teal); padding:8px 22px; border-radius:50px;
-            font-size:0.82em; font-weight:600; margin-bottom:32px;
-            backdrop-filter:blur(8px);
-        }
+    .hero-btn:hover {
+      background-color: #03a9f4;
+    }
 
-        .hero h1 {
-            font-size:clamp(2.8em,5.5vw,4.5em); font-weight:900; line-height:1.06;
-            margin-bottom:12px;
-            background:linear-gradient(135deg,#ffffff 0%,var(--pink-light) 50%,var(--teal-light) 100%);
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-        }
-        .hero-sub {
-            font-size:1.25em; font-weight:700; margin-bottom:22px;
-            background:linear-gradient(135deg,var(--pink),var(--teal));
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-        }
-        .hero p {
-            font-size:1.05em; color:rgba(255,255,255,0.55);
-            max-width:520px; line-height:1.85; margin-bottom:40px;
-        }
-        .hero-buttons { display:flex; gap:14px; flex-wrap:wrap; }
+    /* Features Section Styles */
+    .features {
+      padding: 64px 0;
+    }
 
-        /* Stats row */
-        .hero-stats {
-            position:relative; z-index:2;
-            display:flex; gap:0;
-            padding:0 80px 60px;
-        }
-        .stat {
-            padding:20px 40px 20px 0;
-            border-right:1px solid rgba(255,255,255,0.08);
-            margin-right:40px;
-        }
-        .stat:last-child { border-right:none; }
-        .stat-num {
-            font-size:2em; font-weight:900;
-            background:linear-gradient(135deg,var(--teal),var(--pink));
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-        }
-        .stat-label { font-size:0.82em; color:var(--muted); margin-top:4px; }
+    .feature-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 32px;
+    }
 
-        /* ── BUTTONS ── */
-        .btn-primary {
-            background:linear-gradient(135deg,var(--pink-dark),var(--pink),var(--teal));
-            background-size:200% 200%; background-position:left center;
-            color:white; border:none; padding:16px 36px; font-size:0.95em;
-            font-weight:700; border-radius:12px; cursor:pointer;
-            transition:background-position 0.4s, transform 0.2s, box-shadow 0.2s;
-            box-shadow:0 4px 28px rgba(244,114,182,0.45);
-            display:inline-block; text-decoration:none;
-        }
-        .btn-primary:hover {
-            background-position:right center;
-            transform:translateY(-4px) scale(1.04);
-            box-shadow:0 12px 40px rgba(244,114,182,0.6),0 4px 16px rgba(45,212,191,0.25);
-        }
-        .btn-primary:active { transform:translateY(-1px) scale(0.98); }
+    .feature-card {
+      width: calc(33.33% - 16px);
+      padding: 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+      margin: 16px;
+    }
 
-        .btn-secondary {
-            background:rgba(255,255,255,0.06); color:white;
-            border:1.5px solid rgba(255,255,255,0.2);
-            padding:15px 36px; font-size:0.95em; font-weight:600;
-            border-radius:12px; cursor:pointer; transition:all 0.3s;
-            backdrop-filter:blur(8px); display:inline-block;
-        }
-        .btn-secondary:hover {
-            background:rgba(45,212,191,0.1); border-color:var(--teal);
-            transform:translateY(-4px); color:var(--teal-light);
-        }
+    .feature-card h2 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
 
-        .gradient-divider {
-            height:1px;
-            background:linear-gradient(90deg,transparent,var(--pink),var(--teal),transparent);
-            opacity:0.2; margin:0 60px;
-        }
+    .feature-card p {
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
 
-        section { padding:90px 24px; max-width:1200px; margin:0 auto; }
-        .section-label {
-            text-align:center;
-            background:linear-gradient(135deg,var(--teal),var(--pink));
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-            font-size:0.78em; font-weight:700; letter-spacing:3px; text-transform:uppercase; margin-bottom:12px;
-        }
-        .section-title { text-align:center; font-size:clamp(1.8em,4vw,2.6em); font-weight:800; margin-bottom:14px; color:#f0faf8; }
-        .section-subtitle { text-align:center; color:var(--muted); max-width:500px; margin:0 auto 56px; line-height:1.8; font-size:0.95em; }
+    /* Personas Section Styles */
+    .personas {
+      padding: 64px 0;
+    }
 
-        .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; }
-        .feature-card {
-            background:var(--card); border:1px solid var(--border);
-            border-radius:18px; padding:28px 24px;
-            transition:all 0.35s cubic-bezier(0.4,0,0.2,1); position:relative; overflow:hidden;
-        }
-        .feature-card::before {
-            content:''; position:absolute; top:0; left:0; right:0; height:2px;
-            background:linear-gradient(90deg,var(--pink),var(--teal)); opacity:0; transition:opacity 0.35s;
-        }
-        .feature-card:hover { transform:translateY(-10px); border-color:rgba(45,212,191,0.35); box-shadow:0 20px 50px rgba(244,114,182,0.1),0 8px 20px rgba(45,212,191,0.1); }
-        .feature-card:hover::before { opacity:1; }
-        .feature-icon {
-            font-size:1.5em; margin-bottom:16px; display:inline-block;
-            background:linear-gradient(135deg,var(--pink),var(--teal));
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-        }
-        .feature-card h3 { font-size:1em; font-weight:700; color:#e2f8f5; margin-bottom:8px; }
-        .feature-card p { color:var(--muted); font-size:0.88em; line-height:1.75; }
+    .persona-card {
+      background-color: #ddd;
+      padding: 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+      margin: 16px;
+    }
 
-        .personas-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; }
-        .persona-card {
-            background:var(--card); border:1px solid rgba(244,114,182,0.15);
-            border-radius:18px; padding:28px 22px; text-align:center; transition:all 0.3s;
-        }
-        .persona-card:hover { transform:translateY(-6px); border-color:rgba(244,114,182,0.4); box-shadow:0 14px 40px rgba(244,114,182,0.12); }
-        .persona-avatar {
-            width:60px; height:60px;
-            background:linear-gradient(135deg,var(--pink-dark),var(--teal-dark));
-            border-radius:50%; display:flex; align-items:center; justify-content:center;
-            font-size:1.5em; font-weight:800; color:white; margin:0 auto 16px;
-            box-shadow:0 4px 18px rgba(244,114,182,0.3);
-        }
-        .persona-card h4 { font-size:1em; font-weight:700; color:#f0faf8; margin-bottom:6px; }
-        .persona-role {
-            background:linear-gradient(135deg,rgba(244,114,182,0.15),rgba(45,212,191,0.15));
-            border:1px solid rgba(45,212,191,0.2); color:var(--teal-light);
-            padding:3px 12px; border-radius:50px; font-size:0.76em; font-weight:600;
-            display:inline-block; margin-bottom:14px;
-        }
-        .persona-card p { color:var(--muted); font-size:0.86em; line-height:1.7; font-style:italic; }
+    .persona-card h2 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
 
-        .stories-list { list-style:none; max-width:700px; margin:0 auto; display:flex; flex-direction:column; gap:12px; }
-        .story-item {
-            background:var(--card); border:1px solid var(--border); border-left:3px solid var(--pink);
-            border-radius:10px; padding:16px 22px; color:#8ab8b3; font-size:0.92em;
-            line-height:1.7; transition:all 0.3s;
-        }
-        .story-item:nth-child(2) { border-left-color:var(--teal); }
-        .story-item:nth-child(3) { border-left-color:var(--pink-light); }
-        .story-item:hover { background:rgba(45,212,191,0.05); color:#e2f8f5; transform:translateX(8px); }
+    .persona-name {
+      font-weight: bold;
+    }
 
-        .cta-section {
-            text-align:center; padding:110px 24px;
-            background:
-                url('https://images.unsplash.com/photo-1557200134-90327ee9fafa?w=1400&q=80') center/cover no-repeat,
-                var(--bg2);
-            position:relative;
-        }
-        .cta-section::before {
-            content:''; position:absolute; inset:0;
-            background:linear-gradient(135deg,rgba(7,16,26,0.96),rgba(7,16,26,0.88),rgba(45,212,191,0.06));
-        }
-        .cta-inner { position:relative; z-index:1; }
-        .cta-section h2 {
-            font-size:clamp(2em,5vw,3.2em); font-weight:900; line-height:1.1; margin-bottom:14px;
-            background:linear-gradient(135deg,#fff,var(--pink-light),var(--teal-light));
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-        }
-        .cta-section p { color:rgba(255,255,255,0.45); margin-bottom:36px; font-size:1.05em; }
-        .cta-badges { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:24px; }
-        .cta-badge { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); color:var(--muted); padding:5px 14px; border-radius:50px; font-size:0.8em; }
+    .persona-role {
+      font-size: 16px;
+      color: #666;
+    }
 
-        footer { text-align:center; padding:28px; color:#1e3535; font-size:0.8em; border-top:1px solid rgba(45,212,191,0.06); }
-        .footer-logo { background:linear-gradient(135deg,var(--teal),var(--pink)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-weight:700; }
-    </style>
+    .persona-pain-point {
+      font-size: 16px;
+      color: #999;
+    }
+
+    /* CT A Section Styles */
+    .cta {
+      background-color: #333;
+      color: #fff;
+      padding: 32px 0;
+      text-align: center;
+    }
+
+    .cta h1 {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .cta-btn {
+      background-color: #00bcd4;
+      color: #fff;
+      padding: 16px 32px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .cta-btn:hover {
+      background-color: #03a9f4;
+    }
+  </style>
 </head>
 <body>
-
-<nav>
-    <div class="nav-logo">✦ Smart ReplyAI</div>
-    <div class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#users">Who It's For</a>
-        <a href="#stories">Stories</a>
-        <a href="#cta">Get Started</a>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Instant Email Responses with AI</h1>
+      <p>Boost your productivity with our AI-powered email assistant</p>
+      <button class="hero-btn">Get Started</button>
     </div>
-</nav>
+  </section>
 
-<!-- HERO — Real photo background -->
-<div class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <div class="hero-badge">✨ Powered by AI · Built for Productivity</div>
-        <h1>Reply Smarter.<br>Not Harder.</h1>
-        <div class="hero-sub">Your AI Email Co-pilot</div>
-        <p>The AI Email Reply Assistant rapidly crafts context-aware email responses to minimize time spent on composing emails for busy professionals, university students, and freelancers.</p>
-        <div class="hero-buttons">
-            <button class="btn-primary" onclick="alert('Sign up coming soon!')">Get Started Free ✦</button>
-            <button class="btn-secondary" onclick="alert('Demo coming soon!')">Watch Demo →</button>
-        </div>
+  <!-- Features Section -->
+  <section class="features">
+    <h2 class="feature-cards">Smart Features</h2>
+    <div class="feature-cards">
+      <div class="feature-card">
+        <h2>Smart Reply Generation</h2>
+        <p>Generates context-aware email responses to save you time</p>
+      </div>
+      <!-- Add more features here -->
     </div>
-</div>
+  </section>
 
-<!-- STATS BAR -->
-<div style="background:rgba(255,255,255,0.02); border-top:1px solid rgba(255,255,255,0.05); border-bottom:1px solid rgba(255,255,255,0.05);">
-    <div class="hero-stats">
-        <div class="stat">
-            <div class="stat-num">2hrs+</div>
-            <div class="stat-label">Saved Daily Per User</div>
-        </div>
-        <div class="stat">
-            <div class="stat-num">10,000+</div>
-            <div class="stat-label">Emails Automated</div>
-        </div>
-        <div class="stat">
-            <div class="stat-num">98%</div>
-            <div class="stat-label">Reply Accuracy</div>
-        </div>
-        <div class="stat">
-            <div class="stat-num">3 sec</div>
-            <div class="stat-label">Average Reply Time</div>
-        </div>
+  <!-- Personas Section -->
+  <section class="personas">
+    <h2 class="personas">Who Can Benefit?</h2>
+    <div class="personas">
+      <div class="persona-card">
+        <h2>Default User</h2>
+        <p class="persona-name"><b>Role:</b> Email User</p>
+        <p class="persona-role"><b>Pain Point:</b> Spends too much time writing repetitive email replies</p>
+      </div>
+      <!-- Add more personas here -->
     </div>
-</div>
+  </section>
 
-<div class="gradient-divider"></div>
-
-<section id="features">
-    <p class="section-label">✦ What We Offer</p>
-    <h2 class="section-title">Everything You Need</h2>
-    <p class="section-subtitle">Powerful features designed to eliminate email overwhelm and help you communicate like a pro.</p>
-    <div class="features-grid">
-        <div class="feature-card">
-            <div class="feature-icon">✦</div>
-            <h3>Smart Email Parsing</h3>
-            <p>Automatically identifies key points in incoming emails for quick and efficient response.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">✦</div>
-            <h3>Context-Aware Response Generation</h3>
-            <p>Crafts highly relevant, professional, and concise responses based on email content and context.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">✦</div>
-            <h3>Language Personalization</h3>
-            <p>Enables customization of language, tone, and style to mirror the user's voice, aligning with their unique brand or persona.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">✦</div>
-            <h3>Integration with Calendars and Task Management Tools</h3>
-            <p>Seamlessly integrates with popular calendars and task management systems, allowing users to schedule email responses and prioritize tasks.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">✦</div>
-            <h3>Continuous Learning and Improvement</h3>
-            <p>Leverages machine learning algorithms to monitor user interactions and continuously refine its responses, guaranteeing improvement over time.</p>
-        </div></div>
-</section>
-
-<div class="gradient-divider"></div>
-
-<section id="users">
-    <p class="section-label">✦ Who It's For</p>
-    <h2 class="section-title">Built For Real People</h2>
-    <p class="section-subtitle">Whether you're a professional, student, or freelancer — Smart ReplyAI fits your workflow perfectly.</p>
-    <div class="personas-grid">
-        <div class="persona-card">
-            <div class="persona-avatar">A</div>
-            <h4>Alex</h4>
-            <span class="persona-role">Busy Professional</span>
-            <p>"spending excessive hours drafting emails, impacting productivity and leading to missed deadlines."</p>
-        </div>
-        <div class="persona-card">
-            <div class="persona-avatar">S</div>
-            <h4>Sara</h4>
-            <span class="persona-role">University Student</span>
-            <p>"struggling to respond to overwhelming student mail, often using incorrect or unprofessional language."</p>
-        </div>
-        <div class="persona-card">
-            <div class="persona-avatar">M</div>
-            <h4>Mike</h4>
-            <span class="persona-role">Freelancer</span>
-            <p>"difficulty in maintaining timely and professional client communication, risking lost opportunities and damaged reputations."</p>
-        </div></div>
-</section>
-
-<div class="gradient-divider"></div>
-
-<section id="stories">
-    <p class="section-label">✦ Real Use Cases</p>
-    <h2 class="section-title">How People Use Smart ReplyAI</h2>
-    <p class="section-subtitle">Real scenarios where Smart ReplyAI saves hours and improves every conversation.</p>
-    <ul class="stories-list"><li class="story-item">💌 As a busy professional, I want AI to be able to recognize the key points in an email, so that I can create a relevant response quickly without needing to read through the entire message.</li><li class="story-item">💌 As a student, I want the AI to consider my previous conversations with someone when generating an email reply, to maintain consistency across our interactions.</li><li class="story-item">💌 As a freelancer, I want the AI to allow me to customize the tone of my email responses so that they feel more natural and professional, while still being quick to write.</li></ul>
-</section>
-
-<div class="cta-section" id="cta">
-    <div class="cta-inner">
-        <h2>Ready to Transform<br>Your Inbox?</h2>
-        <p>Join thousands of professionals saving 2+ hours every week.</p>
-        <button class="btn-primary" onclick="alert('Sign up coming soon!')">Start For Free Today ✦</button>
-        <div class="cta-badges">
-            <span class="cta-badge">✓ No credit card required</span>
-            <span class="cta-badge">✓ Free forever plan</span>
-            <span class="cta-badge">✓ Setup in 2 minutes</span>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <p>Generated by <span class="footer-logo">EngineerAgent &lt;agent@launchmind.ai&gt;</span> · ReplyAI © 2026</p>
-</footer>
-
+  <!-- CT A Section -->
+  <section class="cta">
+    <button class="cta-btn">Get Started for Free</button>
+    <p>Sign up now and start boosting your productivity</p>
+  </section>
 </body>
 </html>
