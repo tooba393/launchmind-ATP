@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart ReplyAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #f472b6;
+      --pink-light: #fbcfe8;
+      --pink-dark: #db2777;
+      --teal: #2dd4bf;
+      --teal-light: #99f6e4;
+      --teal-dark: #0d9488;
+      --bg: #07101a;
+      --bg2: #0a1520;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--bg2);
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      background: linear-gradient(90deg, var(--pink) 0%, var(--teal) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .navbar-nav {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    .navbar-nav li {
+      margin-right: 20px;
+    }
+    .navbar-nav a {
+      text-decoration: none;
+      color: #fff;
+    }
+    .hero {
+      height: 100vh;
+      background-image: url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.35);
+      position: relative;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-content {
+      text-align: center;
+    }
+    .badge {
+      background-color: var(--pink);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      font-size: 1rem;
+    }
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 600;
+      background: linear-gradient(90deg, var(--pink) 0%, var(--teal) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: #fff;
+    }
+    .hero-paragraph {
+      color: #fff;
+    }
+    .btn {
+      background-color: var(--pink);
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 0.5rem;
+    }
+    .btn:hover {
+      background-color: var(--pink-dark);
+    }
+    #features {
+      padding: 5rem 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .feature-card {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out;
+    }
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+    .feature-icon {
+      font-size: 2rem;
+      color: var(--pink);
+    }
+    .feature-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <span class="navbar-logo">✦ Smart ReplyAI</span>
+    <ul class="navbar-nav">
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Who It's For</a></li>
+      <li><a href="#">Stories</a></li>
+      <li><a href="#">Get Started</a></li>
+    </ul>
+  </nav>
+  <section class="hero">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <span class="badge">✨ Powered by AI · Built for Productivity</span>
+        <h1 class="hero-title">Reply Smarter. Not Harder.</h1>
+        <p class="hero-subtitle">Your AI Email Co-pilot</p>
+        <p class="hero-paragraph">AI-powered email reply assistant that saves time and increases productivity for busy individuals</p>
+        <button class="btn">Get Started Free</button>
+        <button class="btn">Watch Demo</button>
+      </div>
+    </div>
+  </section>
+  <section id="features">
+    <div class="feature-card">
+      <span class="feature-icon">✦</span>
+      <h3 class="feature-title">Automated Response Suggestions</h3>
+      <p>Uses AI to analyze the content of incoming emails and provides relevant, personalized response suggestions to save users time and effort</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">✦</span>
+      <h3 class="feature-title">Calendar Integration</h3>
+      <p>Seamlessly integrates with users' calendars to schedule meetings, appointments, and deadlines, ensuring that users never miss important events or deadlines</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">✦</span>
+      <h3 class="feature-title">Email Summarization</h3>
+      <p>Summarizes long emails into concise, easily digestible snippets, allowing users to quickly grasp the main points and respond accordingly</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">✦</span>
+      <h3 class="feature-title">Follow-up Reminder</h3>
+      <p>Sends users reminders to follow up on pending emails, ensuring that important conversations are not forgotten or overlooked</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">✦</span>
+      <h3 class="feature-title">Tone and Language Analysis</h3>
+      <p>Analyzes the tone and language used in emails and provides users with suggestions to adjust their responses to better match the tone and style of the conversation</p>
+    </div>
+  </section>
+
+<section id="users">
+  <h2>Who It's For</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="avatar">E</div>
+      <h4>Emily Chen</h4>
+      <span class="badge pill">Marketing Manager</span>
+      <i>"struggling to keep up with responding to a high volume of emails in a timely manner while juggling multiple projects"</i>
+    </div>
+    <div class="card">
+      <div class="avatar">R</div>
+      <h4>Ryan Patel</h4>
+      <span class="badge pill">Graduate Student</span>
+      <i>"finding it challenging to balance academic responsibilities with part-time work and personal life, leading to delayed responses to important emails"</i>
+    </div>
+  </div>
+</section>
+
+<section id="stories">
+  <h2>Real Use Cases</h2>
+  <ul class="stories-list">
+    <li class="story-item">
+      <span class="left-border"></span>
+      As a marketing manager, I want the AI-powered email reply assistant to suggest responses to common customer inquiries so that I can quickly respond to a high volume of emails and focus on more strategic tasks
+    </li>
+    <li class="story-item">
+      <span class="left-border"></span>
+      As a graduate student, I want the email reply assistant to help me prioritize and respond to important emails from professors and colleagues so that I can stay on top of my academic responsibilities and maintain good relationships
+    </li>
+    <li class="story-item">
+      <span class="left-border"></span>
+      As a busy professional, I want the email reply assistant to integrate with my calendar and remind me of upcoming meetings and deadlines so that I can plan my day and ensure I'm always prepared
+    </li>
+  </ul>
+</section>
+
+<section id="cta">
+  <h2>Ready to Transform Your Inbox?</h2>
+  <p>Join thousands saving 2+ hours weekly.</p>
+  <button>Start For Free Today ✦</button>
+  <span class="badge pill">✓ No credit card required</span>
+  <span class="badge pill">✓ Free forever plan</span>
+  <span class="badge pill">✓ Setup in 2 minutes</span>
+</section>
+
+<footer>
+  Generated by EngineerAgent <agent@launchmind.ai>
+</footer>
+</body>
+</html>
