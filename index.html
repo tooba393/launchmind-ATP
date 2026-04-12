@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart ReplyAI — AI Email Reply Assistant</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#f472b6;
+  --pink-light:#fbcfe8;
+  --pink-dark:#db2777;
+  --teal:#2dd4bf;
+  --teal-light:#99f6e4;
+  --teal-dark:#0d9488;
+  --bg:#07101a;
+  --bg2:#0a1520;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:#fff;}
+a{color:#fff;text-decoration:none;transition:color .3s;}
+a:hover{color:var(--pink);}
+header{
+  position:fixed;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:rgba(0,0,0,.7);backdrop-filter:blur(10px);z-index:1000;
+}
+.logo{
+  font-weight:700;font-size:1.5rem;background:linear-gradient(45deg,var(--pink),var(--teal));-webkit-background-clip:text;color:transparent;
+}
+nav a{margin-left:1.5rem;font-weight:600;}
+.hero{
+  position:relative;height:100vh;background:url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80') center/cover no-repeat;filter:brightness(0.35);
+}
+.hero::after{
+  content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(0,0,0,.8),rgba(0,0,0,.9));z-index:1;
+}
+.hero-content{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;text-align:center;padding:0 1rem;
+}
+.badge{
+  display:inline-block;background:rgba(255,255,255,.1);padding:.3rem 1rem;border-radius:9999px;font-size:.9rem;margin-bottom:1rem;
+}
+.hero h1{
+  font-size:3rem;font-weight:700;background:linear-gradient(90deg,var(--pink),var(--teal));-webkit-background-clip:text;color:transparent;display:inline-block;margin-bottom:.5rem;
+}
+.hero h2{font-size:1.5rem;font-weight:400;margin-bottom:1rem;}
+.hero p{max-width:600px;margin:0 auto 1.5rem;color:rgba(255,255,255,.8);}
+.buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn{
+  padding:.75rem 1.5rem;border-radius:.375rem;font-weight:600;transition:all .3s;
+}
+.btn-primary{background:var(--teal);color:#000;}
+.btn-primary:hover{background:var(--teal-light);}
+.btn-secondary{background:var(--pink);color:#000;}
+.btn-secondary:hover{background:var(--pink-light);}
+#features{padding:5rem 2rem;max-width:1200px;margin:auto;}
+#features h2{font-size:2.5rem;text-align:center;margin-bottom:3rem;}
+.features-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;
+}
+.card{
+  background:rgba(0,0,0,.2);padding:2rem;border-radius:.5rem;transition:transform .3s ease,background .3s;
+  display:flex;flex-direction:column;height:100%;
+}
+.card:hover{transform:translateY(-5px);background:rgba(0,0,0,.25);}
+.card h3{margin-top:1rem;font-size:1.25rem;display:flex;align-items:center;}
+.card h3::before{
+  content:"✦";color:var(--pink);font-size:1.5rem;margin-right:.5rem;
+}
+.card p{margin-top:.75rem;color:rgba(255,255,255,.8);flex-grow:1;}
+@media(max-width:640px){
+  .hero h1{font-size:2.5rem;}
+  .hero h2{font-size:1.25rem;}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">✦ Smart ReplyAI</div>
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#who">Who It's For</a>
+    <a href="#stories">Stories</a>
+    <a href="#get-started">Get Started</a>
+  </nav>
+</header>
+<section class="hero">
+  <div class="hero-content">
+    <div class="badge">✨ Powered by AI · Built for Productivity</div>
+    <h1>Reply Smarter. Not Harder.</h1>
+    <h2>Your AI Email Co-pilot</h2>
+    <p>AI‑powered email assistant that drafts precise, context‑aware replies in seconds, keeping busy professionals and students inbox‑free.</p>
+    <div class="buttons">
+      <a href="#get-started" class="btn btn-primary">Get Started Free</a>
+      <a href="#demo" class="btn btn-secondary">Watch Demo</a>
+    </div>
+  </div>
+</section>
+<section id="features">
+  <h2>Features</h2>
+  <div class="features-grid">
+    <div class="card">
+      <h3>Contextual Reply Generator</h3>
+      <p>Analyzes the full thread, extracts key points, and suggests a ready‑to‑send reply that matches the user's preferred tone and includes any required data references.</p>
+    </div>
+    <div class="card">
+      <h3>Tone & Formality Slider</h3>
+      <p>One‑click control to shift the draft between casual, neutral, and formal tones, ensuring each reply fits the relationship and corporate culture.</p>
+    </div>
+    <div class="card">
+      <h3>One‑Click Action Extraction</h3>
+      <p>Detects actionable items (meeting requests, task assignments, document reviews) and offers instant buttons to schedule, create a task, or attach files directly from the draft.</p>
+    </div>
+    <div class="card">
+      <h3>Bulk Reply Builder</h3>
+      <p>Groups similar inbound queries (e.g., FAQ, status updates) and generates a single customized response that can be sent to all recipients with a single click.</p>
+    </div>
+    <div class="card">
+      <h3>Secure On‑Device Processing</h3>
+      <p>All AI inference runs locally or within a private VPC, guaranteeing that confidential business or research information never leaves the user's environment.</p>
+    </div>
+  </div>
+</section>
+
+<section id="users">
+  <h2>Who It's For</h2>
+  <div class="card-grid">
+    <article class="persona-card">
+      <div class="avatar">M</div>
+      <h4>Maya Patel</h4>
+      <span class="role-badge">Senior Management Consultant</span>
+      <p><em>"Spends over an hour each morning triaging 150+ client and internal emails, risking missed deadlines and tone inconsistencies."</em></p>
+    </article>
+    <article class="persona-card">
+      <div class="avatar">L</div>
+      <h4>Luis Romero</h4>
+      <span class="role-badge">PhD Candidate in Computer Science</span>
+      <p><em>"Juggles 80 daily messages from advisors, lab mates, and conference organizers, leading to delayed responses and duplicated effort."</em></p>
+    </article>
+    <article class="persona-card">
+      <div class="avatar">A</div>
+      <h4>Aisha Khan</h4>
+      <span class="role-badge">Sales Operations Manager</span>
+      <p><em>"Needs to acknowledge and follow up on 200+ sales‑related emails daily without sacrificing personalization, often copying data into the CRM manually."</em></p>
+    </article>
+    <article class="persona-card">
+      <div class="avatar">D</div>
+      <h4>Daniel Chen</h4>
+      <span class="role-badge">CTO of a SaaS Startup</span>
+      <p><em>"Receives 120 technical threads per day; crafting accurate replies that reference code snippets or prior decisions takes excessive time."</em></p>
+    </article>
+  </div>
+</section>
+<section id="stories">
+  <h2>Real Use Cases</h2>
+  <ul class="stories-list">
+    <li class="story-item">As a senior consultant, I want an AI to read the entire client thread and propose a concise reply, so that I can respond in under two minutes without sacrificing professionalism.</li>
+    <li class="story-item">As a PhD candidate, I want a tone slider that lets me switch between formal and informal drafts, so that I can quickly adapt to emails from professors versus peers.</li>
+    <li class="story-item">As a sales ops manager, I want the system to surface meeting requests and give me a one‑click calendar add button, so that I can confirm appointments without leaving my inbox.</li>
+    <li class="story-item">As a CTO, I want an AI that automatically references relevant code snippets and past decisions, so that I can craft accurate technical replies quickly.</li>
+  </ul>
+</section>
+<section id="cta">
+  <h2>Ready to Transform Your Inbox?</h2>
+  <p>Join thousands saving 2+ hours weekly.</p>
+  <button>Start For Free Today ✦</button>
+  <div class="badge-pills">
+    <span class="badge-pill">✓ No credit card required</span>
+    <span class="badge-pill">✓ Free forever plan</span>
+    <span class="badge-pill">✓ Setup in 2 minutes</span>
+  </div>
+</section>
+<footer>
+  Generated by EngineerAgent &lt;agent@launchmind.ai&gt;
+</footer>
+</body>
+</html>
