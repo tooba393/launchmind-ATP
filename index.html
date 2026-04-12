@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ReplyAI</title>
+    <style>
+        :root {
+            --pink: #f472b6;
+            --pink-light: #fbcfe8;
+            --pink-dark: #db2777;
+            --teal: #2dd4bf;
+            --teal-light: #99f6e4;
+            --teal-dark: #0d9488;
+            --bg: #07101a;
+            --bg2: #0a1520;
+        }
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--bg2);
+            display: flex;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-family: sans-serif;
+        }
+        nav a {
+            color: var(--pink);
+            text-decoration: none;
+            padding: .5rem 1rem;
+        }
+        nav a:hover {
+            background-color: var(--pink-light);
+            border-radius: 10px;
+        }
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80');
+            background-size: cover;
+            -webkit-backdrop-filter: brightness(0.35);
+            backdrop-filter: brightness(0.35);
+            background-color: #000000;
+        }
+        .dark-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .hero-content {
+            z-index: 1;
+            text-align: center;
+        }
+        .hero-content .badge {
+            background-color: var(--pink);
+            border-radius: 10px;
+            padding: 0.5rem 1rem;
+        }
+        .hero-content h1 {
+            font-size: 2.5rem;
+            color: var(--pink);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .hero-content h1 span {
+            color: var(--teal);
+        }
+        .hero-content p {
+            font-size: 1.5rem;
+            color: var(--pink-light);
+            margin-bottom: 2rem;
+        }
+        .hero-content .btn-container {
+            display: flex;
+            justify-content: center;
+        }
+        .hero-content .btn {
+            background-color: var(--teal);
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .hero-content .btn:hover {
+            background-color: var(--teal-dark);
+        }
+        .features {
+            position: relative;
+            width: 100%;
+            height: fit-content;
+            padding: 5rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5rem;
+            margin-top: 10rem;
+        }
+        .feature-card {
+            background-color: var(--pink-light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-card .icon {
+            font-size: 6rem;
+            color: var(--teal);
+            margin-bottom: 1rem;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        .feature-card p {
+            font-size: 1.2rem;
+            color: var(--pink-dark);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Smart ReplyAI&nbsp;✦</div>
+        <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Who It's For</a></li>
+            <li><a href="#">Stories</a></li>
+            <li><a href="#">Get Started</a></li>
+        </ul>
+    </nav>
+    <section class="hero">
+        <div class="dark-overlay"></div>
+        <div class="hero-content">
+            <div class="badge pill">✨ Powered by AI · Built for Productivity</div>
+            <h1>Reply <span>Smarter.</span> Not Harder.</h1>
+            <p>Get instant, context-aware email replies with an AI-powered assistant that saves time and boosts productivity for busy professionals and students.</p>
+            <div class="btn-container">
+                <button class="btn">Get Started Free</button>
+                <button class="btn">Watch Demo</button>
+            </div>
+        </div>
+    </section>
+    <section id="features" class="features"></section>
+
+<section id="users">
+  <h2>Who It's For</h2>
+  <div class="persona-grid">
+    <div class="persona-card">
+      <div class="avatar-circle">E</div>
+      <h4>Emily Chen</h4>
+      <div class="role-badge">Marketing Manager</div>
+      <p>"Struggling to keep up with a high volume of emails from clients, colleagues, and partners, often leading to delayed responses and missed opportunities"</p>
+    </div>
+    <div class="persona-card">
+      <div class="avatar-circle">R</div>
+      <h4>Ryan Patel</h4>
+      <div class="role-badge">University Student</div>
+      <p>"Finding it challenging to manage email communications with professors, peers, and employers while meeting deadlines and maintaining a work-life balance"</p>
+    </div>
+  </div>
+</section>
+<section id="stories">
+  <h2>Real Use Cases</h2>
+  <ul class="stories-list">
+    <li class="story-item">
+      <h4>Marketing Manager</h4>
+      <p>"As a marketing manager, I want the AI-powered email reply assistant to suggest responses to common client inquiries, so that I can quickly respond and maintain a high level of customer satisfaction."</p>
+    </li>
+    <li class="story-item">
+      <h4>University Student</h4>
+      <p>"As a university student, I want the email reply assistant to help me draft polished responses to emails from professors and employers, so that I can make a professional impression and achieve my academic and career goals."</p>
+    </li>
+    <li class="story-item">
+      <h4>Busy Professional</h4>
+      <p>"As a busy professional, I want the AI-powered assistant to prioritize and summarize my emails, so that I can focus on the most critical messages and manage my time more efficiently."</p>
+    </li>
+  </ul>
+</section>
+<section id="cta">
+  <h2>Ready to Transform Your Inbox?</h2>
+  <p>Join thousands saving 2+ hours weekly.</p>
+  <button>Start For Free Today ✦</button>
+  <div class="badge-pills">
+    <div class="badge-pill">✓ No credit card required</div>
+    <div class="badge-pill">✓ Free forever plan</div>
+    <div class="badge-pill">✓ Setup in 2 minutes</div>
+  </div>
+</section>
+<footer>
+  Generated by EngineerAgent <agent@launchmind.ai>
+</footer>
+</body>
+
+</html>
