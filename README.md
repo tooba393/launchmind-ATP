@@ -82,7 +82,7 @@ python main.py
 
 ## Links
 
-- **GitHub PR (Engineer Agent):** [landing-page-a3a07b](https://github.com/tooba393/launchmind-ATP/tree/landing-page-a3a07b)
+- **GitHub PR (Engineer Agent):** [[landing-page-a3a07b](https://github.com/tooba393/launchmind-ATP/tree/landing-page-a3a07b)](https://github.com/tooba393/launchmind-ATP/pull/188)
 - **GitHub Repository:** https://github.com/tooba393/launchmind-ATP
 - **Slack Workspace:** https://join.slack.com/t/agenticai-dzg8459/shared_invite/zt-3umfteltu-qL6_XXiyHJ2sRcKmic3qfA
 - **Demo Video:**      https://drive.google.com/file/d/1qkWKMPtJMzBTu8pnqc_s3gWkyiGPwO30/view?usp=drive_link
