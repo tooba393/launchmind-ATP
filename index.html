@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #f472b6;
+      --pink-light: #fbcfe8;
+      --pink-dark: #db2777;
+      --teal: #2dd4bf;
+      --teal-light: #99f6e4;
+      --teal-dark: #0d9488;
+      --bg: #07101a;
+      --bg2: #0a1520;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #f5f5f5;
+      background-color: var(--bg);
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--bg2);
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .navbar li {
+      margin-right: 20px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: var(--pink);
+      transition: color 0.2s ease;
+    }
+
+    .navbar a:hover {
+      color: var(--pink-dark);
+    }
+
+    .hero {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      background-blur: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #f5f5f5;
+    }
+
+    .hero-content {
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .hero-content p {
+      margin-bottom: 20px;
+    }
+
+    .hero-content button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: var(--pink);
+      color: #f5f5f5;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .hero-content button:hover {
+      background-color: var(--pink-dark);
+    }
+
+    .features {
+      padding: 100px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      background-color: var(--bg2);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 10px;
+      color: var(--pink);
+    }
+
+    .feature-card p {
+      margin-bottom: 20px;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="">Features</a></li>
+      <li><a href="">Who It's For</a></li>
+      <li><a href="">Stories</a></li>
+      <li><a href="">Get Started</a></li>
+    </ul>
+  </nav>
+  <section class="hero">
+    <div class="hero-content">
+      <div>
+        <span style="font-size: 24px; color: var(--teal);">✦</span> Smart ReplyAI
+      </div>
+      <div class="badge-pill">
+        <span style="font-size: 14px; color: var(--pink);">✨</span> Powered by AI · Built for Productivity
+      </div>
+      <h1 style="text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); font-size: 48px; color: var(--pink);">Reply Smarter. Not Harder.</h1>
+      <p style="font-size: 18px; color: #f5f5f5;">Your AI Email Co-pilot</p>
+      <p style="font-size: 16px; color: #f5f5f5;">Effortlessly manage your inbox with an AI-powered email reply assistant that saves you time and boosts productivity</p>
+      <button Get Started Free style="width: 150px; padding: 10px 20px; border: none; border-radius: 10px; background-color: var(--pink); color: #f5f5f5; cursor: pointer; transition: background-color 0.2s ease;">Get Started Free</button>
+      <button Watch Demo style="width: 150px; padding: 10px 20px; border: none; border-radius: 10px; background-color: var(--pink); color: #f5f5f5; cursor: pointer; transition: background-color 0.2s ease;">Watch Demo</button>
+    </div>
+    <div class="hero-overlay">
+      <div class="gradient-overlay">
+      </div>
+    </div>
+  </section>
+  <section id="features" class="features">
+    <div class="feature-card">
+      <div><span style="font-size: 24px; color: var(--teal);">✦</span></div>
+      <h3>Smart Response Generation</h3>
+      <p>The AI-powered email reply assistant generates human-like responses to common email scenarios, such as meeting invitations, invoices, and customer inquiries, saving users time and effort</p>
+    </div>
+    <div class="feature-card">
+      <div><span style="font-size: 24px; color: var(--teal);">✦</span></div>
+      <h3>Email Client Integration</h3>
+      <p>Seamless integration with popular email clients, allowing users to access the AI-powered reply assistant directly from their inbox and streamlining their workflow</p>
+    </div>
+    <div class="feature-card">
+      <div><span style="font-size: 24px; color: var(--teal);">✦</span></div>
+      <h3>Customizable Response Templates</h3>
+      <p>Users can create and save personalized response templates for frequently encountered email scenarios, enabling them to tailor the AI-powered reply assistant to their specific needs</p>
+    </div>
+    <div class="feature-card">
+      <div><span style="font-size: 24px; color: var(--teal);">✦</span></div>
+      <h3>Conversation Analysis</h3>
+      <p>The AI-powered reply assistant analyzes email conversations and provides users with insights on how to improve their communication, such as suggesting alternative phrases or tone adjustments</p>
+    </div>
+    <div class="feature-card">
+      <div><span style="font-size: 24px; color: var(--teal);">✦</span></div>
+      <h3>Automation Rules</h3>
+      <p>Users can set up custom automation rules to handle routine email tasks, such as auto-responding to certain types of emails or forwarding messages to specific contacts</p>
+    </div>
+  </section>
+
+<section id="users">
+  <div class="container">
+    <h2>Who It's For</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="avatar-circle">
+          <i class="fas fa-circle"></i>
+        </div>
+        <div class="card-content">
+          <h4>Maya Jensen</h4>
+          <div class="pill">
+            Marketing Manager
+          </div>
+          <div class="pain-point">
+            "Spending too much time responding to routine emails and struggling to keep up with her overflowing inbox"
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="avatar-circle">
+          <i class="fas fa-circle"></i>
+        </div>
+        <div class="card-content">
+          <h4>Ethan Patel</h4>
+          <div class="pill">
+            Graduate Student
+          </div>
+          <div class="pain-point">
+            "Getting bogged down in email conversations with colleagues and professors, taking away from time that could be spent on research and studies"
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="avatar-circle">
+          <i class="fas fa-circle"></i>
+        </div>
+        <div class="card-content">
+          <h4>Liam Chen</h4>
+          <div class="pill">
+            Sales Representative
+          </div>
+          <div class="pain-point">
+            "Constantly having to craft personalized email responses to potential clients, which eats into the time he could be spending on closing deals"
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stories">
+  <div class="container">
+    <h2>Real Use Cases</h2>
+    <ul class="stories-list">
+      <li class="story-item">
+        <div class="pink-border">
+          <h3>Marketing Manager</h3>
+          <p>Maya Jensen uses our AI-powered reply assistant to generate responses to common email scenarios, freeing up time to focus on high-priority tasks and reducing her inbox clutter.</p>
+        </div>
+      </li>
+      <li class="story-item">
+        <div class="pink-border">
+          <h3>Graduate Student</h3>
+          <p>Ethan Patel uses our email reply assistant to help him craft polished responses to emails from professors and colleagues, maintaining a professional image and avoiding misunderstandings.</p>
+        </div>
+      </li>
+      <li class="story-item">
+        <div class="pink-border">
+          <h3>Sales Representative</h3>
+          <p>Liam Chen uses our AI-powered reply assistant to provide him with personalized response templates for common sales scenarios, quickly responding to leads and closing deals more efficiently.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="cta" class="bg-color-primary">
+  <div class="container">
+    <h2>Ready to Transform Your Inbox?</h2>
+    <p>Join thousands saving 2+ hours weekly.</p>
+    <button>
+      Start For Free Today 
+    </button>
+    <div class="pill-list">
+      <div class="pill">✓ No credit card required</div>
+      <div class="pill">✓ Free forever plan</div>
+      <div class="pill">✓ Setup in 2 minutes</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Generated by EngineerAgent <a href="mailto:agent@launchmind.ai">agent@launchmind.ai</a></p>
+</footer>
+
+</body>
+</html>
