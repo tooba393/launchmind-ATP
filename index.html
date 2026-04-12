@@ -2,196 +2,132 @@ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Email Assistant</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Sans:wght@400;600&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <style>
-    /* Global Styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-    body {
-      font-family: 'Material Sans', sans-serif;
-      background-color: #f9f9f9;
-      margin: 0;
-    }
+        .hero {
+            text-align: center;
+            padding: 50px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    /* Hero Section Styles */
-    .hero {
-      background-image: linear-gradient(to bottom, #333, #555);
-      background-size: 100% 300px;
-      background-position: 0% 100%;
-      height: 80vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      font-size: 24px;
-      text-align: center;
-    }
+        .hero h1 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
 
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 16px;
-    }
+        .hero h2 {
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 20px;
+        }
 
-    .hero-text {
-      max-width: 400px;
-      margin: 16px auto;
-    }
+        .hero button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
-    .hero-btn {
-      background-color: #00bcd4;
-      color: #fff;
-      padding: 16px 32px;
-      border: none;
-      border-radius: 8px;
-      font-size: 18px;
-      cursor: pointer;
-    }
+        .hero button:hover {
+            background-color: #0069d9;
+        }
 
-    .hero-btn:hover {
-      background-color: #03a9f4;
-    }
+        .features {
+            padding: 50px;
+        }
 
-    /* Features Section Styles */
-    .features {
-      padding: 64px 0;
-    }
+        .features .card {
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-    .feature-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 32px;
-    }
+        .features .card h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
 
-    .feature-card {
-      width: calc(33.33% - 16px);
-      padding: 16px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
-      margin: 16px;
-    }
+        .persona {
+            padding: 50px;
+        }
 
-    .feature-card h2 {
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
+        .persona .card {
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-    .feature-card p {
-      font-size: 16px;
-      margin-bottom: 16px;
-    }
+        .persona .card h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
 
-    /* Personas Section Styles */
-    .personas {
-      padding: 64px 0;
-    }
+        .cta {
+            background-color: #007bff;
+            padding: 20px;
+            text-align: center;
+        }
 
-    .persona-card {
-      background-color: #ddd;
-      padding: 16px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
-      margin: 16px;
-    }
+        .cta button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
-    .persona-card h2 {
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .persona-name {
-      font-weight: bold;
-    }
-
-    .persona-role {
-      font-size: 16px;
-      color: #666;
-    }
-
-    .persona-pain-point {
-      font-size: 16px;
-      color: #999;
-    }
-
-    /* CT A Section Styles */
-    .cta {
-      background-color: #333;
-      color: #fff;
-      padding: 32px 0;
-      text-align: center;
-    }
-
-    .cta h1 {
-      font-size: 24px;
-      margin-bottom: 16px;
-    }
-
-    .cta-btn {
-      background-color: #00bcd4;
-      color: #fff;
-      padding: 16px 32px;
-      border: none;
-      border-radius: 8px;
-      font-size: 18px;
-      cursor: pointer;
-    }
-
-    .cta-btn:hover {
-      background-color: #03a9f4;
-    }
-  </style>
+        .cta button:hover {
+            background-color: #0069d9;
+        }
+    </style>
 </head>
 <body>
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Instant Email Responses with AI</h1>
-      <p>Boost your productivity with our AI-powered email assistant</p>
-      <button class="hero-btn">Get Started</button>
+    <div class="hero">
+        <h1>Email Assistant</h1>
+        <h2>Save time with AI-powered email responses</h2>
+        <button>Get Started</button>
     </div>
-  </section>
-
-  <!-- Features Section -->
-  <section class="features">
-    <h2 class="feature-cards">Smart Features</h2>
-    <div class="feature-cards">
-      <div class="feature-card">
-        <h2>Smart Reply Generation</h2>
-        <p>Generates context-aware email responses to save you time</p>
-      </div>
-      <!-- Add more features here -->
+    <div class="features">
+        <div class="card">
+            <h3>Smart Reply Generation</h3>
+            <p>Generates context-aware email responses</p>
+        </div>
     </div>
-  </section>
-
-  <!-- Personas Section -->
-  <section class="personas">
-    <h2 class="personas">Who Can Benefit?</h2>
-    <div class="personas">
-      <div class="persona-card">
-        <h2>Default User</h2>
-        <p class="persona-name"><b>Role:</b> Email User</p>
-        <p class="persona-role"><b>Pain Point:</b> Spends too much time writing repetitive email replies</p>
-      </div>
-      <!-- Add more personas here -->
+    <div class="persona">
+        <h2>Meet Our User</h2>
+        <div class="card">
+            <h3>Default User</h3>
+            <p>Spends too much time writing repetitive email replies</p>
+        </div>
     </div>
-  </section>
-
-  <!-- CT A Section -->
-  <section class="cta">
-    <button class="cta-btn">Get Started for Free</button>
-    <p>Sign up now and start boosting your productivity</p>
-  </section>
+    <div class="cta">
+        <h2>Sign Up for Free</h2>
+        <button>Get Started</button>
+    </div>
 </body>
 </html>
