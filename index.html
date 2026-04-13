@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #f472b6; 
+      --pink-light: #fbcfe8;
+      --pink-dark: #db2777; 
+      --teal: #2dd4bf;
+      --teal-light: #99f6e4;
+      --teal-dark: #0d9488; 
+      --bg: #07101a;
+      --bg2: #0a1520;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: white;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 0.5rem 1.5rem;
+      background-image: linear-gradient(to right, var(--pink-dark), var(--pink));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar-logo {
+      font-size: 1.5rem;
+      color: var(--pink-light);
+    }
+    .navbar-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 10px;
+    }
+    .navbar-link {
+      text-decoration: none;
+      color: var(--pink-light);
+      transition: 0.2s;
+    }
+    .navbar-link:hover {
+      color: var(--pink);
+    }
+    .hero {
+      width: 100vw;
+      height: 100vh;
+      background-image: url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: lighten;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, calc(50% + 20px) 85px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+    }
+    .hero-badge {
+      background-image: linear-gradient(to right, var(--teal-dark), var(--teal));
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 12px;
+      color: var(--teal-light);
+    }
+    .hero-title {
+      font-size: 1.5rem;
+      color: white;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+    .hero-underline {
+      width: 100px;
+      height: 2px;
+      background-color: var(--pink-light);
+      position: relative;
+      margin-bottom: 15px;
+    }
+    .hero-underline::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 10px 10px;
+      border-color: transparent transparent var(--pink) transparent;
+    }
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--teal-light);
+      margin-bottom: 25px;
+    }
+    .hero-btns {
+      margin: 0;
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 10px;
+    }
+    .hero-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      background-image: linear-gradient(to right, var(--teal), var(--pink));
+      color: white;
+    }
+    .hero-btn:hover {
+      cursor: pointer;
+      background-image: linear-gradient(to right, var(--pink), var(--teal));
+    }
+    #features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    #features .card {
+      background-color: var(--bg2);
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      transform: translateY(0);
+      transition: 0.2s;
+    }
+    #features .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    #features .card-icon {
+      font-size: 2.5rem;
+      color: var(--pink);
+    }
+    #features .card-name {
+      font-size: 1rem;
+      color: var(--pink-light);
+      margin-bottom: 5px;
+    }
+    #features .card-description {
+      font-size: 0.9rem;
+      color: var(--teal-light);
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <h2 class="navbar-logo">✦ Smart ReplyAI</h2>
+    <ul class="navbar-links">
+      <li><a class="navbar-link" href="#">Features</a></li>
+      <li><a class="navbar-link" href="#">Who It's For</a></li>
+      <li><a class="navbar-link" href="#">Stories</a></li>
+      <li><a class="navbar-link" href="#">Get Started</a></li>
+    </ul>
+  </nav>
+  <section class="hero">
+    <h1 class="hero-badge">✨ Powered by AI · Built for Productivity</h1>
+    <h1 class="hero-title">Reply Smarter. Not Harder.</h1>
+    <div class="hero-underline"></div>
+    <h2 class="hero-subtitle">Your AI Email Co-pilot</h2>
+    <p>Effortlessly manage your time and communication with AI-powered email reply assistance.</p>
+    <ul class="hero-btns">
+      <li><button class="hero-btn">Get Started Free</button></li>
+      <li><button class="hero-btn">Watch Demo</button></li>
+    </ul>
+  </section>
+  <section id="features">
+    <div class="card">
+      <i class="card-icon">✦</i>
+      <h3 class="card-name">Draft Email Generation</h3>
+      <p class="card-description">Get high-quality email drafts based on your context, tone, and voice, ensuring you sound professional and approachable, without spending hours crafting the perfect response.</p>
+    </div>
+    <div class="card">
+      <i class="card-icon">✦</i>
+      <h3 class="card-name">Context-Aware Recommendations</h3>
+      <p class="card-description">Leverage our AI to suggest next steps, potential answers, and relevant content to ensure you provide the most value in your emails, always staying ahead of the conversation.</p>
+    </div>
+    <div class="card">
+      <i class="card-icon">✦</i>
+      <h3 class="card-name">Voice Assistant Integration</h3>
+      <p class="card-description">Seamlessly integrate our email assistant with your preferred voice assistants (e.g., Siri, Google Assistant, Alexa), allowing you to compose and review your emails using voice commands, hands-free and on-the-go.</p>
+    </div>
+    <div class="card">
+      <i class="card-icon">✦</i>
+      <h3 class="card-name">Personalization</h3>
+      <p class="card-description">Tailor your email responses with our AI-driven personalization features, taking into account the sender's preferences, previous conversations, and specific topics to provide the most relevant context and value.</p>
+    </div>
+    <div class="card">
+      <i class="card-icon">✦</i>
+      <h3 class="card-name">Calendar Synchronization</h3>
+      <p class="card-description">Automatically sync your schedule and emails, ensuring that deadlines, appointments, and follow-ups are always up to date and aligned for easy management, eliminating missed appointments and lost emails.</p>
+    </div>
+  </section>
+
+<section id="users">
+  <div class="container">
+    <div class="section-title">Who It's For</div>
+    <div class="cards-grid">
+      <div class="card-grid-item">
+        <div class="avatar"><span>A</span></div>
+        <h4>Alexandra 'Alex' Thompson</h4>
+        <div class="badge-pill">Marketing Manager</div>
+        <p>"Staying on top of marketing tasks and MBA coursework."</p>
+      </div>
+      <div class="card-grid-item">
+        <div class="avatar"><span>S</span></div>
+        <h4>Sofia Patel</h4>
+        <div class="badge-pill">Software Engineer</div>
+        <p>"Handling overwhelming email volumes and responding promptly."</p>
+      </div>
+      <div class="card-grid-item">
+        <div class="avatar"><span>E</span></div>
+        <h4>Ethan Lee</h4>
+        <div class="badge-pill">Entrepreneur</div>
+        <p>"Managing customer inquiries and balancing operations and team management."</p>
+      </div>
+      <div class="card-grid-item">
+        <div class="avatar"><span>M</span></div>
+        <h4>Maya Jensen</h4>
+        <div class="badge-pill">High School Student</div>
+        <p>"Managing school assignments and extracurricular activities."</p>
+      </div>
+      <div class="card-grid-item">
+        <div class="avatar"><span>R</span></div>
+        <h4>Rahul Desai</h4>
+        <div class="badge-pill">Consultant</div>
+        <p>"Reducing time spent drafting emails and increasing strategy sessions."</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="stories">
+  <div class="container">
+    <div class="section-title">Real Use Cases</div>
+    <ul class="stories-list">
+      <li class="story-item">
+        <div class="story-item-content">
+          <h4>User Story 1</h4>
+          <p>As a busy marketing manager, I want the ability to generate high-quality email drafts quickly, so that I can focus on strategy and creative work rather than wasting time on repetitive email responses.</p>
+        </div>
+        <div class="story-item-border"></div>
+      </li>
+      <li class="story-item">
+        <div class="story-item-content">
+          <h4>User Story 2</h4>
+          <p>As a software engineer, I want my email assistant to provide context-aware recommendations, so that I can quickly assess the situation and give relevant responses that prioritize customer satisfaction and efficiency.</p>
+        </div>
+        <div class="story-item-border"></div>
+      </li>
+      <li class="story-item">
+        <div class="story-item-content">
+          <h4>User Story 3</h4>
+          <p>As a startup founder, I want to be able to integrate my email assistant with my voice assistant, so that I can quickly compose and review emails from my commute, home, or on the go.</p>
+        </div>
+        <div class="story-item-border"></div>
+      </li>
+    </ul>
+  </div>
+</section>
+<section id="cta">
+  <div class="container">
+    <div class="section-title">Ready to Transform Your Inbox?</div>
+    <p>Join thousands saving 2+ hours weekly.</p>
+    <button>Start For Free Today ✦</button>
+    <div class="badge-pills">
+      <div class="badge-pill">✓ No credit card required</div>
+      <div class="badge-pill">✓ Free forever plan</div>
+      <div class="badge-pill">✓ Setup in 2 minutes</div>
+    </div>
+  </div>
+</section>
+<footer>
+  Generated by EngineerAgent <a href="mailto:agent@launchmind.ai">agent@launchmind.ai</a>
+</footer>
+</body>
+</html>
