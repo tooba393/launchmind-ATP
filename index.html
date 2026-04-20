@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ReplyAI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #07101a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        a, a:link {
+            color: #2dd4bf;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #f472b6;
+            text-decoration: underline;
+        }
+
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #07101a;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #navbar li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        #navbar a {
+            color: #ffffff;
+        }
+
+        #hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            padding: 2rem;
+        }
+
+        #hero h1 {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        #hero h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 18px;
+        }
+
+        #hero button {
+            background-color: #2dd4bf;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #hero button:hover {
+            background-color: #f472b6;
+        }
+
+        #features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        #features .card {
+            background-color: #07101a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #features .card h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #features .card p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        #whos-it-for {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        #whos-it-for .card {
+            background-color: #07101a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #whos-it-for .card h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #whos-it-for .card p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        #user-stories {
+            padding: 20px;
+            background-color: #07101a;
+        }
+
+        #user-stories h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #user-stories ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #user-stories li {
+            margin-bottom: 20px;
+        }
+
+        #user-stories li:last-child {
+            margin-bottom: 0;
+        }
+
+        #user-stories li h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        #user-stories li p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        #call-to-action {
+            background-color: #07101a;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #call-to-action button {
+            background-color: #2dd4bf;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #call-to-action button:hover {
+            background-color: #f472b6;
+        }
+
+        #footer {
+            background-color: #07101a;
+            padding: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <img src="logo.png" alt="Logo" width="50" height="50">
+        <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Pricing</a></li>
+        </ul>
+    </nav>
+    <section id="hero">
+        <h1>Reply Smarter. Not Harder.</h1>
+        <h2>Unlock the Power of AI-Powered Email Reply Assistant</h2>
+        <p>Say goodbye to tedious email management and hello to AI-driven insights and automation</p>
+        <button>Sign Up for Free</button>
+    </section>
+    <section id="features">
+        <div class="card">
+            <h2>Automated Report Generation (ARG)</h2>
+            <p>Transform raw data into actionable, easy-to-understand reports through AI-driven analysis</p>
+        </div>
+        <div class="card">
+            <h2>Insight Engine</h2>
+            <p>Provides instant access to real-time key performance indicators, benchmarking, and predictive analytics</p>
+        </div>
+        <div class="card">
+            <h2>Storytelling Analytics</h2>
+            <p>Empowers users to communicate complex findings effectively through customized reports and visualizations</p>
+        </div>
+        <div class="card">
+            <h2>Supply Chain Optimization (SCO)</h2>
+            <p>Applies machine learning algorithms to real-time supply chain data, identifying inefficiencies and predicting disruptions</p>
+        </div>
+        <div class="card">
+            <h2>Collaborative Workspaces</h2>
+            <p>Facilitates real-time collaboration among teams and stakeholders, ensuring aligned objectives and seamless communication</p>
+        </div>
+    </section>
+    <section id="whos-it-for">
+        <div class="card">
+            <h2>Marketing Analytics Manager</h2>
+            <p>Save 75% of manual report generation time and ensure 95% accuracy</p>
+        </div>
+        <div class="card">
+            <h2>Business Intelligence Consultant</h2>
+            <p>Communicate complex findings effectively to stakeholders and drive business outcomes</p>
+        </div>
+        <div class="card">
+            <h2>SME in Supply Chain Optimization</h2>
+            <p>Predict and mitigate potential disruptions with real-time supply chain data analytics</p>
+        </div>
+        <div class="card">
+            <h2>Business Executive</h2>
+            <p>Make informed decisions and drive business growth with real-time KPIs and benchmarking</p>
+        </div>
+        <div class="card">
+            <h2>Marketing Analyst</h2>
+            <p>Create customized reports and visualizations to communicate complex findings to stakeholders</p>
+        </div>
+    </section>
+    <section id="user-stories">
+        <h2>User Stories</h2>
+        <ul>
+            <li>
+                <h3>As a Marketing Analytics Manager</h3>
+                <p>Easily schedule and generate automated reports to track campaign effectiveness and customer behavior</p>
+            </li>
+            <li>
+                <h3>As a Business Intelligence Consultant</h3>
+                <p>The platform suggests data-driven insights based on my analysis, providing actionable recommendations to stakeholders</p>
+            </li>
+            <li>
+                <h3>As an SME in Supply Chain Optimization</h3>
+                <p>The platform alerts me to potential supply chain disruptions and offers predictive analytics to mitigate risks</p>
+            </li>
+            <li>
+                <h3>As a Business Executive</h3>
+                <p>The platform provides real-time KPIs and benchmarking in an easy-to-understand format, enabling informed decisions</p>
+            </li>
+            <li>
+                <h3>As a Marketing Analyst</h3>
+                <p>The platform empowers me to create customized reports and visualizations to communicate complex findings to stakeholders</p>
+            </li>
+        </ul>
+    </section>
+    <section id="call-to-action">
+        <button>Sign Up for Free</button>
+    </section>
+    <footer id="footer">
+        Generated by EngineerAgent <a href="mailto:agent@launchmind.ai">agent@launchmind.ai</a>
+    </footer>
+</body>
+</html>
