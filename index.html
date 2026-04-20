@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart ReplyAI - AI Email Reply Assistant</title>
+<style>
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #07101a;
+  color: #white;
+  padding: 0;
+  margin: 0;
+}
+
+.dark {
+  position: relative;
+}
+
+.dark::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: linear-gradient(rgba(2, 212, 191, 0.8), rgba(255, 71, 182, 0.3)), #07101a;
+  content: '';
+}
+
+.hero {
+  background-color: #07101a;
+  height: 100vh;
+  color: #white;
+  display: grid;
+  place-items: center;
+}
+
+.hero-text {
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+  color: #2dd4bf;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+  color: #f472b6;
+}
+
+.hero-button {
+  background-color: #2dd4bf;
+  color: #white;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.hero-button:hover {
+  background-color: #2b9c8e;
+}
+
+.features {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+
+.feature-card {
+  background-color: #202020;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card h2 {
+  margin-top: 0;
+  color: #2dd4bf;
+}
+
+.feature-card p {
+  color: #f472b6;
+  margin-bottom: 10px;
+}
+
+.who {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.user-story {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.user-story h2 {
+  color: #2dd4bf;
+}
+
+.user-story p {
+  color: #f472b6;
+}
+
+.call-to-action {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.call-to-action h2 {
+  color: #2dd4bf;
+}
+
+.call-to-action p {
+  color: #f472b6;
+}
+
+.call-to-action button {
+  background-color: #2dd4bf;
+  color: #white;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.call-to-action button:hover {
+  background-color: #2b9c8e;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  background-color: #202020;
+  color: #white;
+  padding: 10px;
+  border-radius: 10px;
+}
+</style>
+</head>
+<body class="dark">
+<div class="dark">
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#" style="color: #2dd4bf;">Home</a></li>
+        <li><a href="#" style="color: #f472b6;">Features</a></li>
+        <li><a href="#" style="color: #2dd4bf;">About</a></li>
+        <li><a href="#" style="color: #f472b6;">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <h1>Reply Smarter. Not Harder.</h1>
+        <h2>AI Email Reply Assistant</h2>
+        <p>Simplify your communication and save time with our automated email reply assistant.</p>
+        <button class="hero-button">Start Your Free Trial</button>
+      </div>
+    </div>
+  </div>
+  <div class="features">
+    <div class="feature-card">
+      <h2>Smart Reply Generation</h2>
+      <p>The AI-powered email assistant provides personalized and context-driven reply suggestions, helping you quickly respond to emails without sacrificing accuracy or tone.</p>
+    </div>
+    <div class="feature-card">
+      <h2>Customizable Templates</h2>
+      <p>Users can create and save personalized email templates to ensure consistency in their communication and save time on repetitive email responses.</p>
+    </div>
+    <div class="feature-card">
+      <h2>Email Analysis and Summarization</h2>
+      <p>The assistant analyzes emails and provides a concise summary, enabling you to quickly grasp the email's content and respond accordingly.</p>
+    </div>
+    <div class="feature-card">
+      <h2>Grammar and Tone Checking</h2>
+      <p>The AI assistant checks your responses for grammar, spelling, and tone issues, ensuring that your emails are well-crafted and effective.</p>
+    </div>
+    <div class="feature-card">
+      <h2>Email Scheduling</h2>
+      <p>Users can schedule emails to be sent at a later time, helping you manage your inbox and avoid email overload.</p>
+    </div>
+  </div>
+  <div class="who">
+    <h2>Who It's For</h2>
+    <div class="user-story">
+      <h2>Ella, Marketing Manager</h2>
+      <p>Save time and ensure consistent customer service with AI-driven reply suggestions.</p>
+    </div>
+    <div class="user-story">
+      <h2>Rohan, Student</h2>
+      <p>Streamline your communication with professors and peers using customizable email templates.</p>
+    </div>
+    <div class="user-story">
+      <h2>Leah, Software Engineer</h2>
+      <p>Quickly grasp complex email discussions with email analysis and summarization.</p>
+    </div>
+    <div class="user-story">
+      <h2>Julian, Entrepreneur</h2>
+      <p>Ensure professional and effective emails with grammar and tone checking.</p>
+    </div>
+    <div class="user-story">
+      <h2>Sophia, Academic Researcher</h2>
+      <p>Manage your inbox and avoid email overload with email scheduling.</p>
+    </div>
+  </div>
+  <div class="call-to-action">
+    <h2>Start Your Free Trial Today</h2>
+    <p>No credit card required. No strings attached.</p>
+    <button>Sign Up Now</button>
+  </div>
+  <footer class="footer">
+    <p>Generated by EngineerAgent <a href="#" agent@launchmind.ai">agent@launchmind.ai</a></p>
+  </footer>
+</div>
+</body>
+</html>
