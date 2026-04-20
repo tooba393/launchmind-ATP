@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart ReplyAI – AI Email Reply Assistant</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#f472b6;
+  --pink-light:#fbcfe8;
+  --pink-dark:#db2777;
+  --teal:#2dd4bf;
+  --teal-light:#99f6e4;
+  --teal-dark:#0d9488;
+  --bg:#07101a;
+  --bg2:#0a1520;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:#fff;line-height:1.6;}
+a{color:#fff;text-decoration:none;transition:color .3s;}
+a:hover{color:var(--pink);}
+header{
+  position:fixed;top:0;left:0;width:100%;background:linear-gradient(90deg, var(--pink), var(--teal));display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;z-index:1000;
+}
+header .logo{font-weight:800;font-size:1.5rem;}
+nav a{margin-left:1.5rem;font-weight:600;}
+.hero{
+  position:relative;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
+  background:url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80') center/cover no-repeat;filter:brightness(0.35);
+}
+.hero::before{
+  content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.6));
+}
+.hero-content{position:relative;z-index:1;max-width:800px;padding:0 1rem;}
+.badge{
+  display:inline-block;background:linear-gradient(45deg,var(--pink),var(--teal));padding:.4rem 1rem;border-radius:9999px;font-size:.9rem;font-weight:600;margin-bottom:1rem;
+}
+h1{font-size:3rem;font-weight:800;background:linear-gradient(45deg,var(--pink),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.2;margin:.5rem 0;}
+.subheadline{font-size:1.5rem;font-weight:600;margin-bottom:1rem;}
+p{font-size:1.1rem;margin-bottom:1.5rem;}
+.cta-buttons a{
+  display:inline-block;background:var(--pink);color:#fff;padding:.8rem 1.5rem;margin:0 .5rem;border-radius:.3rem;font-weight:600;transition:background .3s;
+}
+.cta-buttons a:hover{background:var(--pink-dark);}
+.features{
+  padding:4rem 2rem;background:var(--bg2);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:4rem;
+}
+.card{
+  background:linear-gradient(135deg,var(--pink-light),var(--teal-light));border-radius:.5rem;padding:2rem;transition:transform .3s,box-shadow .3s;
+}
+.card:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(0,0,0,.2);}
+.card h3{font-size:1.3rem;font-weight:700;margin:1rem 0 .5rem;}
+.card p{font-size:1rem;font-weight:400;}
+.icon{font-size:2rem;margin-bottom:.5rem;display:inline-block;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">✦ Smart ReplyAI</div>
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#who">Who It's For</a>
+    <a href="#stories">Stories</a>
+    <a href="#getstarted">Get Started</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="badge">✨ Powered by AI · Built for Productivity</div>
+    <h1>Reply Smarter. Not Harder.</h1>
+    <div class="subheadline">Your AI Email Co‑pilot</div>
+    <p>AI that drafts concise, context‑aware email replies in seconds, letting busy professionals and students clear their inboxes without sacrificing tone or accuracy.</p>
+    <div class="cta-buttons">
+      <a href="#getstarted">Get Started Free</a>
+      <a href="#demo">Watch Demo</a>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="features">
+  <div class="card">
+    <div class="icon">✦</div>
+    <h3>Contextual Draft Generator</h3>
+    <p>Analyzes the full email thread, extracts key points, and produces a ready‑to‑send reply that preserves the original intent and details.</p>
+  </div>
+  <div class="card">
+    <div class="icon">✦</div>
+    <h3>Tone & Formality Slider</h3>
+    <p>Adjusts the reply's tone—from casual to formal—in real time, ensuring the language matches the relationship and corporate culture.</p>
+  </div>
+  <div class="card">
+    <div class="icon">✦</div>
+    <h3>Smart Scheduling Assistant</h3>
+    <p>Detects date‑time proposals in incoming messages and offers calendar‑linked meeting suggestions or confirms appointments directly from the draft.</p>
+  </div>
+  <div class="card">
+    <div class="icon">✦</div>
+    <h3>Bulk Action Triage</h3>
+    <p>Groups similar emails and lets you apply a single AI‑generated response to all, with optional personalization tokens.</p>
+  </div>
+  <div class="card">
+    <div class="icon">✦</div>
+    <h3>Follow‑up Tracker</h3>
+    <p>Flags replies that require future action, automatically creates reminders, and surfaces prior context when you revisit the thread.</p>
+  </div>
+</section>
+
+<section id="users">
+  <h2>Who It's For</h2>
+  <div class="persona-grid">
+    <div class="persona-card">
+      <div class="avatar">A</div>
+      <h4>Aisha Patel</h4>
+      <span class="badge">Senior Marketing Manager at a fintech startup</span>
+      <p class="pain-point"><em>"I spend 2‑3 hours daily sifting through vendor proposals and internal updates, often missing nuance when replying quickly."</em></p>
+    </div>
+    <div class="persona-card">
+      <div class="avatar">M</div>
+      <h4>Miguel Santos</h4>
+      <span class="badge">Consultant for a global logistics firm</span>
+      <p class="pain-point"><em>"Juggling multiple client threads across time zones, I need to send precise confirmations but lose track of prior context."</em></p>
+    </div>
+    <div class="persona-card">
+      <div class="avatar">L</div>
+      <h4>Leah Kim</h4>
+      <span class="badge">Graduate Student in Biomedical Engineering</span>
+      <p class="pain-point"><em>"I receive dozens of professor and lab‑partner emails each week; crafting polite, data‑rich replies while managing experiments feels overwhelming."</em></p>
+    </div>
+    <div class="persona-card">
+      <div class="avatar">E</div>
+      <h4>Ethan Wu</h4>
+      <span class="badge">Computer Science Undergraduate &amp; TA</span>
+      <p class="pain-point"><em>"Balancing coursework, lab reports, and student queries, I often draft repetitive answers that drain my limited study time."</em></p>
+    </div>
+    <div class="persona-card">
+      <div class="avatar">R</div>
+      <h4>Rashida Ahmed</h4>
+      <span class="badge">HR Business Partner at a mid‑size tech company</span>
+      <p class="pain-point"><em>"Must acknowledge candidate applications and internal policy questions promptly, yet manual replies cause bottlenecks during hiring cycles."</em></p>
+    </div>
+  </div>
+</section>
+
+<section id="stories">
+  <h2>Real Use Cases</h2>
+  <ul class="stories-list">
+    <li class="story-item">
+      <h5>Senior Marketing Manager</h5>
+      <p>As a senior marketing manager, I want an AI to read a vendor's proposal email and draft a concise response that highlights our budget constraints, so that I can reply in under two minutes without overlooking critical details.</p>
+    </li>
+    <li class="story-item">
+      <h5>Consultant Across Time Zones</h5>
+      <p>As a consultant handling cross‑regional client emails, I want to set the tone to "professional but friendly" with a single slider, so that my replies feel consistent across all cultures.</p>
+    </li>
+    <li class="story-item">
+      <h5>Graduate Student</h5>
+      <p>As a graduate student, I want the assistant to recognize a professor's request for data and suggest a meeting time from my calendar, so that I can confirm availability without leaving my inbox.</p>
+    </li>
+    <li class="story-item">
+      <h5>Undergraduate TA</h5>
+      <p>As an undergrad TA, I want the assistant to auto-generate templated replies to common student questions, reducing the time I spend on repetitive messaging.</p>
+    </li>
+    <li class="story-item">
+      <h5>HR Business Partner</h5>
+      <p>As an HR partner, I need the assistant to quickly draft polite acknowledgments for candidate applications and internal queries, ensuring no response falls through the cracks during hiring cycles.</p>
+    </li>
+  </ul>
+</section>
+
+<section id="cta">
+  <h2>Ready to Transform Your Inbox?</h2>
+  <p>Join thousands saving 2+ hours weekly.</p>
+  <button>Start For Free Today ✦</button>
+  <div class="badge-pills">
+    <span class="badge-pill">✓ No credit card required</span>
+    <span class="badge-pill">✓ Free forever plan</span>
+    <span class="badge-pill">✓ Setup in 2 minutes</span>
+  </div>
+</section>
+
+<footer>
+  Generated by EngineerAgent &lt;agent@launchmind.ai&gt;
+</footer>
+
+</body>
+</html>
