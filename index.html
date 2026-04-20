@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Smart ReplyAI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#f472b6;
+  --pink-light:#fbcfe8;
+  --pink-dark:#db2777;
+  --teal:#2dd4bf;
+  --teal-light:#99f6e4;
+  --teal-dark:#0d9488;
+  --bg:#07101a;
+  --bg2:#0a1520;
+}
+body{margin:0;font-family:'Inter',sans-serif;color:#fff;line-height:1.6;background:var(--bg);}
+a{color:#fff;text-decoration:none;transition:color .3s;}
+a:hover{color:var(--pink);}
+.navbar{
+  position:fixed;top:0;left:0;right:0;height:60px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;background:linear-gradient(90deg,var(--teal),var(--pink));
+  box-shadow:0 2px 4px rgba(0,0,0,.5);z-index:1000;
+}
+.navbar .logo{
+  font-weight:700;font-size:1.2rem;
+  background:linear-gradient(90deg,var(--teal),var(--pink));
+  -webkit-background-clip:text;color:transparent;
+}
+.navbar .nav-links{display:flex;gap:1.5rem;font-weight:600;font-size:0.95rem;}
+.hero{
+  height:100vh;display:flex;flex-direction:column;justify-content:center;
+  align-items:center;text-align:center;
+  background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80') no-repeat center/cover;
+  filter:brightness(.35);
+  padding:0 1rem;
+}
+.hero .badge{
+  background:var(--teal-light);color:var(--teal-dark);
+  padding:.5rem 1rem;border-radius:9999px;font-size:.9rem;display:inline-block;
+  margin-bottom:.5rem;
+}
+.hero h1{
+  background:linear-gradient(90deg,var(--teal),var(--pink));
+  -webkit-background-clip:text;color:transparent;
+  font-size:3rem;line-height:1.2;font-weight:700;margin:.5rem 0;
+}
+.hero h2{
+  color:var(--teal-light);font-size:1.5rem;margin:.5rem 0;
+}
+.hero p{
+  max-width:600px;margin:1rem auto;color:#ddd;font-size:1.1rem;
+}
+.hero .btn{display:inline-flex;align-items:center;justify-content:center;
+  padding:.75rem 1.5rem;border-radius:.5rem;font-weight:600;
+  font-size:1rem;margin: .5rem .25rem;cursor:pointer;
+  transition:background .3s,color .3s,transform .2s;
+}
+.hero .btn-primary{background:var(--pink);color:#fff;}
+.hero .btn-primary:hover{background:var(--pink-dark);transform:scale(1.05);}
+.hero .btn-secondary{background:transparent;border:2px solid var(--teal);color:var(--teal);}
+.hero .btn-secondary:hover{background:var(--teal);color:#fff;transform:scale(1.05);}
+.features{
+  padding:4rem 2rem;background:var(--bg2);
+}
+.features h2{font-size:2rem;text-align:center;margin-bottom:2rem;color:var(--teal-light);}
+.features-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;
+}
+.card{
+  background:var(--bg);padding:2rem;border-radius:.75rem;
+  box-shadow:0 4px 6px rgba(0,0,0,.3);transition:transform .3s,box-shadow .3s;
+}
+.card:hover{transform:translateY(-8px);box-shadow:0 8px 12px rgba(0,0,0,.4);}
+.card .icon{font-size:2rem;color:var(--pink);margin-bottom:.5rem;}
+.card h3{color:var(--pink-light);margin:.5rem 0;}
+.card p{color:#bbb;font-size:.
+
+<section id="users">
+  <h2>Who It's For</h2>
+  <div class="user-grid">
+    <div class="user-card">
+      <div class="avatar">A</div>
+      <h4>Aisha Patel</h4>
+      <span class="badge role">Senior Marketing Manager</span>
+      <p class="pain-point"><em>"Spends hours sifting through proposals and often misses nuance when replying quickly."</em></p>
+    </div>
+    <div class="user-card">
+      <div class="avatar">M</div>
+      <h4>Miguel Santos</h4>
+      <span class="badge role">Consultant</span>
+      <p class="pain-point"><em>"Juggling multiple client threads across time zones, he needs precise confirmations but loses track of prior context."</em></p>
+    </div>
+    <div class="user-card">
+      <div class="avatar">L</div>
+      <h4>Leah Kim</h4>
+      <span class="badge role">Graduate Student</span>
+      <p class="pain-point"><em>"Receives dozens of professor and lab‑partner emails each week; crafting polite, data‑rich replies while managing experiments feels overwhelming."</em></p>
+    </div>
+    <div class="user-card">
+      <div class="avatar">E</div>
+      <h4>Ethan Wu</h4>
+      <span class="badge role">Computer Science Undergrad / TA</span>
+      <p class="pain-point"><em>"Balancing coursework, lab reports, and student queries, he often drafts repetitive answers that drain his limited study time."</em></p>
+    </div>
+    <div class="user-card">
+      <div class="avatar">R</div>
+      <h4>Rashida Ahmed</h4>
+      <span class="badge role">HR Business Partner</span>
+      <p class="pain-point"><em>"Must acknowledge candidate applications and internal policy questions promptly, yet manual replies cause bottlenecks during hiring cycles."</em></p>
+    </div>
+  </div>
+</section>
+
+<section id="stories">
+  <h2>Real Use Cases</h2>
+  <ul class="stories-list">
+    <li class="story-item">
+      <p><strong>Aisha:</strong> Wants an AI to read a vendor’s proposal and draft a concise response that highlights budget constraints, so she can reply in under two minutes without overlooking critical details.</p>
+    </li>
+    <li class="story-item">
+      <p><strong>Miguel:</strong> Needs to set the tone to “professional but friendly” with a single slider, ensuring consistent replies across cultures.</p>
+    </li>
+    <li class="story-item">
+      <p><strong>Leah:</strong> Wants the assistant to recognize a professor’s request for data and suggest a meeting time from her calendar, confirming availability without leaving her inbox.</p>
+    </li>
+  </ul>
+</section>
+
+<section id="cta">
+  <h2>Ready to Transform Your Inbox?</h2>
+  <p>Join thousands saving 2+ hours weekly.</p>
+  <button class="cta-button">Start For Free Today ✦</button>
+  <div class="badge-pills">
+    <span class="badge">✓ No credit card required</span>
+    <span class="badge">✓ Free forever plan</span>
+    <span class="badge">✓ Setup in 2 minutes</span>
+  </div>
+</section>
+
+<footer>
+  <p>Generated by EngineerAgent &lt;agent@launchmind.ai&gt;</p>
+</footer>
+</body>
+</html>
