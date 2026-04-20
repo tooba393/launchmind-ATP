@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ReplyAI</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            display: grid;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #07101a;
+            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: #fff;
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            grid-gap: 10px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #2dd4bf;
+        }
+        nav {
+            background-color: #07101a;
+        }
+        #nav-logo {
+            position: relative;
+            top: 2px;
+            left: -10px;
+            width: 120px;
+            height: 120px;
+            border: 2px solid #f472b6;
+            border-radius: 50%;
+            background-color: #2dd4bf;
+            background-image: linear-gradient(to bottom, #f472b6 0%, #2dd4bf 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            text-transform: uppercase;
+            color: #2dd4bf;
+            font-weight: bold;
+        }
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            text-transform: uppercase;
+        }
+        .header {
+            background-color: #07101a;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #2dd4bf;
+            font-size: 36px;
+            text-transform: uppercase;
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #2dd4bf;
+            color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .hero h2 {
+            text-transform: uppercase;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 18px;
+            max-width: 80%;
+            margin-bottom: 20px;
+        }
+        .hero-button {
+            background-color: #f472b6;
+            color: #2dd4bf;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .features {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #2dd4bf;
+            color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .feature {
+            background-color: #07101a;
+            padding: 20px;
+            width: 300px;
+            border: 1px solid #2dd4bf;
+            border-radius: 10px;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #2dd4bf;
+        }
+        .feature h3 {
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .feature p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .who-it-is-for {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #2dd4bf;
+            color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .persona {
+            background-color: #07101a;
+            padding: 20px;
+            width: 300px;
+            border: 1px solid #2dd4bf;
+            border-radius: 10px;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #2dd4bf;
+        }
+        .persona img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .persona h3 {
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .persona p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .user-stories {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #2dd4bf;
+            color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .story {
+            background-color: #07101a;
+            padding: 20px;
+            width: 300px;
+            border: 1px solid #2dd4bf;
+            border-radius: 10px;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #2dd4bf;
+        }
+        .story h3 {
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .story p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .call-to-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #2dd4bf;
+            color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .cta-button {
+            background-color: #f472b6;
+            color: #2dd4bf;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #07101a;
+            padding: 10px;
+            color: #2dd4bf;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <div id="nav-logo">
+                <i class="logo">SRA</i>
+            </div>
+            <nav>
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Features</a>
+                <a href="#" class="nav-link">Pricing</a>
+                <a href="#" class="nav-link">Blog</a>
+                <a href="#" class="nav-link">Contact</a>
+            </nav>
+        </div>
+        <div class="header">
+            <h1>Smart ReplyAI</h1>
+            <h2>Reply Smarter. Not Harder.</h2>
+        </div>
+        <div class="hero">
+            <p>Manage your emails and tasks with personalized AI-powered guidance, saving you time and reducing stress.</p>
+            <button class="hero-button">Get Started</button>
+        </div>
+        <div class="features">
+            <h2>Key Features</h2>
+            <div class="feature">
+                <h3>Smart Response Library</h3>
+                <p>Customizable AI-driven email reply templates that adapt to user behavior, context, and tone.</p>
+            </div>
+            <div class="feature">
+                <h3>Task & Calendar Integration</h3>
+                <p>Seamless synchronization of email communications with user's calendar and task management tools.</p>
+            </div>
+            <div class="feature">
+                <h3>Intelligent Auto-Reminder</h3>
+                <p>Contextually intelligent reminders that proactively suggest upcoming deadlines, appointments, and follow-up actions.</p>
+            </div>
+            <div class="feature">
+                <h3>Learning & Feedback Loop</h3>
+                <p>Continuous learning and self-improvement capabilities that adapt to user feedback, sentiment analysis, and performance evaluation.</p>
+            </div>
+            <div class="feature">
+                <h3>Email Analysis & Reporting</h3>
+                <p>In-depth analysis and insightful reporting on email engagement, sentiment, and performance.</p>
+            </div>
+        </div>
+        <div class="who-it-is-for">
+            <h2>Who It's For</h2>
+            <div class="persona">
+                <img src="ava.jpg" alt="Ava Moreno">
+                <h3>Ava Moreno</h3>
+                <p>Marketing Team Lead</p>
+                <p>Frustrated with the high volume of requests from colleagues and clients.</p>
+            </div>
+            <div class="persona">
+                <img src="liam.jpg" alt="Liam Chen">
+                <h3>Liam Chen</h3>
+                <p>Part-time Graduate Student</p>
+                <p>Frustrated with the constant battle to keep up with multiple projects and assignments.</p>
+            </div>
+        </div>
+        <div class="user-stories">
+            <h2>User Stories</h2>
+            <div class="story">
+                <h3>As a Marketing Team Lead, I want the AI assistant to suggest a pre-approved template for a common industry question, so that I can respond quickly and consistently.</h3>
+            </div>
+            <div class="story">
+                <h3>As a part-time Graduate Student, I want the assistant to automatically schedule follow-up tasks with clients, so that I stay on track and ensure timely completion of projects.</h3>
+            </div>
+            <div class="story">
+                <h3>As a Marketing Team Lead, I want the assistant to analyze the tone and sentiment of received emails, so that I can make more informed decisions about my responses and improve customer satisfaction.</h3>
+            </div>
+            <div class="story">
+                <h3>As a part-time Graduate Student, I want the AI assistant to suggest email responses that account for my specific time constraints and schedule, so that I can manage my workload effectively and prioritize tasks accordingly.</h3>
+            </div>
+            <div class="story">
+                <h3>As a Marketing Team Lead, I want the assistant to provide me with regular performance metrics on email engagement and response times, so that I can refine my communication strategies and optimize my productivity.</h3>
+            </div>
+        </div>
+        <div class="call-to-action">
+            <button class="cta-button">Get Started Today!</button>
+        </div>
+        <footer>
+            <p>Generated by EngineerAgent <a href="mailto:agent@launchmind.ai">agent@launchmind.ai</a></p>
+        </footer>
+    </div>
+</body>
+</html>
