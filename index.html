@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart ReplyAI — AI Email Reply Assistant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink:#f472b6;
+  --pink-light:#fbcfe8;
+  --pink-dark:#db2777;
+  --teal:#2dd4bf;
+  --teal-light:#99f6e4;
+  --teal-dark:#0d9488;
+  --bg:#07101a;
+  --bg2:#0a1520;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;color:#e2e8f0;background:var(--bg);}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+.btn{
+  display:inline-block;background:var(--teal);
+  color:#fff;font-weight:600;padding:0.75rem 1.5rem;
+  border-radius:9999px;border:0;
+  transition:background .3s,transform .3s;
+}
+.btn:hover{background:var(--teal-dark);transform:scale(1.05);}
+.btn-outline{
+  background:transparent;border:2px solid var(--teal);
+  color:var(--teal);
+}
+.btn-outline:hover{background:var(--teal);color:#fff;}
+.nav{
+  position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(10px);z-index:10;
+}
+.nav-inner{
+  max-width:1200px;margin:auto;display:flex;align-items:center;
+  justify-content:space-between;padding:0.75rem 1.5rem;
+}
+.logo{font-weight:700;font-size:1.25rem;color:var(--pink);background:linear-gradient(45deg, var(--pink), var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-links{display:flex;gap:1.5rem;}
+.nav-link{font-weight:600;color:#fff;font-size:0.95rem;}
+.nav-link:hover{color:var(--pink);}
+.hero{
+  height:100vh;display:flex;align-items:center;justify-content:center;
+  position:relative;text-align:center;
+  background:url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80') center/cover no-repeat;
+}
+.hero::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:linear-gradient(180deg,rgba(7,16,26,0.6) 0%,rgba(10,21,32,0.8) 100%);
+  filter:brightness(0.35);
+  z-index:1;
+}
+.hero-content{position:relative;z-index:2;color:#fff;padding:0 1rem;}
+.badge{
+  display:inline-block;background:rgba(255,255,255,0.1);
+  border-radius:9999px;padding:0.25rem 0.75rem;
+  font-size:0.85rem;margin-bottom:1rem;
+  color:#fff;
+}
+h1{
+  font-size:3rem;font-weight:700;
+  background:linear-gradient(45deg,var(--pink),var(--teal));
+  -webkit-background-clip:text;color:transparent;
+  margin:0.5rem 0;
+}
+h2{font-size:1.75rem;font-weight:500;margin-bottom:1rem;}
+p{font-size:1rem;margin:0 auto 2rem;width:80%;max-width:600px;}
+.btn-group{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.features{
+  padding:4rem 1.5rem;background:var(--bg2);
+}
+.features h2{font-size:2.25rem;font-weight:700;color:#fff;margin-bottom:2rem;text-align:center;}
+.grid{
+  display:grid;
+  gap:1.5rem;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+}
+.card{
+  background:rgba(0,0,0,0.3);
+  backdrop-filter:blur(10px);
+  border-radius:0.75rem;
+  padding:1.5rem;
+  transition:transform .3s,box-shadow .3s;
+  display:flex;flex-direction:column;gap:0.75rem;
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+.card-icon{
+  font-size:2rem;color:var(--pink);
+}
+.card-title{font-size:1.25rem;font-weight:600;margin:0;}
+.card-desc{font-size:1rem;flex-grow:1;margin:0;color:#cbd5e1;}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo">✦ Smart ReplyAI</div>
+    <nav class="nav-links">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#whofor" class="nav-link">Who It's For</a>
+      <a href="#stories" class="nav-link">Stories</a>
+      <a href="#getstarted" class="nav-link">Get Started</a>
+    </nav>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-content">
+    <span class="badge">✨ Powered by AI · Built for Productivity</span>
+    <h1>Reply Smarter. Not Harder.</h1>
+    <h2>Your AI Email Co‑pilot</h2>
+    <p>AI-powered email reply assistant that drafts context‑aware, tone‑matched replies in seconds, while keeping your data private and fitting into the tools you already use.</p>
+    <div class="btn-group">
+      <a href="#getstarted" class="btn">Get Started Free</a>
+      <a href="#demo" class="btn-outline">Watch Demo</a>
+    </div>
+  </div>
+</section>
+<section id="features" class="features">
+  <h2>Key Features</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">✦</div>
+      <h3 class="card-title">Contextual Understanding</h3>
+      <p class="card-desc">Analyzes the entire email thread, attached documents, and calendar events to generate replies that reference prior points, deadlines, and relevant data without prompting.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✦</div>
+      <h3 class="card-title">Tone Customization</h3>
+      <p class="card-desc">Allows users to select a tone preset (e.g., formal, friendly, persuasive) or define a custom style guide, ensuring every reply matches the relationship and brand voice.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✦</div>
+      <h3 class="card-title">Quick Insert Snippets</h3>
+      <p class="card-desc">Provides one‑click insertion of frequently used blocks—meeting confirmations, project status updates, data request templates—learned from the user’s own email history.</p>
+    </div>
+
+<section id="users" class="users-section">
+  <h2>Who It's For</h2>
+  <div class="user-grid">
+    <article class="user-card">
+      <div class="avatar">A</div>
+      <h4>Aisha Patel</h4>
+      <span class="role-pill">Management Consultant</span>
+      <p class="pain-point"><em>"I spend over an hour crafting nuanced replies, often delaying project updates."</em></p>
+    </article>
+    <article class="user-card">
+      <div class="avatar">M</div>
+      <h4>Miguel Torres</h4>
+      <span class="role-pill">Co‑founder & CTO</span>
+      <p class="pain-point"><em>"I must respond to investor, partner, and support emails quickly, but each audience requires a different technical depth and tone."</em></p>
+    </article>
+    <article class="user-card">
+      <div class="avatar">L</div>
+      <h4>Liang Chen</h4>
+      <span class="role-pill">PhD Candidate</span>
+      <p class="pain-point"><em>"Balancing lab coordination, grant applications, and conference submissions leads to rushed, sometimes tone‑inappropriate replies."</em></p>
+    </article>
+    <article class="user-card">
+      <div class="avatar">S</div>
+      <h4>Sara Gomez</h4>
+      <span class="role-pill">Remote Sales Executive</span>
+      <p class="pain-point"><em>"Manual drafting causes missed windows and inconsistent messaging across prospects."</em></p>
+    </article>
+  </div>
+</section>
+
+<section id="stories" class="stories-section">
+  <h2>Real Use Cases</h2>
+  <ul class="stories-list">
+    <li class="story-item">
+      <h3>Management Consultant</h3>
+      <p>Read the whole client thread and suggest a reply that cites the latest deliverable deadline, so I can send accurate updates without re‑reading every message.</p>
+    </li>
+    <li class="story-item">
+      <h3>Startup CTO</h3>
+      <p>Pick a ‘technical‑expert’ tone for investor emails and a ‘concise‑friendly’ tone for partner outreach, so that each audience receives communication that feels appropriate.</p>
+    </li>
+    <li class="story-item">
+      <h3>PhD Candidate</h3>
+      <p>Access a library of my own reusable paragraph snippets (e.g., grant abstract intro) to appear as quick inserts, so I can assemble long, structured replies in minutes.</p>
+    </li>
+  </ul>
+</section>
+
+<section id="cta" class="cta-section">
+  <h2>Ready to Transform Your Inbox?</h2>
+  <p>Join thousands saving 2+ hours weekly.</p>
+  <button class="cta-button">Start For Free Today ✦</button>
+  <div class="cta-badges">
+    <span class="badge-pill">✓ No credit card required</span>
+    <span class="badge-pill">✓ Free forever plan</span>
+    <span class="badge-pill">✓ Setup in 2 minutes</span>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Generated by EngineerAgent &lt;agent@launchmind.ai&gt;</p>
+</footer>
+</body>
+</html>
