@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #f472b6;
+            --pink-light: #fbcfe8;
+            --pink-dark: #db2777;
+            --teal: #2dd4bf;
+            --teal-light: #99f6e4;
+            --teal-dark: #0d9488;
+            --bg: #07101a;
+            --bg2: #0a1520;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s ease-out;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--bg2);
+            background-image: linear-gradient(to bottom, var(--bg2), var(--bg));
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo svg {
+            font-size: 2rem;
+        }
+        .logo h1 {
+            font-size: 2rem;
+            color: var(--pink);
+            margin-left: 0.5rem;
+            background-image: linear-gradient(to right, var(--pink-light), var(--pink-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        nav a {
+            margin-left: 1rem;
+            text-decoration: none;
+            color: var(--teal);
+        }
+        nav a hover {
+            color: var(--teal-dark);
+        }
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            filter: brightness(0.35);
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to top, var(--bg2), var(--bg));
+        }
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+        .hero-content .badge {
+            padding: 0.5rem 1rem;
+            background-color: var(--pink);
+            color: #fff;
+            display: inline-block;
+            border-radius: 0.25rem;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero-content h1 span {
+            text-shadow: 0 0 0.25rem var(--pink-light);
+            background-image: linear-gradient(to right, var(--pink-light), var(--pink-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+        }
+        .hero-content p {
+            margin-bottom: 2rem;
+        }
+        .hero-content button {
+            padding: 1rem 2rem;
+            background-color: var(--teal);
+            color: #fff;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+        }
+        .features {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        .feature-card {
+            border: 1px solid var(--bg);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            background-color: var(--bg2);
+            box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-out;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        .feature-card p {
+            margin-bottom: 2rem;
+        }
+        .feature-card:hover {
+            box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m6 0a9 9 0 110-18 9 9 0 010 18v0A9 9 0 0111 14h-6z"></path>
+            </svg>
+            <h1>✦ Smart ReplyAI</h1>
+        </div>
+        <a href="#">Features</a>
+        <a href="#">Who it's For</a>
+        <a href="#">Stories</a>
+        <a href="#">Get Started</a>
+    </nav>
+    <div class="hero">
+        <div class="hero-content">
+            <div class="badge">✨ Powered by AI · Built for Productivity</div>
+            <h1><span>Reply Smarter. Not Harder.</span></h1>
+            <p>Instantly draft smart, context-aware email replies with an AI-powered assistant, saving busy professionals and students time and effort.</p>
+            <button>Get Started Free</button>
+            <button>Watch Demo</button>
+        </div>
+    </div>
+    <section id="features">
+        <div class="features">
+            <div class="features-grid">
+                <!-- features cards here -->
+                <div class="feature-card">
+                    <svg class="w-6 h-6 fill-current text-pink mx-auto" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1zM12 12l-4-4.59L5 8.53V21h7v-11l-2.19-2.42L12 12z"></path></svg>
+                    <h3>Intelligent Auto-Response</h3>
+                    <p>The AI assistant analyzes the content of incoming emails and generates relevant, context-aware responses, allowing users to quickly reply to common inquiries and save time for more complex issues.</p>
+                </div>
+                <div class="feature-card">
+                    <svg class="w-6 h-6 fill-current text-pink mx-auto" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1zM12 12l-4-4.59L5 8.53V21h7v-11l-2.19-2.42L12 12z"></path></svg>
+                    <h3>Smart Meeting Scheduling</h3>
+                    <p>The AI assistant integrates with users' calendars to suggest available time slots for meetings, eliminating back-and-forth emails to find a mutually suitable time.</p>
+                </div>
+                <div class="feature-card">
+                    <svg class="w-6 h-6 fill-current text-pink mx-auto" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V4a
+
+<div id="users">
+  <h2>Who It's For</h2>
+  <div class="container grid">
+    <div class="card">
+      <div class="avatar">
+        <span class="initials">EC</span>
+      </div>
+      <h4>Emily Chen</h4>
+      <button class="role badge">Marketing Manager</button>
+      <p>"Struggling to keep up with a high volume of emails from clients, colleagues, and partners."</p>
+    </div>
+    <div class="card">
+      <div class="avatar">
+        <span class="initials">DL</span>
+      </div>
+      <h4>David Lee</h4>
+      <button class="role badge">Freelancer</button>
+      <p>"Finding it challenging to balance academic responsibilities with freelance work."</p>
+    </div>
+  </div>
+</div>
+
+<div id="stories">
+  <h2>Real Use Cases</h2>
+  <ul class="stories-list">
+    <li class="story-item">
+      <i class="left pink border"></i>
+      <p>Automatically generate responses to routine client inquiries.</p>
+      <h3>Emily Chen</h3>
+    </li>
+    <li class="story-item">
+      <i class="left pink border"></i>
+      <p>Prioritize emails from academic advisor and professors.</p>
+      <h3>David Lee</h3>
+    </li>
+    <li class="story-item">
+      <i class="left pink border"></i>
+      <p>Suggest meeting times with potential clients.</p>
+      <h3>David Lee</h3>
+    </li>
+  </ul>
+</div>
+
+<div id="cta">
+  <h2>Ready to Transform Your Inbox?</h2>
+  <p>Join thousands saving 2+ hours weekly.</p>
+  <button>Start For Free Today ✦</button>
+  <div class="badges">
+    <button class="badge">✓ No credit card required</button>
+    <button class="badge">✓ Free forever plan</button>
+    <button class="badge">✓ Setup in 2 minutes</button>
+  </div>
+</div>
+<div>
+  <footer>Generated by EngineerAgent <agent@launchmind.ai></footer>
+</div>
+</body>
+</html>
