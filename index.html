@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart ReplyAI – AI Email Reply Assistant</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#f472b6;
+  --pink-light:#fbcfe8;
+  --pink-dark:#db2777;
+  --teal:#2dd4bf;
+  --teal-light:#99f6e4;
+  --teal-dark:#0d9488;
+  --bg:#07101a;
+  --bg2:#0a1520;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:#fff;}
+a{color:inherit;text-decoration:none;}
+button{cursor:pointer;border:none;font-weight:600;}
+.navbar{
+  position:fixed;top:0;left:0;right:0;background:linear-gradient(90deg,rgba(0,0,0,0.7),rgba(0,0,0,0.5));
+  backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;z-index:1000;
+}
+.logo{font-size:1.5rem;font-weight:700;display:flex;align-items:center;}
+.logo span{margin-left:.5rem;}
+.nav-links{display:flex;gap:1.5rem;}
+.nav-links a{padding:.5rem 1rem;border-radius:.5rem;}
+.nav-links a:hover{background:rgba(255,255,255,.1);}
+.hero{
+  height:100vh;display:flex;align-items:center;justify-content:center;position:relative;background:url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80') center/cover no-repeat;
+  filter:brightness(0.35);
+}
+.hero::after{
+  content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.8));
+}
+.hero-content{position:relative;text-align:center;z-index:1;padding:0 1rem;}
+.badge{
+  display:inline-block;background:var(--pink-light);color:var(--pink-dark);padding:.25rem 1rem;border-radius:9999px;font-size:.75rem;margin-bottom:1rem;
+}
+h1{
+  font-size:3rem;background:linear-gradient(90deg, var(--pink), var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:1rem 0;
+}
+.subheadline{font-size:1.5rem;margin-bottom:.5rem;}
+p{max-width:600px;margin:0 auto 1.5rem;color:rgba(255,255,255,.8);}
+.btn-group{display:flex;gap:1rem;justify-content:center;margin-top:1rem;}
+.btn-primary{background:var(--pink);color:#fff;padding:.75rem 1.5rem;border-radius:.5rem;}
+.btn-secondary{background:var(--teal);color:#fff;padding:.75rem 1.5rem;border-radius:.5rem;}
+.features{
+  padding:4rem 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;background:var(--bg2);
+}
+.feature-card{
+  background:rgba(255,255,255,.05);padding:2rem;border-radius:.75rem;transition:transform .3s ease,box-shadow .3s ease;
+  text-align:center;
+}
+.feature-card:hover{
+  transform:translateY(-10px);box-shadow:0 10px 20px rgba(0,0,0,.3);
+}
+.feature-card h3{margin-top:1rem;font-size:1.25rem;}
+.feature-card p{margin-top:.5rem;color:rgba(255,255,255,.7);}
+</style>
+</head>
+<body>
+<header class="navbar">
+  <div class="logo"><span>✦</span> Smart ReplyAI</div>
+  <nav class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#">Who It's For</a>
+    <a href="#">Stories</a>
+    <a href="#">Get Started</a>
+  </nav>
+</header>
+<section class="hero">
+  <div class="hero-content">
+    <div class="badge">✨ Powered by AI · Built for Productivity</div>
+    <h1>Reply Smarter. Not Harder.</h1>
+    <div class="subheadline">Your AI Email Co-pilot</div>
+    <p>AI‑driven email assistant that drafts, refines, and measures messages in seconds, so professionals can spend time on decisions, not typing.</p>
+    <div class="btn-group">
+      <button class="btn-primary">Get Started Free</button>
+      <button class="btn-secondary">Watch Demo</button>
+    </div>
+  </div>
+</section>
+<section id="features" class="features">
+  <div class="feature-card">
+    <span style="font-size:2rem;">✦</span>
+    <h3>Context‑Aware Drafting</h3>
+    <p>Analyzes the current thread, attached documents, and calendar events to generate ready‑to‑send drafts that preserve key details and prior decisions.</p>
+  </div>
+  <div class="feature-card">
+    <span style="font-size:2rem;">✦</span>
+    <h3>Adaptive Tone Engine</h3>
+    <p>Provides instant tone presets (formal, friendly, persuasive, technical) that automatically rewrite drafts while keeping factual accuracy.</p>
+  </div>
+  <div class="feature-card">
+    <span style="font-size:2rem;">✦</span>
+    <h3>Multi‑Provider Seamless Integration</h3>
+    <p>Native plug‑ins for Gmail, Outlook, and Apple Mail that surface AI suggestions in real time, sync drafts across devices, and respect each platform’s security policies.</p>
+  </div>
+  <div class="feature-card">
+    <span style="font-size:2rem;">✦</span>
+    <h3>Quick‑Edit Sidebar</h3>
+    <p>A collapsible overlay that lets users tweak AI‑generated sentences line‑by‑line, insert snippets, or add custom variables without leaving the compose window.</p>
+  </div>
+  <div class="feature-card">
+    <span style="font-size:2rem;">✦</span>
+    <h3>Email Performance Analytics</h3>
+    <p>Dashboard showing open rates, response latency, tone effectiveness, and A/B test results, helping users iterate on messaging strategies.</p>
+  </div>
+</section>
+
+<section id="users">
+  <h2>Who It's For</h2>
+  <div class="user-grid">
+    <div class="user-card">
+      <div class="avatar-circle">M</div>
+      <h4>Maya Patel</h4>
+      <span class="role-pill">Vice President of Product</span>
+      <p><em>"Swamped with stakeholder updates and cross‑team follow‑ups; struggles to write concise, on‑brand replies quickly and to maintain the right tone with external partners."</em></p>
+    </div>
+    <div class="user-card">
+      <div class="avatar-circle">L</div>
+      <h4>Luis Gomez</h4>
+      <span class="role-pill">International Sales Representative</span>
+      <p><em>"Must craft persuasive outreach in several languages, switch between technical and executive tones, and monitor response rates across Gmail and Outlook without losing momentum."</em></p>
+    </div>
+    <div class="user-card">
+      <div class="avatar-circle">P</div>
+      <h4>Priya Nair</h4>
+      <span class="role-pill">Ph.D. Candidate</span>
+      <p><em>"Spends hours composing detailed experiment summaries and grant queries, and frequently loses context or misplaces data references when juggling long email threads."</em></p>
+    </div>
+  </div>
+</section>
+
+<section id="stories">
+  <h2>Real Use Cases</h2>
+  <ul class="stories-list">
+    <li class="story-item">
+      <p><strong>As a VP of Product</strong>, I want the assistant to draft a concise status update from the latest sprint notes, so that I can reply to executives within minutes.</p>
+    </li>
+    <li class="story-item">
+      <p><strong>As an international sales rep</strong>, I want to select a persuasive tone and have the email automatically translate key product benefits into Spanish, so that I can reach prospects in their native language without manual translation.</p>
+    </li>
+    <li class="story-item">
+      <p><strong>As a Ph.D. candidate</strong>, I want the tool to pull experiment data from my attached spreadsheet and embed it in the email body, so that I can share accurate results without copy‑pasting errors.</p>
+    </li>
+  </ul>
+</section>
+
+<section id="cta">
+  <h2>Ready to Transform Your Inbox?</h2>
+  <p>Join thousands saving 2+ hours weekly.</p>
+  <button class="cta-button">Start For Free Today ✦</button>
+  <div class="badge-pills">
+    <span class="badge-pill">✓ No credit card required</span>
+    <span class="badge-pill">✓ Free forever plan</span>
+    <span class="badge-pill">✓ Setup in 2 minutes</span>
+  </div>
+</section>
+
+<footer>
+  Generated by EngineerAgent <agent@launchmind.ai>
+</footer>
+</body>
+</html>
