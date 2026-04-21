@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+   
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ReplyAI — AI Email Assistant</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+        :root {--pink:#f472b6;--pink-light:#fbcfe8;--pink-dark:#db2777;--teal:#2dd4bf;--teal-light:#99f6e4;--teal-dark:#0d9488;--bg:#07101a;--bg2:#0a1520;--card:rgba(255,255,255,0.04);--border:rgba(45,212,191,0.18);--text:#e2f0ee;--muted:#5a8080;}
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+        nav{display:flex;justify-content:space-between;align-items:center;padding:18px 60px;background:rgba(7,16,26,0.92);backdrop-filter:blur(20px);position:fixed;top:0;left:0;right:0;z-index:100;border-bottom:1px solid rgba(45,212,191,0.1);}
+        .nav-logo{font-size:1.4em;font-weight:900;background:linear-gradient(135deg,var(--teal),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+        .nav-links a{color:rgba(255,255,255,0.5);text-decoration:none;margin-left:28px;font-size:0.9em;font-weight:500;}
+        .hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;}
+        .hero-bg{position:absolute;inset:0;z-index:0;background-image:url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80');background-size:cover;background-position:center right;filter:brightness(0.35);}
+        .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(105deg,rgba(7,16,26,0.97) 0%,rgba(7,16,26,0.85) 50%,transparent 100%);}
+        .hero-content{position:relative;z-index:2;padding:140px 80px 100px;max-width:680px;}
+        .hero-badge{display:inline-flex;align-items:center;background:rgba(45,212,191,0.12);border:1px solid rgba(45,212,191,0.35);color:var(--teal);padding:8px 22px;border-radius:50px;font-size:0.82em;font-weight:600;margin-bottom:32px;}
+        .hero h1{font-size:clamp(2.8em,5.5vw,4.5em);font-weight:900;line-height:1.06;margin-bottom:12px;background:linear-gradient(135deg,#fff 0%,var(--pink-light) 50%,var(--teal-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+        .hero-sub{font-size:1.25em;font-weight:700;margin-bottom:22px;background:linear-gradient(135deg,var(--pink),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+        .hero p{font-size:1.05em;color:rgba(255,255,255,0.55);max-width:520px;line-height:1.85;margin-bottom:40px;}
+        .hero-buttons{display:flex;gap:14px;flex-wrap:wrap;}
+        .btn-primary{background:linear-gradient(135deg,var(--pink-dark),var(--pink),var(--teal));color:white;border:none;padding:16px 36px;font-size:0.95em;font-weight:700;border-radius:12px;cursor:pointer;box-shadow:0 4px 28px rgba(244,114,182,0.45);}
+        .btn-secondary{background:rgba(255,255,255,0.06);color:white;border:1.5px solid rgba(255,255,255,0.2);padding:15px 36px;font-size:0.95em;font-weight:600;border-radius:12px;cursor:pointer;}
+        section{padding:90px 24px;max-width:1200px;margin:0 auto;}
+        .section-label{text-align:center;background:linear-gradient(135deg,var(--teal),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:0.78em;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;}
+        .section-title{text-align:center;font-size:clamp(1.8em,4vw,2.6em);font-weight:800;margin-bottom:14px;color:#f0faf8;}
+        .section-subtitle{text-align:center;color:var(--muted);max-width:500px;margin:0 auto 56px;line-height:1.8;}
+        .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+        .feature-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px 24px;transition:all 0.35s;}
+        .feature-card:hover{transform:translateY(-10px);border-color:rgba(45,212,191,0.35);box-shadow:0 20px 50px rgba(244,114,182,0.1);}
+        .feature-icon{font-size:1.5em;margin-bottom:16px;display:inline-block;background:linear-gradient(135deg,var(--pink),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+        .feature-card h3{font-size:1em;font-weight:700;color:#e2f8f5;margin-bottom:8px;}
+        .feature-card p{color:var(--muted);font-size:0.88em;line-height:1.75;}
+        .personas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+        .persona-card{background:var(--card);border:1px solid rgba(244,114,182,0.15);border-radius:18px;padding:28px 22px;text-align:center;transition:all 0.3s;}
+        .persona-card:hover{transform:translateY(-6px);border-color:rgba(244,114,182,0.4);}
+        .persona-avatar{width:60px;height:60px;background:linear-gradient(135deg,var(--pink-dark),var(--teal-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5em;font-weight:800;color:white;margin:0 auto 16px;}
+        .persona-card h4{font-size:1em;font-weight:700;color:#f0faf8;margin-bottom:6px;}
+        .persona-role{background:rgba(45,212,191,0.1);border:1px solid rgba(45,212,191,0.2);color:var(--teal-light);padding:3px 12px;border-radius:50px;font-size:0.76em;font-weight:600;display:inline-block;margin-bottom:14px;}
+        .persona-card p{color:var(--muted);font-size:0.86em;line-height:1.7;font-style:italic;}
+        .stories-list{list-style:none;max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
+        .story-item{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--pink);border-radius:10px;padding:16px 22px;color:#8ab8b3;font-size:0.92em;line-height:1.7;transition:all 0.3s;}
+        .story-item:hover{background:rgba(45,212,191,0.05);color:#e2f8f5;transform:translateX(8px);}
+        .cta-section{text-align:center;padding:110px 24px;background:var(--bg2);}
+        .cta-section h2{font-size:clamp(2em,5vw,3.2em);font-weight:900;margin-bottom:14px;background:linear-gradient(135deg,#fff,var(--pink-light),var(--teal-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+        .cta-section p{color:rgba(255,255,255,0.45);margin-bottom:36px;}
+        .cta-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px;}
+        .cta-badge{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:5px 14px;border-radius:50px;font-size:0.8em;}
+        footer{text-align:center;padding:28px;color:#1e3535;font-size:0.8em;border-top:1px solid rgba(45,212,191,0.06);}
+        .footer-logo{background:linear-gradient(135deg,var(--teal),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;}
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-logo">✦ Smart ReplyAI</div>
+    <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#users">Who It's For</a>
+        <a href="#stories">Stories</a>
+        <a href="#cta">Get Started</a>
+    </div>
+</nav>
+<div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-badge">✨ Powered by AI · Built for Productivity</div>
+        <h1>Reply Smarter</h1>
+        <div class="hero-sub">Your AI Email Co-pilot</div>
+        <p>Instantly generate smart, context-aware email replies to save time and increase productivity</p>
+        <div class="hero-buttons">
+            <button class="btn-primary">Get Started Free ✦</button>
+            <button class="btn-secondary">Watch Demo →</button>
+        </div>
+    </div>
+</div>
+<section id="features">
+    <p class="section-label">✦ What We Offer</p>
+    <h2 class="section-title">Everything You Need</h2>
+    <p class="section-subtitle">Powerful features designed to eliminate email overwhelm.</p>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">✦</div>
+            <h3>AI-driven Response Suggestions</h3>
+            <p>Analyzes email content and suggests relevant, context-aware responses to save users time and effort</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✦</div>
+            <h3>Email Client Integration</h3>
+            <p>Seamlessly integrates with popular email clients, such as Gmail and Outlook, to provide a native user experience</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✦</div>
+            <h3>Customizable Response Templates</h3>
+            <p>Allows users to create and save personalized response templates for frequent email scenarios, such as meeting invitations or customer inquiries</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✦</div>
+            <h3>Sentiment Analysis and Tone Adjustment</h3>
+            <p>Analyzes the tone and sentiment of incoming emails and adjusts the response tone to ensure professionalism and empathy</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✦</div>
+            <h3>Response Editing and Approval</h3>
+            <p>Enables users to review, edit, and approve suggested responses before sending, ensuring accuracy and control</p>
+        </div></div>
+</section>
+<section id="users">
+    <p class="section-label">✦ Who It's For</p>
+    <h2 class="section-title">Built For Real People</h2>
+    <p class="section-subtitle">Smart ReplyAI fits your workflow perfectly.</p>
+    <div class="personas-grid">
+        <div class="persona-card">
+            <div class="persona-avatar">E</div>
+            <h4>Emily Chen</h4>
+            <span class="persona-role">Marketing Manager at a startup</span>
+            <p>"Spending too much time drafting responses to routine emails, taking away from strategic work"</p>
+        </div>
+        <div class="persona-card">
+            <div class="persona-avatar">R</div>
+            <h4>Ryan Thompson</h4>
+            <span class="persona-role">Graduate student</span>
+            <p>"Struggling to keep up with email communications with professors and colleagues while balancing coursework and research"</p>
+        </div>
+        <div class="persona-card">
+            <div class="persona-avatar">D</div>
+            <h4>David Lee</h4>
+            <span class="persona-role">Sales Director at a large corporation</span>
+            <p>"Need to respond quickly to high-volume email inquiries from customers and prospects, while maintaining a professional tone and consistency"</p>
+        </div></div>
+</section>
+<section id="stories">
+    <p class="section-label">✦ Real Use Cases</p>
+    <h2 class="section-title">How People Use Smart ReplyAI</h2>
+    <ul class="stories-list"><li class="story-item">💌 As a marketing manager, I want the email reply assistant to suggest responses to routine emails, such as meeting invitations and newsletter subscriptions, so that I can focus on strategic work</li><li class="story-item">💌 As a graduate student, I want the email reply assistant to help me draft responses to emails from professors and colleagues, so that I can quickly address their inquiries and stay on top of my coursework</li><li class="story-item">💌 As a sales director, I want the email reply assistant to provide personalized response suggestions for customer inquiries, so that I can respond quickly and maintain a professional tone</li></ul>
+</section>
+<div class="cta-section" id="cta">
+    <h2>Ready to Transform<br>Your Inbox?</h2>
+    <p>Join thousands of professionals saving 2+ hours every week.</p>
+    <button class="btn-primary">Start For Free Today ✦</button>
+    <div class="cta-badges">
+        <span class="cta-badge">✓ No credit card required</span>
+        <span class="cta-badge">✓ Free forever plan</span>
+        <span class="cta-badge">✓ Setup in 2 minutes</span>
+    </div>
+</div>
+<footer>
+    <p>Generated by <span class="footer-logo">EngineerAgent &lt;agent@launchmind.ai&gt;</span> · ReplyAI © 2026</p>
+</footer>
+</body>
+</html>
