@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ReplyAI</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: grid;
+            height: 100vh;
+            width: 100vw;
+        }
+        .darkmode {
+            background-color: #07101a;
+            color: #ffffff;
+        }
+        header {
+            background-color: #07101a;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #f472b6;
+        }
+        nav a:hover {
+            color: #2dd4bf;
+        }
+        .hero {
+            background-image: linear-gradient(to bottom right, #07101a, #081d3a);
+            padding: 20vh 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #ffffff;
+            font-size: 2rem;
+        }
+        .hero h1 {
+            font-size: 4rem;
+        }
+        .hero h2 {
+            font-size: 2rem;
+        }
+        .features {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .feature {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .feature h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .whofor {
+            padding: 20px;
+        }
+        .profile {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin: 10px;
+        }
+        .userstory {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .userstory h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .userstory p {
+            font-size: 1rem;
+            text-align: center;
+        }
+        .calltoaction {
+            background-image: linear-gradient(to bottom right, #07101a, #081d3a);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #ffffff;
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+        .calltoaction button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #2dd4bf;
+            color: #ffffff;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .calltoaction button:hover {
+            background-color: #f472b6;
+        }
+        footer {
+            background-color: #07101a;
+            padding: 10px;
+            text-align: center;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <header class="darkmode">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </nav>
+        <h1>Smart ReplyAI</h1>
+    </header>
+    <section class="hero">
+        <h1>Reply Smarter. Not Harder.</h1>
+        <h2>Transforming email communication with intuitive, AI-driven replies that save time and enhance response quality.</h2>
+        <button>Get Started</button>
+    </section>
+    <section class="features">
+        <div class="feature">
+            <h2>Smart Response Suggestions</h2>
+            <p>AI-driven reply suggestions tailored to the recipient, conversation history, and context, empowering users to craft personalized and on-brand responses quickly.</p>
+        </div>
+        <div class="feature">
+            <h2>Email Summarization</h2>
+            <p>Efficient summarization of email content, saving time for users to focus on key points and craft relevant responses, while maintaining a professional tone.</p>
+        </div>
+        <div class="feature">
+            <h2>Tone and Language Adjustment</h2>
+            <p>Customizable tone and language options, ensuring users can adapt their responses to fit the recipient's personality, cultural background, and communication style.</p>
+        </div>
+        <div class="feature">
+            <h2>Collaborative Response Management</h2>
+            <p>Real-time collaboration and feedback features for teams and individuals, promoting streamlined communication and reducing the risk of misinterpreted or incomplete responses.</p>
+        </div>
+        <div class="feature">
+            <h2>Analytics and Insights</h2>
+            <p>Actionable data and insights on email communication patterns, helping users identify areas of improvement, optimize their emailing strategy, and refine their AI-driven reply assistant settings.</p>
+        </div>
+    </section>
+    <section class="whofor">
+        <h2>Who It's For</h2>
+        <div class="profile">
+            <h3>Ava Moreno - Marketing Specialist</h3>
+            <img src="" alt="Ava Moreno">
+            <p>Juggling multiple marketing campaigns and client interactions makes it challenging to craft personalized, on-brand responses within tight deadlines.</p>
+        </div>
+        <div class="profile">
+            <h3>Ethan Patel - Software Engineer</h3>
+            <img src="" alt="Ethan Patel">
+            <p>Long work hours and constant email overload make it difficult to find time for personal responses to family and friends without compromising work commitments.</p>
+        </div>
+        <div class="profile">
+            <h3>Luna Wong - University Student</h3>
+            <img src="" alt="Luna Wong">
+            <p>Managing coursework, group projects, and part-time jobs makes it hard to allocate time for responding to emails from professors, classmates, and potential employers.</p>
+        </div>
+        <div class="profile">
+            <h3>Sophia Rodriguez - Entrepreneur</h3>
+            <img src="" alt="Sophia Rodriguez">
+            <p>Dealing with a high volume of customer inquiries, while being the primary decision-maker, leaves little time for crafting strategic responses and building meaningful relationships with clients.</p>
+        </div>
+        <div class="profile">
+            <h3>Ryan Thompson - HR Representative</h3>
+            <img src="" alt="Ryan Thompson">
+            <p>Receiving numerous employee queries and concerns often requires significant time and effort to draft well-structured, empathetic, and informative email responses.</p>
+        </div>
+    </section>
+    <section class="userstory">
+        <h3>User Stories</h3>
+        <p>"As a busy marketing specialist, I want to receive AI-driven reply suggestions that adapt to my tone, marketing campaigns, and client relationships, so that I can save time and maintain brand consistency."</p>
+        <p>"As a software engineer, I want to have a seamless way to respond to both work and personal emails, without compromising my response quality or work commitments, so that I can balance my professional and personal life effectively."</p>
+        <p>"As a university student, I want to be able to quickly respond to professors and classmates with well-structured and informative emails, while managing my coursework and part-time job, so that I receive better feedback and academic support."</p>
+        <p>"As an entrepreneur, I want to leverage my AI-powered email reply assistant to respond to customer inquiries, while building meaningful relationships with clients, so that I can drive business growth and enhance customer satisfaction."</p>
+        <p>"As an HR representative, I want to use the email reply assistant to efficiently respond to employee queries and concerns, ensuring a positive work environment and minimizing the risk of misunderstandings or conflicts, so that I can maintain a high level of professionalism and support."</p>
+    </section>
+    <section class="calltoaction">
+        <h2>Get Started Today!</h2>
+        <button>Sign Up for a Free Trial</button>
+    </section>
+    <footer>Generated by EngineerAgent <agent@launchmind.ai></footer>
+</body>
+</html>
