@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart ReplyAI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-text-color: #fff;
+      --secondary-text-color: rgba(255, 255, 255, 0.55);
+      --background-color: #07101a;
+      --accent-color: #f472b6;
+      --accent-alt-color: #2dd4bf;
+      --accent-contrast-color: #fff;
+      --box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    body {
+      margin: 0px;
+      padding: 0px;
+      background-color: var(--background-color);
+    }
+    nav::after, .navbar::after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 3px;
+      top: 50%;
+      left: 0;
+      background-image: linear-gradient(to right, var(--accent-alt-color), var(--accent-alt-color));
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      background-color: var(--background-color);
+      box-shadow: var(--box-shadow);
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0px;
+      margin: 0px;
+    }
+    nav li {
+      margin-right: 1.5rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--primary-text-color);
+    }
+    nav a:hover {
+      color: var(--accent-alt-color);
+    }
+    .logo {
+      font-size: 1.25rem;
+      padding: 0.5rem 0.7rem;
+      background-image: linear-gradient(to right, var(--accent), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background-image: linear-gradient(to right, #0c0d10, #0c0d10), url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: multiply;
+      padding: 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero::before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(to right, #2f2f2f, #2f2f2f);
+      opacity: 0.25;
+    }
+    .hero-content {
+      z-index: 1;
+    }
+    .hero-content h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #f472b6;
+      text-transform: uppercase;
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+    .hero-content h1::before, .hero-content h1::after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 3px;
+      background-image: linear-gradient(to right, #2dd4bf, #2dd4bf);
+      bottom: 0;
+      left: 0;
+    }
+    .hero-content h1::before {
+      transform: translateX(-100%);
+    }
+    .hero-content h1::after {
+      transform: translateX(100%);
+    }
+    .hero-content h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .hero-content h2::before {
+      position: absolute;
+      content: '';
+      width: 10rem;
+      height: 3px;
+      background-image: linear-gradient(to right, #f472b6, #f472b6);
+      top: -1.5rem;
+      left: -10rem;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    .hero-content h2:hover::before {
+      transform: scaleX(1);
+    }
+    .hero-content p {
+      color: var(--secondary-text-color);
+    }
+    .hero-content .btn {
+      padding: 0.7rem 1.5rem;
+      border-radius: 0.25rem;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--accent-contrast-color);
+      background-image: linear-gradient(to right, #f472b6, #2dd4bf);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    .hero-content .btn:active {
+      transform: scale(0.95);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .hero-content .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .hero-content .btn:active {
+      transition: transform 0.1s ease;
+    }
+    .stats {
+      padding: 1rem;
+      background-color: #202225;
+    }
+    .stats ul {
+      list-style: none;
+      padding: 0px;
+      margin: 0px;
+    }
+    .stats li {
+      font-size: 1.25rem;
+      font-weight: bold;
+      padding: 0.5rem;
+      margin-right: 1.5rem;
+    }
+    .features {
+      padding: 2rem;
+    }
+    .feature-card {
+      width: calc(33.33% - 1rem);
+      padding: 1rem;
+      border: 1px solid var(--accent-alt-color);
+      border-radius: 0.25rem;
+      background-color: #202225;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .feature-card::before {
+      position: absolute;
+      content: '';
+      top: -1rem;
+      left: -1rem;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, #2f2f2f, #2f2f2f);
+      opacity: 0.25;
+    }
+    .feature-card .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .feature-card .feature-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .feature-card .feature-description {
+      color: var(--secondary-text-color);
+    }
+    .who-it-is-for {
+      padding: 2rem;
+    }
+    .person {
+      padding: 1rem;
+      background-color: #202225;
+      border: 1px solid var(--accent-alt-color);
+      border-radius: 0.25rem;
+      display: inline-block;
+      margin: 0.5rem;
+    }
+    .person .avatar {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      border: 2px solid var(--accent-alt-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      color: var(--accent-alt-color);
+    }
+    .person .role {
+      font-size: 1.25rem;
+      margin-top: -1rem;
+    }
+    .user-story {
+      padding: 2rem;
+    }
+    .user-story-item {
+      padding: 1rem;
+      border: 1px solid var(--accent-alt-color);
+      border-radius: 0.25rem;
+      background-color: #202225;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .user-story-item .item-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .cta {
+      padding: 2rem;
+      background-image: linear-gradient(to right, #202225, #202225), url('https://images.unsplash.com/photo-1634691134340-4b8b8a3f0b2c?w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: multiply;
+      display: flex;
+      justify-content: center;
+    }
+    .cta::before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(to right, #202225, #202225);
+      opacity: 0.25;
+    }
+    .cta .signup {
+      padding: 0.7rem 1.5rem;
+      border-radius: 0.25rem;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--accent-contrast-color);
+      background-image: linear-gradient(to right, #2dd4bf, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    .cta .signup:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .cta .signup:active {
+      transform: scale(0.95);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    footer {
+      padding: 1rem;
+      background-color: #202225;
+      color: var(--accent-alt-color);
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .hero {
+        background-size: cover;
+        min-height: unset;
+      }
+      .feature-card {
+        width: calc(50% - 1rem);
+      }
+      .person {
+        display: block;
+        margin: 1rem;
+      }
+      .user-story-item {
+        width: calc(50% - 1rem);
+        margin: 1rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero {
+        padding: 1rem;
+      }
+    }
+    @keyframes lift {
+      0% {
+        transform: translateY(2px);
+      }
+      100% {
+        transform: translateY(-2px);
+      }
+    }
+    .lift {
+      animation: lift 0.5s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">✦ Smart ReplyAI</div>
+    <ul>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Pricing</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Support</a></li>
+    </ul>
+  </nav>
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-content hero-bg">
+        <h1 class="lift">Reply Smarter.<br>Not Harder.</h1>
+        <h2 class="lift">Your AI Email Co-pilot</h2>
+        <p class="lift">Streamline your email communication with intelligent reply suggestions and customizable templates, enhancing productivity and reducing email overload.</p>
+        <div class="hero-content btn-wrap">
+          <button class="btn lift">Get Started Free ✦</button>
+          <button class="btn ghost lift">Watch Demo →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="stats">
+    <ul>
+      <li>2hrs+ Saved Daily</li>
+      <li>10,000+ Emails Automated</li>
+      <li>98% Accuracy</li>
+      <li>3 sec Reply Time</li>
+    </ul>
+  </div>
+  <div class="features">
+    <div class="feature-card lift">
+      <div class="feature-icon" class="✦">✦</div>
+      <div class="feature-title">Email Analyzer</div>
+      <div class="feature-description">Identify intent behind customer inquires and respond with targeted and personalized content</div>
+    </div>
+    <div class="feature-card lift">
+      <div class="feature-icon" class="✦">✦</div>
+      <div class="feature-title">Reply Templates</div>
+      <div class="feature-description">Provide pre-filled answers to common questions and respond quickly and efficiently</div>
+    </div>
+    <div class="feature-card lift">
+      <div class="feature-icon" class="✦">✦</div>
+      <div class="feature-title">Email Client Integration</div>
+      <div class="feature-description">Access our features directly within your Gmail inbox and manage email pipelines with ease</div>
+    </div>
+    <div class="feature-card lift">
+      <div class="feature-icon" class="✦">✦</div>
+      <div class="feature-title">Automated Email Categorization</div>
+      <div class="feature-description">Categorize and organize your emails automatically, saving you time and increasing productivity</div>
+    </div>
+    <div class="feature-card lift">
+      <div class="feature-icon" class="✦">✦</div>
+      <div class="feature-title">Collaborative Email Management</div>
+      <div class="feature-description">Manage email communication within your team and collaborate on responses, improving customer satisfaction and reducing response time</div>
+    </div>
+  </div>
+  <div class="who-it-is-for">
+    <div class="person">
+      <div class="avatar">M</div>
+      <div class="role">Marketing Manager</div>
+    </div>
+    <div class="person">
+      <div class="avatar">R</div>
+      <div class="role">Customer Support Specialist</div>
+    </div>
+    <div class="person">
+      <div class="avatar">E</div>
+      <div class="role">Sales Representative</div>
+    </div>
+    <div class="person">
+      <div class="avatar">D</div>
+      <div class="role">IT Project Manager</div>
+    </div>
+    <div class="person">
+      <div class="avatar">S</div>
+      <div class="role">Executive Assistant</div>
+    </div>
+  </div>
+  <div class="user-story">
+    <div class="user-story-item">
+      <div class="item-icon"></div>
+      <div class="item-title">Identify Intent and Respond with Targeted Content</div>
+      <div class="item-description">As a Marketing Manager, I want Email Analyzer to identify the intent behind customer inquires, so that I can respond with targeted and personalized content that resonates with their needs.</div>
+      <ul>
+        <li class="pink-border">This feature helps me to create engaging content</li>
+        <li class="pink-border">Save time by responding to customers quickly</li>
+        <li class="pink-border">Improve customer satisfaction</li>
+      </ul>
+    </div>
+    <div class="user-story-item">
+      <div class="item-icon"></div>
+      <div class="item-title">Respond Quickly and Efficiently</div>
+      <div class="item-description">As a Customer Support Specialist, I want Reply Templates to provide pre-filled answers to common questions, enabling me to respond quickly and resolve issues efficiently.</div>
+      <ul>
+        <li class="pink-border">Save time by responding to customers quickly</li>
+        <li class="pink-border">Improve customer satisfaction</li>
+        <li class="pink-border">Resolve issues efficiently</li>
+      </ul>
+    </div>
+    <div class="user-story-item">
+      <div class="item-icon"></div>
+      <div class="item-title">Access Features Directly within Your Gmail Inbox</div>
+      <div class="item-description">As a Sales Representative, I want Email Client Integration to allow me to access our features directly within my Gmail inbox, making it easier to respond to prospects and manage email pipelines.</div>
+      <ul>
+        <li class="pink-border">Respond to prospects quickly and efficiently</li>
+        <li class="pink-border">Manage email pipelines with ease</li>
+        <li class="pink-border">Improve productivity</li>
+      </ul>
+    </div>
+  </div>
+  <div class="cta">
+    <div class="cta-content">
+      <h2>Powering Productivity</h2>
+      <p>Smart ReplyAI is a comprehensive email management platform designed to streamline your communication and increase productivity. With our platform, you can respond to customer inquires quickly and efficiently, resolve issues promptly, and improve customer satisfaction.</p>
+    </div>
+    <div class="cta-btn">Sign Up for a 14-Day Free Trial</div>
+  </div>
+  <footer>Generated by EngineerAgent <span>agent@launchmind.ai</span></footer>
+</body>
+</html>
