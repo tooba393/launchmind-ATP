@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ReplyAI</title>
+    <style>
+        :root {
+            --accent-teal: #2dd4bf;
+            --accent-pink: #f472b6;
+            --dark-bg: #07101a;
+            --text-gray: #d3d3d3;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--dark-bg);
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        #navbar > .logo {
+            color: var(--accent-pink);
+            font-size: 1.5rem;
+            text-decoration: none;
+            background: linear-gradient(to right, var(--accent-pink), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        #navbar a {
+            color: #fff;
+            margin-left: 20px;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        #navbar a:hover {
+            color: var(--accent-teal);
+        }
+        
+        #hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));
+        }
+        
+        #hero .bg-img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            background-image: url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.35);
+        }
+        
+        #hero .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 0.7rem;
+        }
+        
+        #hero .h1 {
+            font-size: 3rem;
+            margin-top: 50px;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(to right, #fff, var(--accent-pink), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        #hero .h2 {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(to right, var(--accent-pink), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        #hero .description {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.55);
+            max-width: 50%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        
+        #hero .cta-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+        
+        #hero .cta-button:first-child {
+            background: linear-gradient(to right, var(--accent-pink), var(--accent-teal));
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+        }
+        
+        #hero .cta-button:last-child {
+            background: none;
+            color: var(--accent-teal);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        
+        #stats-bar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: var(--dark-bg);
+            color: #fff;
+            font-size: 1rem;
+        }
+        
+        #stats-bar > div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+        }
+        
+        #stats-bar span {
+            font-weight: bold;
+        }
+        
+        #features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            background-color: var(--dark-bg);
+        }
+        
+        #features .card {
+            background-color: #000;
+            padding: 20px;
+            border: 1px solid var(--accent-teal);
+            border-radius: 10px;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            transition: transform 0.2s ease;
+        }
+        
+        #features .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        #features .card-icon {
+            font-size: 3rem;
+            color: var(--accent-teal);
+        }
+        
+        #features .card-title {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        
+        #features .card-text {
+            font-size: 0.9rem;
+            color: #808080;
+            opacity: 0.7;
+        }
+        
+        #who-it-is-for {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            padding: 40px;
+            background-color: var(--dark-bg);
+        }
+        
+        #who-it-is-for .card {
+            background-color: #000;
+            padding: 20px;
+            border: 1px solid var(--accent-pink);
+            border-radius: 10px;
+            width: 200px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+        
+        #who-it-is-for .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        #who-it-is-for .card-icon {
+            font-size: 2rem;
+            color: var(--accent-pink);
+        }
+        
+        #who-it-is-for .card-role {
+            font-size: 1rem;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: var(--accent-pink);
+            transform: rotate(-45deg);
+        }
+        
+        #user-stories {
+            padding: 40px;
+            background-color: var(--dark-bg);
+            list-style: none;
+        }
+        
+        #user-stories li {
+            margin: 10px;
+            padding: 10px;
+            background-color: #000;
+            border-bottom: 1px solid var(--accent-teal);
+        }
+        
+        #user-stories li:last-child {
+            border-bottom: none;
+        }
+        
+        #user-stories li:hover {
+            background-color: var(--accent-teal);
+        }
+        
+        #hero-secondary {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #hero-secondary .bg-img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            background-image: url('https://images.unsplash.com/photo-1614561451456-3f0b6b1e4ca0?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        #hero-secondary .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+        }
+        
+        #hero-secondary .cta-button {
+            background: linear-gradient(to right, var(--accent-pink), var(--accent-teal));
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        #footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--dark-bg);
+            font-size: 0.8rem;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+<body>
+    <nav id="navbar">
+        <a href="#" class="logo">?</a>
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Features</a>
+        <a href="#" class="nav-link">Pricing</a>
+        <a href="#" class="nav-link">About</a>
+        <a href="#" class="nav-link">Contact</a>
+    </nav>
+    <div id="hero">
+        <div class="overlay">
+            <h1 class="h1">Reply Smarter.<br>Not Harder.</h1>
+            <p class="h2">Your AI Email Co-pilot</p>
+            <p class="description">Streamline email communication with intelligent reply suggestions and customizable templates, enhancing productivity and reducing email overload.</p>
+            <div class="cta-buttons">
+                <button class="cta-button">Get Started Free ?</button>
+                <button class="cta-button">Watch Demo →</button>
+            </div>
+        </div>
+        <div class="badge">✨ Powered by AI · Built for Productivity</div>
+    </div>
+    <div id="stats-bar">
+        <div>
+            <span>2hrs+</span> Saved Daily
+        </div>
+        <div>
+            <span>10,000+</span> Emails Automated
+        </div>
+        <div>
+            <span>98%</span> Accuracy
+        </div>
+        <div>
+            <span>3 sec</span> Reply Time
+        </div>
+    </div>
+    <div id="features">
+        <div class="card">
+            <i class="card-icon">✦</i>
+            <h3 class="card-title">Email Analyzer</h3>
+            <p class="card-text">Identify the intent behind customer inquires</p>
+        </div>
+        <div class="card">
+            <i class="card-icon">✦</i>
+            <h3 class="card-title">Reply Templates</h3>
+            <p class="card-text">Provide pre-filled answers to common questions</p>
+        </div>
+        <div class="card">
+            <i class="card-icon">✦</i>
+            <h3 class="card-title">Email Client Integration</h3>
+            <p class="card-text">Access our features directly within your inbox</p>
+        </div>
+        <div class="card">
+            <i class="card-icon">✦</i>
+            <h3 class="card-title">Automated Email Categorization</h3>
+            <p class="card-text">Streamline your email management</p>
+        </div>
+        <div class="card">
+            <i class="card-icon">✦</i>
+            <h3 class="card-title">Collaborative Email Management</h3>
+            <p class="card-text">Work together with your team</p>
+        </div>
+    </div>
+    <div id="who-it-is-for">
+        <div class="card">
+            <i class="card-icon">M</i>
+            <h3 class="card-title">Marketing Manager</h3>
+            <p class="card-text">Streamline your email communication</p>
+            <p class="card-role">? Marketing Manager</p>
+        </div>
+        <div class="card">
+            <i class="card-icon">C</i>
+            <h3 class="card-title">Customer Support Specialist</h3>
+            <p class="card-text">Quickly respond to common questions</p>
+            <p class="card-role">? Customer Support Specialist</p>
+        </div>
+        <div class="card">
+            <i class="card-icon">S</i>
+            <h3 class="card-title">Sales Representative</h3>
+            <p class="card-text">Enhance your sales pipeline</p>
+            <p class="card-role">? Sales Representative</p>
+        </div>
+        <div class="card">
+            <i class="card-icon">I</i>
+            <h3 class="card-title">IT Project Manager</h3>
+            <p class="card-text">Streamline your email management</p>
+            <p class="card-role">? IT Project Manager</p>
+        </div>
+        <div class="card">
+            <i class="card-icon">E</i>
+            <h3 class="card-title">Executive Assistant</h3>
+            <p class="card-text">Quickly respond to email inquiries</p>
+            <p class="card-role">? Executive Assistant</p>
+        </div>
+    </div>
+    <div id="user-stories">
+        <li>
+            <i class="fas fa-quote-left"></i> As a Marketing Manager, I want Email Analyzer to identify the intent behind customer inquires, so that I can respond with targeted and personalized content that resonates with their needs.
+        </li>
+        <li>
+            <i class="fas fa-quote-left"></i> As a Customer Support Specialist, I want Reply Templates to provide pre-filled answers to common questions, enabling me to respond quickly and resolve issues efficiently.
+        </li>
+        <li>
+            <i class="fas fa-quote-left"></i> As a Sales Representative, I want Email Client Integration to allow me to access our features directly within my Gmail inbox, making it easier to respond to prospects and manage email pipelines.
+        </li>
+    </div>
+    <div id="hero-secondary">
+        <div class="bg-img"></div>
+        <div class="overlay">
+            <button class="cta-button">Sign Up Now</button>
+        </div>
+    </div>
+    <footer id="footer">Generated by EngineerAgent <agent@launchmind.ai></footer>
+</body>
+</html>
