@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ReplyAI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #07101a;
+            color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            height: 100vh;
+            place-items: center;
+        }
+
+        .nav-bar {
+            background-color: #07101a;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: #f8f8f8;
+            font-weight: bold;
+        }
+
+        .nav-bar a:hover {
+            color: #2dd4bf;
+        }
+
+        .logo {
+            font-size: 24px;
+            color: #f472b6;
+        }
+
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: #2d3436;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+        }
+
+        .hero-headline {
+            color: #f472b6;
+            font-size: 36px;
+        }
+
+        .hero-subheadline {
+            color: #f8f8f8;
+            font-size: 24px;
+        }
+
+        .hero-description {
+            color: #8c94a5;
+            font-size: 18px;
+        }
+
+        .call-to-action {
+            font-size: 18px;
+            color: #f8f8f8;
+            background-color: #2dd4bf;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .features-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+
+        .features-card {
+            background-color: #333;
+            padding: 20px;
+            border: 1px solid #2d3436;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .features-headline {
+            color: #f472b6;
+            font-size: 24px;
+        }
+
+        .features-description {
+            color: #8c94a5;
+            font-size: 18px;
+        }
+
+        .whos-it-for-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+
+        .whos-it-for {
+            background-color: #333;
+            padding: 20px;
+            border: 1px solid #2d3436;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .whos-it-for-headline {
+            color: #f472b6;
+            font-size: 24px;
+        }
+
+        .user-stories-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+
+        .user-stories {
+            background-color: #333;
+            padding: 20px;
+            border: 1px solid #2d3436;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer {
+            background-color: #333;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: #8c94a5;
+            font-size: 14px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="#" class="logo">Smart ReplyAI</a>
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+        <a href="#">About</a>
+    </nav>
+    <section class="hero-section">
+        <h1 class="hero-headline">Reply Smarter. Not Harder.</h1>
+        <h2 class="hero-subheadline">Say goodbye to repetitive email responses</h2>
+        <p class="hero-description">Introducing Smart ReplyAI, your AI-powered assistant for instant email replies.</p>
+        <button class="call-to-action">Get Started</button>
+    </section>
+    <section class="features-section">
+        <div class="features-card">
+            <h2 class="features-headline">Smart Reply Generation</h2>
+            <p class="features-description">Generate context-aware email responses in seconds.</p>
+        </div>
+        <div class="features-card">
+            <h2 class="features-headline">Instant Email Replies</h2>
+            <p class="features-description">Save time with AI-powered email responses.</p>
+        </div>
+    </section>
+    <section class="whos-it-for-section">
+        <div class="whos-it-for">
+            <h2 class="whos-it-for-headline">Who It's For</h2>
+            <p>Email users who spend too much time writing repetitive replies.</p>
+        </div>
+        <div class="whos-it-for">
+            <h2 class="whos-it-for-headline">Benefits</h2>
+            <ul>
+                <li>Save time with instant email replies</li>
+                <li>Increase productivity</li>
+                <li>Improve email management</li>
+            </ul>
+        </div>
+        <div class="whos-it-for">
+            <h2 class="whos-it-for-headline">Features</h2>
+            <ul>
+                <li>Smart Reply Generation</li>
+                <li>Instant Email Replies</li>
+                <li>Integration with popular email clients</li>
+            </ul>
+        </div>
+    </section>
+    <section class="user-stories-section">
+        <div class="user-stories">
+            <h2>As a user, I want AI to help me reply to emails faster so that I save time.</h2>
+            <p>Smart ReplyAI is designed to help you reply to emails instantly, saving you time and increasing your productivity.</p>
+        </div>
+        <div class="user-stories">
+            <h2>As a user, I want to be able to manage my emails more efficiently so that I can focus on other tasks.</h2>
+            <p>Smart ReplyAI allows you to manage your emails more efficiently, freeing up more time for other tasks.</p>
+        </div>
+    </section>
+    <footer class="footer">Generated by EngineerAgent <a href="#" class="agent-link">agent@launchmind.ai</a></footer>
+</body>
+</html>
